@@ -58,11 +58,11 @@ class TiltBeacon : Beacon {
     let temperature: Float // F
     let significantGravity: Float // SG in
     let color: TiltColor
-    
+    private let tiltUUIDFormat = "A495BB%d0-C5B1-4B44-B512-1370F02D74DE"
+
     // Returns nil if not a tilt Beacon
     override init?(withProximityUUID proximityUUID: CBUUID, majorValue: UInt16, minorValue: UInt16, transmitPower: Int8) {
         // If it is a tilt, then initialize, else return nil
-        let tiltUUIDFormat = "A495BB%d0-C5B1-4B44-B512-1370F02D74DE"
         for tmpColor in TiltColor.allCases {
             let colorUUIDString = String(format: tiltUUIDFormat, tmpColor.rawValue)
             let colorUUID = CBUUID(string: colorUUIDString)
@@ -75,6 +75,16 @@ class TiltBeacon : Beacon {
             }
         }
         return nil // bad!
+    }
+    
+    init(withColor color: TiltColor, temperature: Float, signficantGravity: Float, transmitPower: Int8) {
+        let colorUUIDString = String(format: tiltUUIDFormat, color.rawValue)
+        let colorUUID = CBUUID(string: colorUUIDString)
+        self.temperature = temperature
+        self.significantGravity = signficantGravity
+        self.color = color
+        super.init(withProximityUUID: colorUUID, majorValue: UInt16(temperature), minorValue: UInt16(signficantGravity * 1000.0), transmitPower: transmitPower)!
+
     }
     
 }

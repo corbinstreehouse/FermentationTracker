@@ -11,10 +11,12 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    var tiltBluetoothScanner = TiltBluetoothScanner();
-    
     func applicationWillFinishLaunching(_ notification: Notification) {
-        tiltBluetoothScanner.startScanning()
+        let bluetoothScanner = TiltBluetoothScanner.sharedScanner
+        bluetoothScanner.addFoundTilt { (tiltBeacon: TiltBeacon) in
+            print("found TILT:\(tiltBeacon.proximityUUID) temp: \(tiltBeacon.temperature) SG: \(tiltBeacon.significantGravity) transmitPower: \(tiltBeacon.transmitPower) rssi: \(tiltBeacon.rssi) time: \(tiltBeacon.timestamp) color: \(tiltBeacon.color)")
+        }
+        bluetoothScanner.startScanning()
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {

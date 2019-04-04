@@ -15,7 +15,8 @@ class Beacon {
     let majorValue: UInt16
     let minorValue: UInt16
     let transmitPower: Int8
-    var rssi: UInt16 = 0
+    let timestamp: Date
+    var rssi: Int = 0 // caller has to set this!
     
     convenience init?(withAdvertisementData advertisementData: [String: Any]?) {
         let kCBAdvDataManufacturerData = "kCBAdvDataManufacturerData"
@@ -49,5 +50,6 @@ class Beacon {
         self.majorValue = majorValue
         self.minorValue = minorValue
         self.transmitPower = transmitPower
+        self.timestamp = Date.init()
     }
 }

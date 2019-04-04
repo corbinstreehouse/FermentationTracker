@@ -14,16 +14,52 @@ import CoreBluetooth
 //        kCBScanOptionAppleFilterPuckType = 2;
 //    }, "kCBAdvDataManufacturerData": <4c000215 a495bb30 c5b14b44 b5121370 f02d74de 00430400 05>] rssi: -98
 
-
 class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
+    static let sharedScanner = TiltBluetoothScanner()
     
-    lazy var centralManager: CBCentralManager = CBCentralManager(delegate: self, queue: nil)
+    private var centralManager: CBCentralManager!
 
     // UI bindings
     @objc dynamic var managerStateDescription: String = ""
     
+    override init() {
+        super.init()
+        let bluetoothScannerQueue: DispatchQueue = DispatchQueue(label: "com.redwoodmonkey.FermentationTracker.TiltBluetooth")
+        centralManager = CBCentralManager(delegate: self, queue: bluetoothScannerQueue)
+    }
+    
+    private var foundTiltHandlers: [(_ tiltBeacon: TiltBeacon) -> Void] = []
+    // todo: remove method, if needed..
+    func addFoundTilt(handler: @escaping (_ tiltBeacon: TiltBeacon) -> Void) {
+        foundTiltHandlers.append(handler)
+    }
+    
+    private func notifyFoundTiltHandlersFor(tilt: TiltBeacon) {
+        for handler in foundTiltHandlers {
+            handler(tilt)
+        }
+    }
+    
+    // Well, really starts scanning when bluetooth is on.
     func startScanning() {
         checkBluetoothState()
+        #if DEBUG
+            // add fake data after a delay
+            let queue = DispatchQueue.main
+            queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.seconds(1), execute: {
+                print("Adding a FAKE TILT for testing!")
+                let fakeTilt = TiltBeacon(withColor: TiltColor.black, temperature: 68, signficantGravity: 1.025, transmitPower:-50)
+                self.notifyFoundTiltHandlersFor(tilt: fakeTilt)
+            })
+            
+            
+        #endif
+    }
+    
+    func stopScanning() {
+        if centralManager.isScanning {
+            centralManager.stopScan()
+        }
     }
     
     private func scanForPeripherals() {
@@ -42,10 +78,9 @@ class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
 //    }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        
         if let tiltBeacon = TiltBeacon(withAdvertisementData: advertisementData) {
-            tiltBeacon.rssi = RSSI.uint16Value
-            print("found TILT:\(tiltBeacon.proximityUUID) major: \(tiltBeacon.majorValue) minor: \(tiltBeacon.minorValue) transmitPower: \(tiltBeacon.transmitPower) color: \(tiltBeacon.color)")
+            tiltBeacon.rssi = RSSI.intValue
+            notifyFoundTiltHandlersFor(tilt: tiltBeacon)
         }
     }
 
