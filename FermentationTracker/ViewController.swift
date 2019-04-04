@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  TiltTracker
+//  FermentationTracker
 //
 //  Created by Corbin Dunn on 4/2/19.
 //  Copyright © 2019 Corbin Dunn. All rights reserved.

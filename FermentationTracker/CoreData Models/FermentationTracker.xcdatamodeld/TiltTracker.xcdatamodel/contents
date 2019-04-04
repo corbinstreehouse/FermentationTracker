@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17G6030" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Beer" representedClassName="Beer" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fermentationEntries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="FermentationEntry" inverseName="beer" inverseEntity="FermentationEntry" syncable="YES"/>
+    </entity>
+    <entity name="FermentationEntry" representedClassName="FermentationEntry" syncable="YES">
+        <attribute name="gravity" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="temperature" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="beer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Beer" inverseName="fermentationEntries" inverseEntity="Beer" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Beer" positionX="-3564" positionY="-4095" width="146" height="90"/>
+        <element name="FermentationEntry" positionX="-3573" positionY="-3924" width="252" height="105"/>
+    </elements>
+</model>

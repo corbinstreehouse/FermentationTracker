@@ -10,9 +10,13 @@
 		9D80FE0022557A550076BC3C /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FDFF22557A550076BC3C /* Beacon.swift */; };
 		9D80FE0222557A6B0076BC3C /* StandardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE0122557A6B0076BC3C /* StandardExtensions.swift */; };
 		9D80FE0422557AD00076BC3C /* TiltBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE0322557AD00076BC3C /* TiltBeacon.swift */; };
+		9D80FE1422564A010076BC3C /* Beer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE1022564A010076BC3C /* Beer+CoreDataClass.swift */; };
+		9D80FE1522564A010076BC3C /* Beer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE1122564A010076BC3C /* Beer+CoreDataProperties.swift */; };
+		9D80FE1622564A010076BC3C /* FermentationEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE1222564A010076BC3C /* FermentationEntry+CoreDataClass.swift */; };
+		9D80FE1722564A010076BC3C /* FermentationEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE1322564A010076BC3C /* FermentationEntry+CoreDataProperties.swift */; };
 		9DD4CADD225466AF003F0DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */; };
 		9DD4CADF225466AF003F0DF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CADE225466AF003F0DF2 /* ViewController.swift */; };
-		9DD4CAE2225466AF003F0DF2 /* TiltTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE0225466AF003F0DF2 /* TiltTracker.xcdatamodeld */; };
+		9DD4CAE2225466AF003F0DF2 /* FermentationTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE0225466AF003F0DF2 /* FermentationTracker.xcdatamodeld */; };
 		9DD4CAE4225466AF003F0DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */; };
 		9DD4CAE7225466AF003F0DF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE5225466AF003F0DF2 /* Main.storyboard */; };
 		9DEDD42F22553F530074B6AD /* TiltBluetoothScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEDD42E22553F530074B6AD /* TiltBluetoothScanner.swift */; };
@@ -22,14 +26,18 @@
 		9D80FDFF22557A550076BC3C /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		9D80FE0122557A6B0076BC3C /* StandardExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardExtensions.swift; sourceTree = "<group>"; };
 		9D80FE0322557AD00076BC3C /* TiltBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiltBeacon.swift; sourceTree = "<group>"; };
-		9DD4CAD9225466AE003F0DF2 /* TiltTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TiltTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D80FE1022564A010076BC3C /* Beer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Beer+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9D80FE1122564A010076BC3C /* Beer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Beer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9D80FE1222564A010076BC3C /* FermentationEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FermentationEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9D80FE1322564A010076BC3C /* FermentationEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FermentationEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9DD4CAD9225466AE003F0DF2 /* FermentationTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FermentationTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD4CADE225466AF003F0DF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9DD4CAE1225466AF003F0DF2 /* TiltTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TiltTracker.xcdatamodel; sourceTree = "<group>"; };
 		9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DD4CAE6225466AF003F0DF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DD4CAE8225466AF003F0DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DD4CAE9225466AF003F0DF2 /* TiltTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TiltTracker.entitlements; sourceTree = "<group>"; };
+		9DD4CAE9225466AF003F0DF2 /* FermentationTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FermentationTracker.entitlements; sourceTree = "<group>"; };
 		9DEDD42E22553F530074B6AD /* TiltBluetoothScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiltBluetoothScanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,10 +52,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D80FE0F225647070076BC3C /* CoreData Models */ = {
+			isa = PBXGroup;
+			children = (
+				9DD4CAE0225466AF003F0DF2 /* FermentationTracker.xcdatamodeld */,
+				9D80FE1022564A010076BC3C /* Beer+CoreDataClass.swift */,
+				9D80FE1122564A010076BC3C /* Beer+CoreDataProperties.swift */,
+				9D80FE1222564A010076BC3C /* FermentationEntry+CoreDataClass.swift */,
+				9D80FE1322564A010076BC3C /* FermentationEntry+CoreDataProperties.swift */,
+			);
+			path = "CoreData Models";
+			sourceTree = "<group>";
+		};
 		9DD4CAD0225466AE003F0DF2 = {
 			isa = PBXGroup;
 			children = (
-				9DD4CADB225466AE003F0DF2 /* TiltTracker */,
+				9DD4CADB225466AE003F0DF2 /* FermentationTracker */,
 				9DD4CADA225466AE003F0DF2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,14 +75,15 @@
 		9DD4CADA225466AE003F0DF2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9DD4CAD9225466AE003F0DF2 /* TiltTracker.app */,
+				9DD4CAD9225466AE003F0DF2 /* FermentationTracker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9DD4CADB225466AE003F0DF2 /* TiltTracker */ = {
+		9DD4CADB225466AE003F0DF2 /* FermentationTracker */ = {
 			isa = PBXGroup;
 			children = (
+				9D80FE0F225647070076BC3C /* CoreData Models */,
 				9D80FDFF22557A550076BC3C /* Beacon.swift */,
 				9D80FE0322557AD00076BC3C /* TiltBeacon.swift */,
 				9D80FE0122557A6B0076BC3C /* StandardExtensions.swift */,
@@ -72,18 +93,17 @@
 				9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */,
 				9DD4CAE5225466AF003F0DF2 /* Main.storyboard */,
 				9DD4CAE8225466AF003F0DF2 /* Info.plist */,
-				9DD4CAE9225466AF003F0DF2 /* TiltTracker.entitlements */,
-				9DD4CAE0225466AF003F0DF2 /* TiltTracker.xcdatamodeld */,
+				9DD4CAE9225466AF003F0DF2 /* FermentationTracker.entitlements */,
 			);
-			path = TiltTracker;
+			path = FermentationTracker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9DD4CAD8225466AE003F0DF2 /* TiltTracker */ = {
+		9DD4CAD8225466AE003F0DF2 /* FermentationTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9DD4CAEC225466AF003F0DF2 /* Build configuration list for PBXNativeTarget "TiltTracker" */;
+			buildConfigurationList = 9DD4CAEC225466AF003F0DF2 /* Build configuration list for PBXNativeTarget "FermentationTracker" */;
 			buildPhases = (
 				9DD4CAD5225466AE003F0DF2 /* Sources */,
 				9DD4CAD6225466AE003F0DF2 /* Frameworks */,
@@ -93,9 +113,9 @@
 			);
 			dependencies = (
 			);
-			name = TiltTracker;
+			name = FermentationTracker;
 			productName = TiltTracker;
-			productReference = 9DD4CAD9225466AE003F0DF2 /* TiltTracker.app */;
+			productReference = 9DD4CAD9225466AE003F0DF2 /* FermentationTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,10 +131,15 @@
 					9DD4CAD8225466AE003F0DF2 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
-			buildConfigurationList = 9DD4CAD4225466AE003F0DF2 /* Build configuration list for PBXProject "TiltTracker" */;
+			buildConfigurationList = 9DD4CAD4225466AE003F0DF2 /* Build configuration list for PBXProject "FermentationTracker" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -127,7 +152,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9DD4CAD8225466AE003F0DF2 /* TiltTracker */,
+				9DD4CAD8225466AE003F0DF2 /* FermentationTracker */,
 			);
 		};
 /* End PBXProject section */
@@ -149,11 +174,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DD4CAE2225466AF003F0DF2 /* TiltTracker.xcdatamodeld in Sources */,
+				9DD4CAE2225466AF003F0DF2 /* FermentationTracker.xcdatamodeld in Sources */,
 				9DD4CADF225466AF003F0DF2 /* ViewController.swift in Sources */,
+				9D80FE1622564A010076BC3C /* FermentationEntry+CoreDataClass.swift in Sources */,
+				9D80FE1722564A010076BC3C /* FermentationEntry+CoreDataProperties.swift in Sources */,
 				9D80FE0022557A550076BC3C /* Beacon.swift in Sources */,
 				9DEDD42F22553F530074B6AD /* TiltBluetoothScanner.swift in Sources */,
 				9D80FE0222557A6B0076BC3C /* StandardExtensions.swift in Sources */,
+				9D80FE1422564A010076BC3C /* Beer+CoreDataClass.swift in Sources */,
+				9D80FE1522564A010076BC3C /* Beer+CoreDataProperties.swift in Sources */,
 				9DD4CADD225466AF003F0DF2 /* AppDelegate.swift in Sources */,
 				9D80FE0422557AD00076BC3C /* TiltBeacon.swift in Sources */,
 			);
@@ -283,11 +312,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FermentationTracker/FermentationTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = TiltTracker/Info.plist;
+				INFOPLIST_FILE = FermentationTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.redwoodmonkey.TiltTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.redwoodmonkey.FermentationTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -297,11 +327,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FermentationTracker/FermentationTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = TiltTracker/Info.plist;
+				INFOPLIST_FILE = FermentationTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.redwoodmonkey.TiltTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.redwoodmonkey.FermentationTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -310,7 +341,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9DD4CAD4225466AE003F0DF2 /* Build configuration list for PBXProject "TiltTracker" */ = {
+		9DD4CAD4225466AE003F0DF2 /* Build configuration list for PBXProject "FermentationTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9DD4CAEA225466AF003F0DF2 /* Debug */,
@@ -319,7 +350,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9DD4CAEC225466AF003F0DF2 /* Build configuration list for PBXNativeTarget "TiltTracker" */ = {
+		9DD4CAEC225466AF003F0DF2 /* Build configuration list for PBXNativeTarget "FermentationTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9DD4CAED225466AF003F0DF2 /* Debug */,
@@ -331,13 +362,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9DD4CAE0225466AF003F0DF2 /* TiltTracker.xcdatamodeld */ = {
+		9DD4CAE0225466AF003F0DF2 /* FermentationTracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				9DD4CAE1225466AF003F0DF2 /* TiltTracker.xcdatamodel */,
 			);
 			currentVersion = 9DD4CAE1225466AF003F0DF2 /* TiltTracker.xcdatamodel */;
-			path = TiltTracker.xcdatamodeld;
+			path = FermentationTracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

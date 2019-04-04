@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TiltTracker.xcodeproj">
+      location = "self:/Users/corbin/Projects/TiltTracker/FermentationTracker.xcodeproj">
    </FileRef>
 </Workspace>
