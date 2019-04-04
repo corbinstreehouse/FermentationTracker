@@ -10,14 +10,51 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
     func applicationWillFinishLaunching(_ notification: Notification) {
         let bluetoothScanner = TiltBluetoothScanner.sharedScanner
-        bluetoothScanner.addFoundTilt { (tiltBeacon: TiltBeacon) in
+        bluetoothScanner.addFoundTiltHandler { (tiltBeacon: TiltBeacon) in
             print("found TILT:\(tiltBeacon.proximityUUID) temp: \(tiltBeacon.temperature) SG: \(tiltBeacon.significantGravity) transmitPower: \(tiltBeacon.transmitPower) rssi: \(tiltBeacon.rssi) time: \(tiltBeacon.timestamp) color: \(tiltBeacon.color)")
         }
         bluetoothScanner.startScanning()
     }
+    
+    private func attemptToLoadBeerManager() -> BeerManager? {
+        var beerManager: BeerManager? = nil
+        let context = persistentContainer.viewContext
+        context.performAndWait {
+            let fetchRequest = NSFetchRequest<BeerManager>(entityName: BeerManager.className())
+            let beerManagers = try? fetchRequest.execute()
+            // should only be one ever, if we have anything
+            if let beerManagers = beerManagers {
+                assert(beerManagers.count <= 1)
+                if beerManagers.count == 1 {
+                    beerManager = beerManagers[0]
+                }
+            }
+        }
+        return beerManager
+    }
+    
+    private func makeBeerManager() -> BeerManager {
+        let context = persistentContainer.viewContext
+        // We don't want this to be undoable
+        context.undoManager?.disableUndoRegistration()
+        let beerManager = NSEntityDescription.insertNewObject(forEntityName: BeerManager.className(), into: context) as! BeerManager
+        context.processPendingChanges() // forget why we do this
+        context.undoManager?.enableUndoRegistration()
+        return beerManager
+    }
+    
+    lazy var sharedBeerManager: BeerManager = {
+        // Try and find the existing item
+        if let beerManager = attemptToLoadBeerManager() {
+            return beerManager
+        } else {
+            // Create it since we didn't find it
+            return makeBeerManager()
+        }
+    }()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application

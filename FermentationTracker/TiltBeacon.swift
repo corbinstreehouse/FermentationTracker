@@ -87,4 +87,12 @@ class TiltBeacon : Beacon {
 
     }
     
+    // tilts are equal if the UUID is the same, and that is it. The major/minor is used for data.
+    public static func ==(lhs: TiltBeacon, rhs: TiltBeacon) -> Bool {
+        if lhs.proximityUUID.isEqual(rhs.proximityUUID) {
+            return true
+        }
+        return false
+    }
+
 }

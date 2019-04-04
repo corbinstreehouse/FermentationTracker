@@ -30,7 +30,7 @@ class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
     
     private var foundTiltHandlers: [(_ tiltBeacon: TiltBeacon) -> Void] = []
     // todo: remove method, if needed..
-    func addFoundTilt(handler: @escaping (_ tiltBeacon: TiltBeacon) -> Void) {
+    func addFoundTiltHandler(_ handler: @escaping (_ tiltBeacon: TiltBeacon) -> Void) {
         foundTiltHandlers.append(handler)
     }
     

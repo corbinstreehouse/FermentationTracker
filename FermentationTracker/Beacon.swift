@@ -10,7 +10,7 @@ import Foundation
 import CoreBluetooth
 
 
-class Beacon {
+class Beacon: Equatable {
     let proximityUUID: CBUUID
     let majorValue: UInt16
     let minorValue: UInt16
@@ -52,4 +52,9 @@ class Beacon {
         self.transmitPower = transmitPower
         self.timestamp = Date.init()
     }
+    
+    public static func ==(lhs: Beacon, rhs: Beacon) -> Bool {
+        return lhs.proximityUUID.isEqual(rhs.proximityUUID)
+    }
+
 }
