@@ -11,7 +11,11 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    var tiltBluetoothScanner = TiltBluetoothScanner();
+    
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        tiltBluetoothScanner.startScanning()
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application

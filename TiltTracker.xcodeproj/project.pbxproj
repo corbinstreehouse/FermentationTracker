@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D80FE0022557A550076BC3C /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FDFF22557A550076BC3C /* Beacon.swift */; };
+		9D80FE0222557A6B0076BC3C /* StandardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE0122557A6B0076BC3C /* StandardExtensions.swift */; };
+		9D80FE0422557AD00076BC3C /* TiltBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE0322557AD00076BC3C /* TiltBeacon.swift */; };
 		9DD4CADD225466AF003F0DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */; };
 		9DD4CADF225466AF003F0DF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CADE225466AF003F0DF2 /* ViewController.swift */; };
 		9DD4CAE2225466AF003F0DF2 /* TiltTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE0225466AF003F0DF2 /* TiltTracker.xcdatamodeld */; };
 		9DD4CAE4225466AF003F0DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */; };
 		9DD4CAE7225466AF003F0DF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE5225466AF003F0DF2 /* Main.storyboard */; };
+		9DEDD42F22553F530074B6AD /* TiltBluetoothScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEDD42E22553F530074B6AD /* TiltBluetoothScanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D80FDFF22557A550076BC3C /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		9D80FE0122557A6B0076BC3C /* StandardExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardExtensions.swift; sourceTree = "<group>"; };
+		9D80FE0322557AD00076BC3C /* TiltBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiltBeacon.swift; sourceTree = "<group>"; };
 		9DD4CAD9225466AE003F0DF2 /* TiltTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TiltTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD4CADE225466AF003F0DF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,6 +30,7 @@
 		9DD4CAE6225466AF003F0DF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DD4CAE8225466AF003F0DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DD4CAE9225466AF003F0DF2 /* TiltTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TiltTracker.entitlements; sourceTree = "<group>"; };
+		9DEDD42E22553F530074B6AD /* TiltBluetoothScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiltBluetoothScanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +63,11 @@
 		9DD4CADB225466AE003F0DF2 /* TiltTracker */ = {
 			isa = PBXGroup;
 			children = (
+				9D80FDFF22557A550076BC3C /* Beacon.swift */,
+				9D80FE0322557AD00076BC3C /* TiltBeacon.swift */,
+				9D80FE0122557A6B0076BC3C /* StandardExtensions.swift */,
 				9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */,
+				9DEDD42E22553F530074B6AD /* TiltBluetoothScanner.swift */,
 				9DD4CADE225466AF003F0DF2 /* ViewController.swift */,
 				9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */,
 				9DD4CAE5225466AF003F0DF2 /* Main.storyboard */,
@@ -139,7 +151,11 @@
 			files = (
 				9DD4CAE2225466AF003F0DF2 /* TiltTracker.xcdatamodeld in Sources */,
 				9DD4CADF225466AF003F0DF2 /* ViewController.swift in Sources */,
+				9D80FE0022557A550076BC3C /* Beacon.swift in Sources */,
+				9DEDD42F22553F530074B6AD /* TiltBluetoothScanner.swift in Sources */,
+				9D80FE0222557A6B0076BC3C /* StandardExtensions.swift in Sources */,
 				9DD4CADD225466AF003F0DF2 /* AppDelegate.swift in Sources */,
+				9D80FE0422557AD00076BC3C /* TiltBeacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +283,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TiltTracker/TiltTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TiltTracker/Info.plist;
@@ -282,7 +297,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TiltTracker/TiltTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TiltTracker/Info.plist;
