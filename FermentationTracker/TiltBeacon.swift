@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreBluetooth
+import AppKit
 
 // https://kvurd.com/blog/tilt-hydrometer-ibeacon-data-format/
 /*
@@ -50,26 +51,53 @@ enum TiltColor: Int, CaseIterable { // CaseIterable is in Swift 4.2
     case red = 1, green, black, purple, orange, blue, yellow, pink
     
     func name() -> String {
-        return String(reflecting: self).capitalized
+        let s = String(reflecting: self) //fully qualified
+        return s.components(separatedBy: ".").last!
+    }
+    func nsColor() -> NSColor {
+        // Maybe a better way of doing this?
+        switch self {
+        case .red:
+            return NSColor.red
+        case .green:
+            return NSColor.green
+        case .black:
+            return NSColor.black
+        case .purple:
+            return NSColor.purple
+        case .orange:
+            return NSColor.orange
+        case .blue:
+            return NSColor.blue
+        case .yellow:
+            return NSColor.yellow
+        case .pink:
+            return NSColor.systemPink
+        }
     }
 }
 
-class TiltBeacon : Beacon {
+class TiltBeacon : Beacon, FermentationDataProvider {
     let temperature: Float // F
     let significantGravity: Float // SG in
-    let color: TiltColor
-    private let tiltUUIDFormat = "A495BB%d0-C5B1-4B44-B512-1370F02D74DE"
+    let description: String
+    let color: NSColor
+    
+    let tiltColor: TiltColor
+    private static let tiltUUIDFormat = "A495BB%d0-C5B1-4B44-B512-1370F02D74DE"
 
     // Returns nil if not a tilt Beacon
     override init?(withProximityUUID proximityUUID: CBUUID, majorValue: UInt16, minorValue: UInt16, transmitPower: Int8) {
         // If it is a tilt, then initialize, else return nil
-        for tmpColor in TiltColor.allCases {
-            let colorUUIDString = String(format: tiltUUIDFormat, tmpColor.rawValue)
+        for tiltColor in TiltColor.allCases {
+            let colorUUIDString = String(format: TiltBeacon.tiltUUIDFormat, tiltColor.rawValue)
             let colorUUID = CBUUID(string: colorUUIDString)
             if colorUUID == proximityUUID {
                 self.temperature = Float(majorValue)
                 self.significantGravity = Float(minorValue) / 1000.0
-                self.color = tmpColor
+                self.tiltColor = tiltColor
+                self.description = NSLocalizedString("%s Tilt", comment: "")
+                self.color = tiltColor.nsColor()
                 super.init(withProximityUUID: proximityUUID, majorValue: majorValue, minorValue: minorValue, transmitPower: transmitPower)
                 return // good!
             }
@@ -77,13 +105,11 @@ class TiltBeacon : Beacon {
         return nil // bad!
     }
     
-    init(withColor color: TiltColor, temperature: Float, signficantGravity: Float, transmitPower: Int8) {
-        let colorUUIDString = String(format: tiltUUIDFormat, color.rawValue)
+    convenience init(withColor color: TiltColor, temperature: Float, signficantGravity: Float, transmitPower: Int8) {
+        let colorUUIDString = String(format: TiltBeacon.tiltUUIDFormat, color.rawValue)
         let colorUUID = CBUUID(string: colorUUIDString)
-        self.temperature = temperature
-        self.significantGravity = signficantGravity
-        self.color = color
-        super.init(withProximityUUID: colorUUID, majorValue: UInt16(temperature), minorValue: UInt16(signficantGravity * 1000.0), transmitPower: transmitPower)!
+        // should never fail, so bang!
+        self.init(withProximityUUID: colorUUID, majorValue: UInt16(temperature), minorValue: UInt16(signficantGravity * 1000.0), transmitPower: transmitPower)!
 
     }
     
@@ -95,4 +121,8 @@ class TiltBeacon : Beacon {
         return false
     }
 
+    func isEqual(to rhs: FermentationDataProvider) -> Bool {
+        guard let rhs = rhs as? TiltBeacon else { return false }
+        return self == rhs
+    }
 }

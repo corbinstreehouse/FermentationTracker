@@ -15,7 +15,6 @@ import CoreBluetooth
 //    }, "kCBAdvDataManufacturerData": <4c000215 a495bb30 c5b14b44 b5121370 f02d74de 00430400 05>] rssi: -98
 
 class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
-    static let sharedScanner = TiltBluetoothScanner()
     
     private var centralManager: CBCentralManager!
 
@@ -26,6 +25,10 @@ class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
         super.init()
         let bluetoothScannerQueue: DispatchQueue = DispatchQueue(label: "com.redwoodmonkey.FermentationTracker.TiltBluetooth")
         centralManager = CBCentralManager(delegate: self, queue: bluetoothScannerQueue)
+    }
+    
+    deinit {
+        stopScanning()
     }
     
     private var foundTiltHandlers: [(_ tiltBeacon: TiltBeacon) -> Void] = []
