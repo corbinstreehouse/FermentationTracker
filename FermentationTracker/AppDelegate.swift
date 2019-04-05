@@ -11,51 +11,52 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    func applicationWillFinishLaunching(_ notification: Notification) {
-//        let bluetoothScanner = TiltBluetoothScanner.sharedScanner
-//        bluetoothScanner.addFoundTiltHandler { (tiltBeacon: TiltBeacon) in
-//            print("found TILT:\(tiltBeacon.proximityUUID) temp: \(tiltBeacon.temperature) SG: \(tiltBeacon.significantGravity) transmitPower: \(tiltBeacon.transmitPower) rssi: \(tiltBeacon.rssi) time: \(tiltBeacon.timestamp) color: \(tiltBeacon.color)")
-//        }
-//        bluetoothScanner.startScanning()
-    }
-    
-    /*
-    private func attemptToLoadBeerManager() -> BeerManager? {
-        var beerManager: BeerManager? = nil
-        let context = persistentContainer.viewContext
-        context.performAndWait {
-            let beerManagers = try? BeerManager.fetchRequest().execute()
-            // should only be one ever, if we have anything
-            if let beerManagers = beerManagers {
-                assert(beerManagers.count <= 1)
-                if beerManagers.count == 1 {
-                    beerManager = beerManagers[0]
-                }
-            }
-        }
-        return beerManager
-    }
-    
-    private func makeBeerManager() -> BeerManager {
-        let context = persistentContainer.viewContext
-        // We don't want this to be undoable
-        context.undoManager?.disableUndoRegistration()
-        let beerManager = NSEntityDescription.insertNewObject(forEntityName: BeerManager.className(), into: context) as! BeerManager
-        context.processPendingChanges() // forget why we do this
-        context.undoManager?.enableUndoRegistration()
-        return beerManager
-    }
-    
-    lazy var sharedBeerManager: BeerManager = {
-        // Try and find the existing item
-        if let beerManager = attemptToLoadBeerManager() {
-            return beerManager
-        } else {
-            // Create it since we didn't find it
-            return makeBeerManager()
-        }
-    }()*/
+    private let bluetoothScanner = TiltBluetoothScanner()
 
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        // start watching for tilts
+        bluetoothScanner.startScanning()
+        bluetoothScanner.addFoundTiltHandler { (tilt: TiltBeacon) in
+            self.handleFound(fermentationDataProviderDevice: tilt)
+        }
+    }
+    
+    private func makeProviderFromDevice(device: FermentationDataProviderDevice) -> FermentationDataProvider {
+        let provider = FermentationDataProvider(context: self.persistentContainer.viewContext)
+        provider.
+    }
+    
+    func handleFound(fermentationDataProviderDevice: FermentationDataProviderDevice) {
+        // See if we have this provider already somewhere in our list of active beers; if so, update it
+        
+        let beer = Beer(context: self.persistentContainer.viewContext)
+        beer.name =  NSLocalizedString("New Beer", comment: "New beer name")
+        let d = Date()
+        beer.dateAdded = d
+        beer.creationOrder = Double(d.timeIntervalSinceReferenceDate)
+
+        beer.gravity = fermentationDataProviderDevice.gravity
+        beer.lastUpdated = fermentationDataProviderDevice.timestamp
+        beer.temperature = fermentationDataProviderDevice.temperature
+        
+        beer.fermentationDataProvider =
+        
+//        do {
+//            try persistentContainer.viewContext.save()
+//        } catch {
+//            print("Unable to Save Changes")
+//            print("\(error), \(error.localizedDescription)")
+//        }
+        
+//        guard let beers = beerManager.beers else { return }
+//        for beer in beers {
+//            if beer.fermentationDataProvider?.isEqual(to: fermentationDataProvider) {
+//                print("lksdjfds")
+//            }
+//        }
+        
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
@@ -66,100 +67,100 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: - Core Data stack
 
-//    lazy var persistentContainer: NSPersistentContainer = {
-//        /*
-//         The persistent container for the application. This implementation
-//         creates and returns a container, having loaded the store for the
-//         application to it. This property is optional since there are legitimate
-//         error conditions that could cause the creation of the store to fail.
-//        */
-//        let container = NSPersistentContainer(name: "FermentationTracker")
-//        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-//            if let error = error {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                 
-//                /*
-//                 Typical reasons for an error here include:
-//                 * The parent directory does not exist, cannot be created, or disallows writing.
-//                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-//                 * The device is out of space.
-//                 * The store could not be migrated to the current model version.
-//                 Check the error message to determine what the actual problem was.
-//                 */
-//                fatalError("Unresolved error \(error)")
-//            }
-//        })
-//        return container
-//    }()
+    lazy var persistentContainer: NSPersistentContainer = {
+        /*
+         The persistent container for the application. This implementation
+         creates and returns a container, having loaded the store for the
+         application to it. This property is optional since there are legitimate
+         error conditions that could cause the creation of the store to fail.
+        */
+        let container = NSPersistentContainer(name: "FermentationTracker")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                 
+                /*
+                 Typical reasons for an error here include:
+                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                fatalError("Unresolved error \(error)")
+            }
+        })
+        return container
+    }()
 
     // MARK: - Core Data Saving and Undo support
 
     @IBAction func saveAction(_ sender: AnyObject?) {
         // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
-//        let context = persistentContainer.viewContext
-//
-//        if !context.commitEditing() {
-//            NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing before saving")
-//        }
-//        if context.hasChanges {
-//            do {
-//                try context.save()
-//            } catch {
-//                // Customize this code block to include application-specific recovery steps.
-//                let nserror = error as NSError
-//                NSApplication.shared.presentError(nserror)
-//            }
-//        }
+        let context = persistentContainer.viewContext
+
+        if !context.commitEditing() {
+            NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing before saving")
+        }
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                // Customize this code block to include application-specific recovery steps.
+                let nserror = error as NSError
+                NSApplication.shared.presentError(nserror)
+            }
+        }
     }
 
-//    func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {
-//        // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
-//        return persistentContainer.viewContext.undoManager
-//    }
-//
-//    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
-//        // Save changes in the application's managed object context before the application terminates.
-//        let context = persistentContainer.viewContext
-//        
-//        if !context.commitEditing() {
-//            NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing to terminate")
-//            return .terminateCancel
-//        }
-//        
-//        if !context.hasChanges {
-//            return .terminateNow
-//        }
-//        
-//        do {
-//            try context.save()
-//        } catch {
-//            let nserror = error as NSError
-//
-//            // Customize this code block to include application-specific recovery steps.
-//            let result = sender.presentError(nserror)
-//            if (result) {
-//                return .terminateCancel
-//            }
-//            
-//            let question = NSLocalizedString("Could not save changes while quitting. Quit anyway?", comment: "Quit without saves error question message")
-//            let info = NSLocalizedString("Quitting now will lose any changes you have made since the last successful save", comment: "Quit without saves error question info");
-//            let quitButton = NSLocalizedString("Quit anyway", comment: "Quit anyway button title")
-//            let cancelButton = NSLocalizedString("Cancel", comment: "Cancel button title")
-//            let alert = NSAlert()
-//            alert.messageText = question
-//            alert.informativeText = info
-//            alert.addButton(withTitle: quitButton)
-//            alert.addButton(withTitle: cancelButton)
-//            
-//            let answer = alert.runModal()
-//            if answer == .alertSecondButtonReturn {
-//                return .terminateCancel
-//            }
-//        }
-//        // If we got here, it is time to quit.
-//        return .terminateNow
-//    }
+    func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {
+        // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
+        return persistentContainer.viewContext.undoManager
+    }
+
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        // Save changes in the application's managed object context before the application terminates.
+        let context = persistentContainer.viewContext
+        
+        if !context.commitEditing() {
+            NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing to terminate")
+            return .terminateCancel
+        }
+        
+        if !context.hasChanges {
+            return .terminateNow
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            let nserror = error as NSError
+
+            // Customize this code block to include application-specific recovery steps.
+            let result = sender.presentError(nserror)
+            if (result) {
+                return .terminateCancel
+            }
+            
+            let question = NSLocalizedString("Could not save changes while quitting. Quit anyway?", comment: "Quit without saves error question message")
+            let info = NSLocalizedString("Quitting now will lose any changes you have made since the last successful save", comment: "Quit without saves error question info");
+            let quitButton = NSLocalizedString("Quit anyway", comment: "Quit anyway button title")
+            let cancelButton = NSLocalizedString("Cancel", comment: "Cancel button title")
+            let alert = NSAlert()
+            alert.messageText = question
+            alert.informativeText = info
+            alert.addButton(withTitle: quitButton)
+            alert.addButton(withTitle: cancelButton)
+            
+            let answer = alert.runModal()
+            if answer == .alertSecondButtonReturn {
+                return .terminateCancel
+            }
+        }
+        // If we got here, it is time to quit.
+        return .terminateNow
+    }
 
 }
 

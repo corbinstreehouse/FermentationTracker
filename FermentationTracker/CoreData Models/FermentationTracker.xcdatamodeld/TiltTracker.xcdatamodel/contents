@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17G6030" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Beer" representedClassName="Beer" syncable="YES" codeGenerationType="class">
-        <attribute name="creationOrder" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="isTemporary" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isTracking" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="creationOrder" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="gravity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="fermentationItems" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="FermentationItem" inverseName="beer" inverseEntity="FermentationItem" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="fermentationDataProvider" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FermentationDataProvider" inverseName="beer" inverseEntity="FermentationDataProvider" syncable="YES"/>
+        <relationship name="fermentationEntries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="FermentationEntry" inverseName="beer" inverseEntity="FermentationEntry" syncable="YES"/>
+        <fetchIndex name="creationFetchIndex">
+            <fetchIndexElement property="creationOrder" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
-    <entity name="FermentationItem" representedClassName="FermentationItem" syncable="YES" codeGenerationType="class">
-        <attribute name="gravity" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="temperature" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="beer" maxCount="1" deletionRule="Nullify" destinationEntity="Beer" inverseName="fermentationItems" inverseEntity="Beer" syncable="YES"/>
+    <entity name="FermentationDataProvider" representedClassName="FermentationDataProvider" syncable="YES" codeGenerationType="class">
+        <attribute name="colorIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="beer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Beer" inverseName="fermentationDataProvider" inverseEntity="Beer" syncable="YES"/>
+    </entity>
+    <entity name="FermentationEntry" representedClassName="FermentationEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="gravity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="beer" maxCount="1" deletionRule="Nullify" destinationEntity="Beer" inverseName="fermentationEntries" inverseEntity="Beer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Beer" positionX="-3674" positionY="-4102" width="146" height="135"/>
-        <element name="FermentationItem" positionX="-3573" positionY="-3924" width="252" height="105"/>
+        <element name="Beer" positionX="-3674" positionY="-4102" width="146" height="165"/>
+        <element name="FermentationEntry" positionX="-3573" positionY="-3924" width="252" height="105"/>
+        <element name="FermentationDataProvider" positionX="-3564" positionY="-3987" width="128" height="105"/>
     </elements>
 </model>

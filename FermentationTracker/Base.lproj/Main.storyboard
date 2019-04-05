@@ -710,14 +710,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="273" height="483"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aby-ip-rRX">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="89" horizontalPageScroll="10" verticalLineScroll="89" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aby-ip-rRX">
                                 <rect key="frame" x="0.0" y="0.0" width="273" height="483"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="R5a-6Y-ecu">
                                     <rect key="frame" x="1" y="1" width="271" height="481"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" usesAutomaticRowHeights="YES" viewBased="YES" id="DnS-RF-h3R">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="87" rowSizeStyle="automatic" viewBased="YES" id="DnS-RF-h3R">
                                             <rect key="frame" x="0.0" y="0.0" width="271" height="481"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -738,11 +738,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="fmv-JT-yDL">
-                                                            <rect key="frame" x="1" y="1" width="268" height="94"/>
+                                                            <rect key="frame" x="1" y="1" width="268" height="87"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kv9-Wx-Dk4">
-                                                                    <rect key="frame" x="0.0" y="77" width="268" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="70" width="268" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="CyroLupin IPA" id="voa-qd-9b5">
                                                                         <font key="font" metaFont="systemBold"/>
@@ -751,7 +751,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k96-GS-DhG">
-                                                                    <rect key="frame" x="1" y="58" width="268" height="17"/>
+                                                                    <rect key="frame" x="1" y="51" width="268" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1.026 SG" id="zHG-DG-Ij4">
                                                                         <font key="font" metaFont="system"/>
@@ -760,7 +760,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="olL-5j-1JO">
-                                                                    <rect key="frame" x="1" y="39" width="268" height="17"/>
+                                                                    <rect key="frame" x="1" y="32" width="268" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="70 F" id="bgP-MX-t0m">
                                                                         <font key="font" metaFont="system"/>
@@ -769,7 +769,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hRi-TT-Ncm">
-                                                                    <rect key="frame" x="1" y="21" width="84" height="17"/>
+                                                                    <rect key="frame" x="1" y="14" width="84" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Connected:" id="KnL-0G-WfP">
                                                                         <font key="font" metaFont="smallSystem"/>
@@ -778,7 +778,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCg-fy-t2X">
-                                                                    <rect key="frame" x="66" y="21" width="84" height="17"/>
+                                                                    <rect key="frame" x="66" y="14" width="84" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Tilt Black" id="riQ-lM-L81">
                                                                         <font key="font" metaFont="smallSystem"/>
@@ -812,10 +812,13 @@
                             </scrollView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="DnS-RF-h3R" id="d6o-j0-1SU"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-29" y="784"/>
+            <point key="canvasLocation" x="-29.5" y="783.5"/>
         </scene>
     </scenes>
 </document>

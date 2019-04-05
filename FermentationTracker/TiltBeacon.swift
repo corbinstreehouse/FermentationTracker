@@ -77,9 +77,9 @@ enum TiltColor: Int, CaseIterable { // CaseIterable is in Swift 4.2
     }
 }
 
-class TiltBeacon : Beacon, FermentationDataProvider {
-    let temperature: Float // F
-    let significantGravity: Float // SG in
+class TiltBeacon : Beacon, FermentationDataProviderDevice {
+    let temperature: Double // F
+    let gravity: Double // SG in
     let description: String
     let color: NSColor
     
@@ -93,8 +93,8 @@ class TiltBeacon : Beacon, FermentationDataProvider {
             let colorUUIDString = String(format: TiltBeacon.tiltUUIDFormat, tiltColor.rawValue)
             let colorUUID = CBUUID(string: colorUUIDString)
             if colorUUID == proximityUUID {
-                self.temperature = Float(majorValue)
-                self.significantGravity = Float(minorValue) / 1000.0
+                self.temperature = Double(majorValue)
+                self.gravity = Double(minorValue) / 1000.0
                 self.tiltColor = tiltColor
                 self.description = NSLocalizedString("%s Tilt", comment: "")
                 self.color = tiltColor.nsColor()
@@ -105,7 +105,7 @@ class TiltBeacon : Beacon, FermentationDataProvider {
         return nil // bad!
     }
     
-    convenience init(withColor color: TiltColor, temperature: Float, signficantGravity: Float, transmitPower: Int8) {
+    convenience init(withColor color: TiltColor, temperature: Double, signficantGravity: Double, transmitPower: Int8) {
         let colorUUIDString = String(format: TiltBeacon.tiltUUIDFormat, color.rawValue)
         let colorUUID = CBUUID(string: colorUUIDString)
         // should never fail, so bang!
@@ -121,7 +121,7 @@ class TiltBeacon : Beacon, FermentationDataProvider {
         return false
     }
 
-    func isEqual(to rhs: FermentationDataProvider) -> Bool {
+    func isEqual(to rhs: FermentationDataProviderDevice) -> Bool {
         guard let rhs = rhs as? TiltBeacon else { return false }
         return self == rhs
     }

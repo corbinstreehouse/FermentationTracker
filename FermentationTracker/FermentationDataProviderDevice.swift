@@ -1,5 +1,5 @@
 //
-//  FermentationDataProvider.swift
+//  FermentationDataProviderDevice.swift
 //  FermentationTracker
 //
 //  Created by Corbin Dunn on 4/4/19.
@@ -9,13 +9,13 @@
 import Foundation
 import AppKit
 
-protocol FermentationDataProvider {
-    var temperature: Float { get }
-    var significantGravity: Float { get }
+protocol FermentationDataProviderDevice {
+    var temperature: Double { get }
+    var gravity: Double { get }
     var timestamp: Date { get }
     var description: String { get }
     var color: NSColor { get }
-    func isEqual(to: FermentationDataProvider) -> Bool
+    func isEqual(to: FermentationDataProviderDevice) -> Bool
     
 }
 

@@ -11,7 +11,12 @@ import AppKit
 
 class BeersTableViewController: NSViewController {
     
-    // Is this racy, in case the persistentContainer isn't loaded? Maybe only assign it to child view controllers after loaded, and push it down the tree from the window controller?
+    @IBOutlet var tableView: NSTableView!
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        return FermentationTrackerApplication.appDelegate.persistentContainer
+    }()
+
     lazy var beersFetchedResultsController: NSFetchedResultsController<Beer> = {
         let fetchRequest: NSFetchRequest<Beer> = Beer.fetchRequest()
         let firstSortItem = NSSortDescriptor(key: "isTracking", ascending: false) // active tracking first
@@ -34,6 +39,25 @@ class BeersTableViewController: NSViewController {
 
 extension BeersTableViewController: NSFetchedResultsControllerDelegate {
     
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch (type) {
+        case .insert:
+            if let indexPath = newIndexPath {
+                let indexSet = IndexSet(integer: indexPath.startIndex) // corbin!! range..
+                tableView.insertRows(at: indexSet, withAnimation: NSTableView.AnimationOptions.effectFade)
+            }
+            break
+        case .delete:
+//            if let indexPath = indexPath {
+//                tableView.removeRows(at: [indexPath], withAnimation: NSTableView.AnimationOptions.effectFade)
+//           }
+            break
+        default:
+            print("................................corbin")
+        }
+    }
+
 }
 
 extension BeersTableViewController: NSTableViewDataSource {
@@ -42,9 +66,12 @@ extension BeersTableViewController: NSTableViewDataSource {
         guard let beers = self.beersFetchedResultsController.fetchedObjects else { return 0 }
         return beers.count
     }
-
+    
 }
 
 extension BeersTableViewController: NSTableViewDelegate {
-    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        return tableView.makeView(withIdentifier: tableColumn!.identifier, owner: nil)
+    }
+
 }
