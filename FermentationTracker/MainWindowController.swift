@@ -18,6 +18,7 @@ class MainWindowController: NSWindowController {
     
     override func awakeFromNib() {
         // Start the persistentContainer load?
+        self.window?.contentView?.wantsLayer = true
     }
     
     override func windowWillLoad() {

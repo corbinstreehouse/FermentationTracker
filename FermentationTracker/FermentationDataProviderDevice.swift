@@ -13,8 +13,9 @@ protocol FermentationDataProviderDevice {
     var temperature: Double { get }
     var gravity: Double { get }
     var timestamp: Date { get }
-    var description: String { get }
+    var name: String { get }
     var color: NSColor { get }
+    var identifier: UUID { get }
     func isEqual(to: FermentationDataProviderDevice) -> Bool
     
 }

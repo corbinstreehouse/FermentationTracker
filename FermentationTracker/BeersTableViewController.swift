@@ -19,9 +19,9 @@ class BeersTableViewController: NSViewController {
 
     lazy var beersFetchedResultsController: NSFetchedResultsController<Beer> = {
         let fetchRequest: NSFetchRequest<Beer> = Beer.fetchRequest()
-        let firstSortItem = NSSortDescriptor(key: "isTracking", ascending: false) // active tracking first
-        let secondSortItem = NSSortDescriptor(key: "creationOrder", ascending: true) // sorted by creation
-        fetchRequest.sortDescriptors = [firstSortItem, secondSortItem]
+//        let firstSortItem = NSSortDescriptor(key: "isTracking", ascending: false) // active tracking first
+        let firstSortItem = NSSortDescriptor(key: "creationOrder", ascending: false) // newest on top
+        fetchRequest.sortDescriptors = [firstSortItem]
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
@@ -31,8 +31,10 @@ class BeersTableViewController: NSViewController {
     override func viewWillAppear() {
         do {
             try self.beersFetchedResultsController.performFetch()
+            tableView.reloadData()
         } catch let error as NSError {
-            NSApp.presentError(error)
+            fatalError("Unresolved error \(error)")
+//            NSApp.presentError(error)
         }
     }
 }
@@ -43,18 +45,20 @@ extension BeersTableViewController: NSFetchedResultsControllerDelegate {
         
         switch (type) {
         case .insert:
-            if let indexPath = newIndexPath {
-                let indexSet = IndexSet(integer: indexPath.startIndex) // corbin!! range..
-                tableView.insertRows(at: indexSet, withAnimation: NSTableView.AnimationOptions.effectFade)
-            }
-            break
+            let rows = IndexSet(integer: newIndexPath!.startIndex) // is this right? seems strange
+            tableView.insertRows(at: rows, withAnimation: .effectFade)
         case .delete:
-//            if let indexPath = indexPath {
-//                tableView.removeRows(at: [indexPath], withAnimation: NSTableView.AnimationOptions.effectFade)
-//           }
+            let rows = IndexSet(integer: indexPath!.startIndex)
+            tableView.removeRows(at: rows, withAnimation: .effectFade)
+        case .move:
+            let oldRow = indexPath!.startIndex
+            let newRow = newIndexPath!.startIndex
+            tableView.moveRow(at: oldRow, to: newRow)
+        case .update:
+            // We use bindings, so I don't think we have to do anything here
+            let row = indexPath!.startIndex
+            print("update... row \(row)");
             break
-        default:
-            print("................................corbin")
         }
     }
 
@@ -65,6 +69,12 @@ extension BeersTableViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         guard let beers = self.beersFetchedResultsController.fetchedObjects else { return 0 }
         return beers.count
+    }
+    
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        let result = self.beersFetchedResultsController.fetchedObjects![row]
+        
+        return result
     }
     
 }

@@ -42,18 +42,31 @@ class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
             handler(tilt)
         }
     }
+    #if DEBUG
+    var t: DispatchSourceTimer!
     
+    static func random(in range:Range<Int>) -> Int
+    {
+        return range.lowerBound + Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound)))
+    }
+    #endif
     // Well, really starts scanning when bluetooth is on.
     func startScanning() {
         checkBluetoothState()
         #if DEBUG
+            var startingGravity = 1.170
+            
             // add fake data after a delay
-            let queue = DispatchQueue.main
-            queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.seconds(1), execute: {
+            t = DispatchSource.makeTimerSource()
+            t.schedule(deadline: DispatchTime.now(), repeating: 5)
+            t.setEventHandler(handler: {
                 print("Adding a FAKE TILT for testing!")
-                let fakeTilt = TiltBeacon(withColor: TiltColor.black, temperature: 68, signficantGravity: 1.025, transmitPower:-50)
+                startingGravity -= 0.001
+                let temperature: Double = Double(TiltBluetoothScanner.random(in: 50..<110))
+                let fakeTilt = TiltBeacon(withColor: TiltColor.black, temperature: temperature, signficantGravity: startingGravity, transmitPower:-50)
                 self.notifyFoundTiltHandlersFor(tilt: fakeTilt)
             })
+            t.resume()
             
             
         #endif

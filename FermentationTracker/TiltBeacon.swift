@@ -51,8 +51,24 @@ enum TiltColor: Int, CaseIterable { // CaseIterable is in Swift 4.2
     case red = 1, green, black, purple, orange, blue, yellow, pink
     
     func name() -> String {
-        let s = String(reflecting: self) //fully qualified
-        return s.components(separatedBy: ".").last!
+        switch self {
+        case .red:
+            return "Red"
+        case .green:
+            return "Green"
+        case .black:
+            return "Black"
+        case .purple:
+            return "Purple"
+        case .orange:
+            return "Orange"
+        case .blue:
+            return "Blue"
+        case .yellow:
+            return "Yellow"
+        case .pink:
+            return "Pink"
+        }
     }
     func nsColor() -> NSColor {
         // Maybe a better way of doing this?
@@ -80,8 +96,14 @@ enum TiltColor: Int, CaseIterable { // CaseIterable is in Swift 4.2
 class TiltBeacon : Beacon, FermentationDataProviderDevice {
     let temperature: Double // F
     let gravity: Double // SG in
-    let description: String
+    let name: String
     let color: NSColor
+    
+    var identifier: UUID {
+        get {
+            return UUID(uuidString: self.proximityUUID.uuidString)!
+        }
+    }
     
     let tiltColor: TiltColor
     private static let tiltUUIDFormat = "A495BB%d0-C5B1-4B44-B512-1370F02D74DE"
@@ -96,7 +118,7 @@ class TiltBeacon : Beacon, FermentationDataProviderDevice {
                 self.temperature = Double(majorValue)
                 self.gravity = Double(minorValue) / 1000.0
                 self.tiltColor = tiltColor
-                self.description = NSLocalizedString("%s Tilt", comment: "")
+                self.name = String(format: NSLocalizedString("Tilt %@", comment: "Tilt color format"), tiltColor.name())
                 self.color = tiltColor.nsColor()
                 super.init(withProximityUUID: proximityUUID, majorValue: majorValue, minorValue: minorValue, transmitPower: transmitPower)
                 return // good!

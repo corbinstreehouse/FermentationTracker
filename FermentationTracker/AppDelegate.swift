@@ -8,6 +8,24 @@
 
 import Cocoa
 
+extension Beer {
+    func addFermentationEntryForDevice(_ device: FermentationDataProviderDevice, context: NSManagedObjectContext) {
+        let f: FermentationEntry = FermentationEntry(context: context)
+//        f.beer = self // Why do we need these back pointers?
+        // TODO: if we delete a beer will it cascade and delete all the children entries?
+        f.gravity = device.gravity
+        f.temperature = device.temperature
+        f.timestamp = device.timestamp
+        self.addToFermentationEntries(f)
+        // Update our stats for this beer so we don't have to look at the last entry to find out what it is at. Or, maybe that is fine, and things could be simplified.
+        self.gravity = device.gravity
+//        self.willChangeValue(forKey: "temperature")
+        self.temperature = device.temperature
+//        self.didChangeValue(forKey: "temperature")
+        self.lastUpdated = device.timestamp
+    }
+}
+//
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
@@ -17,44 +35,71 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // start watching for tilts
         bluetoothScanner.startScanning()
         bluetoothScanner.addFoundTiltHandler { (tilt: TiltBeacon) in
-            self.handleFound(fermentationDataProviderDevice: tilt)
+            DispatchQueue.main.async {
+                self.handleFoundDevice(tilt)
+            }
         }
     }
     
-    private func makeProviderFromDevice(device: FermentationDataProviderDevice) -> FermentationDataProvider {
+    private func makeProviderFromDevice(_ device: FermentationDataProviderDevice) -> FermentationDataProvider {
         let provider = FermentationDataProvider(context: self.persistentContainer.viewContext)
-        provider.
+        provider.identifier = device.identifier
+        provider.name = device.name
+        provider.encodedColor = RMEncodedColorTransformer.intFromColor(device.color)
+        return provider
     }
     
-    func handleFound(fermentationDataProviderDevice: FermentationDataProviderDevice) {
-        // See if we have this provider already somewhere in our list of active beers; if so, update it
-        
+    private func addNewBeerForDevice(_ device: FermentationDataProviderDevice) -> Beer {
         let beer = Beer(context: self.persistentContainer.viewContext)
-        beer.name =  NSLocalizedString("New Beer", comment: "New beer name")
+        beer.name =  NSLocalizedString("Test IPA", comment: "New beer name")
         let d = Date()
         beer.dateAdded = d
         beer.creationOrder = Double(d.timeIntervalSinceReferenceDate)
-
-        beer.gravity = fermentationDataProviderDevice.gravity
-        beer.lastUpdated = fermentationDataProviderDevice.timestamp
-        beer.temperature = fermentationDataProviderDevice.temperature
         
-        beer.fermentationDataProvider =
+        beer.fermentationDataProvider = makeProviderFromDevice(device)
+//        beer.fermentationDataProvider?.beer = beer // Needed? I hate back pointers. I might kill these cycles, but we get warnings
+        return beer
+    }
+    
+    private func findBeerForDevice(_ device: FermentationDataProviderDevice) -> Beer? {
+        // TODO: maybe cache these results to avoid re-running the queries so much?
         
-//        do {
-//            try persistentContainer.viewContext.save()
-//        } catch {
-//            print("Unable to Save Changes")
-//            print("\(error), \(error.localizedDescription)")
-//        }
+        let fetchRequest: NSFetchRequest<Beer> = Beer.fetchRequest()
+        // Sort with the newest items on top
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationOrder", ascending: false)]
+        // Find all that have a fermentation data provider still associated
+        // I hate this string based programming
+//        fetchRequest.predicate = NSPredicate(format: "fermentationDataProvider != nil && fermentationDataProvider.identifer = %@", device.identifier as CVarArg)
+        // use %K?
+        fetchRequest.predicate = NSPredicate(format: "fermentationDataProvider != nil")
         
-//        guard let beers = beerManager.beers else { return }
-//        for beer in beers {
-//            if beer.fermentationDataProvider?.isEqual(to: fermentationDataProvider) {
-//                print("lksdjfds")
-//            }
-//        }
         
+        // We only need the first one
+        fetchRequest.fetchLimit = 1
+        var beer: Beer? = nil
+        self.persistentContainer.viewContext.performAndWait() {
+            do {
+                let beers = try fetchRequest.execute()
+                if beers.count > 0 { // should be one
+                    // Take the first one for tracking
+                    beer = beers.first
+                }
+            } catch let error as NSError {
+                // TODO: corbin!! better error handling
+                fatalError("Unresolved error \(error)")
+            }
+        }
+        return beer
+    }
+    
+    func handleFoundDevice(_ device: FermentationDataProviderDevice) {
+        // See if we have this provider already somewhere in our list of active beers; if so, update it; otherwise we will create a new entry
+        var beer = findBeerForDevice(device)
+//        beer = addNewBeerForDevice(device)
+        if beer == nil {
+            beer = addNewBeerForDevice(device)
+        }
+        beer?.addFermentationEntryForDevice(device, context: persistentContainer.viewContext)
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -68,12 +113,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
         let container = NSPersistentContainer(name: "FermentationTracker")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
@@ -88,6 +127,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                  * The store could not be migrated to the current model version.
                  Check the error message to determine what the actual problem was.
                  */
+//                NSApp.presentError(error)
                 fatalError("Unresolved error \(error)")
             }
         })
