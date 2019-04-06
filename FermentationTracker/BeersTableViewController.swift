@@ -52,7 +52,7 @@ class BeersTableViewController: FetchedResultsTableViewController<Beer> {
 //        return tableView.makeView(withIdentifier: tableColumn!.identifier, owner: nil)
 //    }
     
-    func tableViewSelectionDidChange(_ notification: Notification) {
+    @objc func tableViewSelectionDidChange(_ notification: Notification) {
         updateSelectedBeer()
     }
 

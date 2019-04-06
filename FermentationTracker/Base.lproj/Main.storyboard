@@ -818,8 +818,8 @@
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
-                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="iJn-rO-c9l"/>
-                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="24m-Sq-KHr"/>
+                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="zW6-W0-uzJ"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="aXn-0J-oM0"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -1147,6 +1147,10 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="OKL-8r-j4X" id="0hw-Jn-5UO"/>
+                                                <outlet property="delegate" destination="OKL-8r-j4X" id="2fF-Zh-msr"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -1165,6 +1169,9 @@
                             </scrollView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Icg-rg-8x0" id="eiT-qQ-wZP"/>
+                    </connections>
                 </viewController>
                 <customObject id="cbU-bL-Zjl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

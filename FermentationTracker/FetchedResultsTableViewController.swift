@@ -14,6 +14,7 @@ import CoreData
 class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSFetchedResultsControllerDelegate where ResultType : NSFetchRequestResult {
     
     @IBOutlet var tableView: NSTableView!
+    
     var fetchedResultsController: NSFetchedResultsController<ResultType>? {
         didSet {
             fetchedResultsController?.delegate = self

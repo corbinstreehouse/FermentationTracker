@@ -12,6 +12,8 @@ import CoreData
 
 class FermentationDataViewController: FetchedResultsTableViewController<FermentationEntry> {
     
+//    @IBOutlet var tableView: NSTableView! // Used to trick IB so I can set the value in the parent class
+    
     override var representedObject: Any? {
         didSet {
             refreshData()
