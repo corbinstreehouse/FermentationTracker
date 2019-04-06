@@ -3,8 +3,9 @@
     <entity name="Beer" representedClassName="Beer" syncable="YES" codeGenerationType="class">
         <attribute name="creationOrder" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateLastUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="gravity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="lastUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isTracking" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="temperature" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="fermentationDataProvider" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FermentationDataProvider" inverseName="beer" inverseEntity="FermentationDataProvider" syncable="YES"/>
@@ -14,7 +15,6 @@
         </fetchIndex>
     </entity>
     <entity name="FermentationDataProvider" representedClassName="FermentationDataProvider" syncable="YES" codeGenerationType="class">
-        <attribute name="color" optional="YES" transient="YES" customClassName="NSColor" syncable="YES"/>
         <attribute name="encodedColor" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
@@ -27,8 +27,8 @@
         <relationship name="beer" maxCount="1" deletionRule="Nullify" destinationEntity="Beer" inverseName="fermentationEntries" inverseEntity="Beer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Beer" positionX="-3674" positionY="-4102" width="146" height="165"/>
+        <element name="Beer" positionX="-3674" positionY="-4102" width="146" height="180"/>
+        <element name="FermentationDataProvider" positionX="-3564" positionY="-3987" width="128" height="105"/>
         <element name="FermentationEntry" positionX="-3573" positionY="-3924" width="252" height="105"/>
-        <element name="FermentationDataProvider" positionX="-3564" positionY="-3987" width="128" height="120"/>
     </elements>
 </model>

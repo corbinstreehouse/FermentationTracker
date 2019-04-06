@@ -22,7 +22,7 @@ extension Beer {
 //        self.willChangeValue(forKey: "temperature")
         self.temperature = device.temperature
 //        self.didChangeValue(forKey: "temperature")
-        self.lastUpdated = device.timestamp
+        self.dateLastUpdated = device.timestamp
     }
 }
 //
@@ -69,10 +69,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationOrder", ascending: false)]
         // Find all that have a fermentation data provider still associated
         // I hate this string based programming
-//        fetchRequest.predicate = NSPredicate(format: "fermentationDataProvider != nil && fermentationDataProvider.identifer = %@", device.identifier as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "fermentationDataProvider != nil && fermentationDataProvider.identifier = %@", device.identifier as CVarArg)
         // use %K?
-        fetchRequest.predicate = NSPredicate(format: "fermentationDataProvider != nil")
-        
         
         // We only need the first one
         fetchRequest.fetchLimit = 1
@@ -85,7 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     beer = beers.first
                 }
             } catch let error as NSError {
-                // TODO: corbin!! better error handling
+                // TODO: corbin!! better error handling. this shouldn't fail.
                 fatalError("Unresolved error \(error)")
             }
         }
@@ -95,7 +93,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func handleFoundDevice(_ device: FermentationDataProviderDevice) {
         // See if we have this provider already somewhere in our list of active beers; if so, update it; otherwise we will create a new entry
         var beer = findBeerForDevice(device)
-//        beer = addNewBeerForDevice(device)
         if beer == nil {
             beer = addNewBeerForDevice(device)
         }

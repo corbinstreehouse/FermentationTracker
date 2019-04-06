@@ -92,11 +92,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FermentationTracker/AppDelegate.swift"
-            timestampString = "576186095.06036"
+            timestampString = "576273857.2175291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "handleFoundDevice(_:)"
             landmarkType = "7">
          </BreakpointContent>

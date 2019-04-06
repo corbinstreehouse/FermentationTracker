@@ -15,6 +15,9 @@
 		9DA665D12256C616009958E8 /* FermentationDataProviderDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665D02256C616009958E8 /* FermentationDataProviderDevice.swift */; };
 		9DA665E1225703A8009958E8 /* BeersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665E0225703A8009958E8 /* BeersTableViewController.swift */; };
 		9DA665E32257B1BF009958E8 /* RMEncodedColorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665E22257B1BF009958E8 /* RMEncodedColorTransformer.swift */; };
+		9DA665E72259215F009958E8 /* FermentationDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665E62259215F009958E8 /* FermentationDataViewController.swift */; };
+		9DA665E922592407009958E8 /* BeerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665E822592407009958E8 /* BeerDetailsViewController.swift */; };
+		9DA665EB22594B7B009958E8 /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665EA22594B7B009958E8 /* FetchedResultsTableViewController.swift */; };
 		9DD4CADD225466AF003F0DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */; };
 		9DD4CAE2225466AF003F0DF2 /* FermentationTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE0225466AF003F0DF2 /* FermentationTracker.xcdatamodeld */; };
 		9DD4CAE4225466AF003F0DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */; };
@@ -31,6 +34,9 @@
 		9DA665D02256C616009958E8 /* FermentationDataProviderDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermentationDataProviderDevice.swift; sourceTree = "<group>"; };
 		9DA665E0225703A8009958E8 /* BeersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersTableViewController.swift; sourceTree = "<group>"; };
 		9DA665E22257B1BF009958E8 /* RMEncodedColorTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEncodedColorTransformer.swift; sourceTree = "<group>"; };
+		9DA665E62259215F009958E8 /* FermentationDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermentationDataViewController.swift; sourceTree = "<group>"; };
+		9DA665E822592407009958E8 /* BeerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailsViewController.swift; sourceTree = "<group>"; };
+		9DA665EA22594B7B009958E8 /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
 		9DD4CAD9225466AE003F0DF2 /* FermentationTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FermentationTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD4CAE1225466AF003F0DF2 /* TiltTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TiltTracker.xcdatamodel; sourceTree = "<group>"; };
@@ -86,12 +92,15 @@
 				9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */,
 				9DEDD42E22553F530074B6AD /* TiltBluetoothScanner.swift */,
 				9DA665E0225703A8009958E8 /* BeersTableViewController.swift */,
+				9DA665EA22594B7B009958E8 /* FetchedResultsTableViewController.swift */,
 				9D80FE18225679610076BC3C /* MainWindowController.swift */,
 				9DA665CE225687E9009958E8 /* FermentationTrackerApplication.swift */,
 				9DA665D02256C616009958E8 /* FermentationDataProviderDevice.swift */,
 				9DA665E22257B1BF009958E8 /* RMEncodedColorTransformer.swift */,
 				9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */,
 				9DD4CAE5225466AF003F0DF2 /* Main.storyboard */,
+				9DA665E822592407009958E8 /* BeerDetailsViewController.swift */,
+				9DA665E62259215F009958E8 /* FermentationDataViewController.swift */,
 				9DD4CAE8225466AF003F0DF2 /* Info.plist */,
 				9DD4CAE9225466AF003F0DF2 /* FermentationTracker.entitlements */,
 			);
@@ -174,9 +183,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DA665E72259215F009958E8 /* FermentationDataViewController.swift in Sources */,
 				9DD4CAE2225466AF003F0DF2 /* FermentationTracker.xcdatamodeld in Sources */,
 				9D80FE19225679610076BC3C /* MainWindowController.swift in Sources */,
 				9D80FE0022557A550076BC3C /* Beacon.swift in Sources */,
+				9DA665EB22594B7B009958E8 /* FetchedResultsTableViewController.swift in Sources */,
 				9DA665CF225687E9009958E8 /* FermentationTrackerApplication.swift in Sources */,
 				9DA665E32257B1BF009958E8 /* RMEncodedColorTransformer.swift in Sources */,
 				9DA665D12256C616009958E8 /* FermentationDataProviderDevice.swift in Sources */,
@@ -184,6 +195,7 @@
 				9D80FE0222557A6B0076BC3C /* StandardExtensions.swift in Sources */,
 				9DA665E1225703A8009958E8 /* BeersTableViewController.swift in Sources */,
 				9DD4CADD225466AF003F0DF2 /* AppDelegate.swift in Sources */,
+				9DA665E922592407009958E8 /* BeerDetailsViewController.swift in Sources */,
 				9D80FE0422557AD00076BC3C /* TiltBeacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
