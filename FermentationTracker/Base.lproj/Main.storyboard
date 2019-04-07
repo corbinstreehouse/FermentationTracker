@@ -1050,11 +1050,20 @@
         <!--Graph-->
         <scene sceneID="pCy-Qa-GJ7">
             <objects>
-                <viewController title="Graph" id="y1B-4m-YhP" sceneMemberID="viewController">
+                <viewController title="Graph" id="y1B-4m-YhP" customClass="ChartViewController" customModule="FermentationTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Cbw-tH-gFW">
                         <rect key="frame" x="0.0" y="0.0" width="649" height="467"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PkE-oV-dz9" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="6" y="5" width="637" height="456"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </customView>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="lineChartView" destination="PkE-oV-dz9" id="wdK-cq-Lfo"/>
+                    </connections>
                 </viewController>
                 <customObject id="08A-h4-XUE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1141,7 +1150,8 @@
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5q-lp-5YQ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Jah-al-RP2">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="Jah-al-RP2">
+                                                                        <customFormatter key="formatter" id="GUj-6e-ctt" customClass="GravityFormatter" customModule="FermentationTracker" customModuleProvider="target"/>
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

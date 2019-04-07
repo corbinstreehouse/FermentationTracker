@@ -11,12 +11,20 @@ import AppKit
 
 class BeerDetailsViewController: NSViewController {
     
+    private var observerToken: NSObjectProtocol?
+
     override func viewDidAppear() {
         super.viewDidAppear()
-        NotificationCenter.default.addObserver(forName: MainWindowController.selectedBeersChangedNote, object: self.mainWindowController, queue: nil) { (Notification) in
+        self.observerToken = NotificationCenter.default.addObserver(forName: MainWindowController.selectedBeersChangedNote, object: self.mainWindowController, queue: nil) { (Notification) in
             self.representedObject = self.mainWindowController.selectedBeers
         }
         self.representedObject = self.mainWindowController.selectedBeers
     }
     
+    override func viewDidDisappear() {
+        if let observerToken = observerToken {
+            NotificationCenter.default.removeObserver(observerToken)
+            self.observerToken = nil
+        }
+    }
 }

@@ -12,7 +12,8 @@ import AppKit
 extension NSViewController {
     var mainWindowController: MainWindowController {
         get {
-            return self.view.window?.windowController as! MainWindowController
+            // FAIL if we aren't in a window; maybe i should push the logic into a view controller
+            return self.view.window!.windowController as! MainWindowController
         }
     }
 }

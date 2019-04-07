@@ -29,12 +29,24 @@ class FermentationDataViewController: FetchedResultsTableViewController<Fermenta
         }
     }
     
+    private var observerToken: NSObjectProtocol?
     override func viewDidAppear() {
         super.viewDidAppear()
-        NotificationCenter.default.addObserver(forName: MainWindowController.selectedBeersChangedNote, object: self.mainWindowController, queue: nil) { [weak self] (Notification)  in
-            self?.updateSelectedBeer()
+        assert(self.observerToken == nil)
+        // I'm seeing view did appear when we aren't in windows...what???!
+        if self.view.window != nil {
+            self.observerToken = NotificationCenter.default.addObserver(forName: MainWindowController.selectedBeersChangedNote, object: self.mainWindowController, queue: nil) { [weak self] (Notification)  in
+                self?.updateSelectedBeer()
+            }
         }
         updateSelectedBeer()
+    }
+    
+    override func viewDidDisappear() {
+        if let observerToken = observerToken {
+            NotificationCenter.default.removeObserver(observerToken)
+            self.observerToken = nil
+        }
     }
     
     override func viewDidLoad() {
