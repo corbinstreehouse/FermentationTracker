@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../FermentationTracker/TempFormatter.swift">
+   </FileRef>
+   <FileRef
       location = "self:/Users/corbin/Projects/TiltTracker/FermentationTracker.xcodeproj">
    </FileRef>
 </Workspace>

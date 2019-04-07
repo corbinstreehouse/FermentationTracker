@@ -11,7 +11,6 @@ import Cocoa
 extension Beer {
     func addFermentationEntryForDevice(_ device: FermentationDataProviderDevice, context: NSManagedObjectContext) {
         let f: FermentationEntry = FermentationEntry(context: context)
-//        f.beer = self // Why do we need these back pointers?
         // TODO: if we delete a beer will it cascade and delete all the children entries?
         f.gravity = device.gravity
         f.temperature = device.temperature
@@ -19,19 +18,24 @@ extension Beer {
         self.addToFermentationEntries(f)
         // Update our stats for this beer so we don't have to look at the last entry to find out what it is at. Or, maybe that is fine, and things could be simplified.
         self.gravity = device.gravity
-//        self.willChangeValue(forKey: "temperature")
         self.temperature = device.temperature
-//        self.didChangeValue(forKey: "temperature")
         self.dateLastUpdated = device.timestamp
     }
 }
-//
+
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     private let bluetoothScanner = TiltBluetoothScanner()
 
     func applicationWillFinishLaunching(_ notification: Notification) {
+        // Load our defaults
+        let defaultsURL = Bundle.main.resourceURL?.appendingPathComponent("Defaults.plist")
+        let defaultsDict = NSDictionary(contentsOf: defaultsURL!)!
+        let defaults: [String : Any] = defaultsDict as! [String : Any]
+        UserDefaults.standard.register(defaults: defaults)
+        
         // start watching for tilts
         bluetoothScanner.startScanning()
         bluetoothScanner.addFoundTiltHandler { (tilt: TiltBeacon) in
@@ -55,9 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let d = Date()
         beer.dateAdded = d
         beer.creationOrder = Double(d.timeIntervalSinceReferenceDate)
-        
         beer.fermentationDataProvider = makeProviderFromDevice(device)
-//        beer.fermentationDataProvider?.beer = beer // Needed? I hate back pointers. I might kill these cycles, but we get warnings
         return beer
     }
     

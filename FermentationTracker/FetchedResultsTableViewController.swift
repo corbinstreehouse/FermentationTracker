@@ -10,6 +10,12 @@ import Foundation
 import AppKit
 import CoreData
 
+class SafeResizingHeaderView: NSTableHeaderView {
+    override func mouseDown(with event: NSEvent) {
+        super.mouseDown(with: event)
+    }
+}
+
 
 class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSFetchedResultsControllerDelegate where ResultType : NSFetchRequestResult {
     
@@ -37,21 +43,22 @@ class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableVi
     }
     
     override func viewWillAppear() {
+        super.viewWillAppear()
     }
     
     // NSFetchedResultsControllerDelegate
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
+        // TODO: if the user is resizing the header while we get an update, it will screw things up. we'll have to pause and aggregate changes until the header resize is done, and then fix everything up at the end. Stupid bugs in tableview!
         switch (type) {
         case .insert:
-            let rows = IndexSet(integer: newIndexPath!.startIndex) // is this right? seems strange
+            let rows = IndexSet(integer: newIndexPath!.item)
             tableView.insertRows(at: rows, withAnimation: .effectFade)
         case .delete:
-            let rows = IndexSet(integer: indexPath!.startIndex)
+            let rows = IndexSet(integer: indexPath!.item)
             tableView.removeRows(at: rows, withAnimation: .effectFade)
         case .move:
-            let oldRow = indexPath!.startIndex
-            let newRow = newIndexPath!.startIndex
+            let oldRow = indexPath!.item
+            let newRow = newIndexPath!.item
             tableView.moveRow(at: oldRow, to: newRow)
         case .update:
             // We use bindings, so I don't think we have to do anything here
@@ -60,14 +67,18 @@ class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableVi
     }
     
     // NSTableViewDataSource
-    func numberOfRows(in tableView: NSTableView) -> Int {
+    @objc func numberOfRows(in tableView: NSTableView) -> Int {
         guard let object = self.fetchedResultsController?.fetchedObjects else { return 0 }
         return object.count
     }
     
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+    @objc func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         let result = self.fetchedResultsController?.fetchedObjects![row]
         return result
+    }
+    
+    @objc func tableViewColumnDidResize(_ notification: Notification) {
+    
     }
     
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D3960FB225971DE009F1323 /* TemperatureFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3960FA225971DE009F1323 /* TemperatureFormatter.swift */; };
+		9D3960FD22597214009F1323 /* Setttings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3960FC22597214009F1323 /* Setttings.swift */; };
+		9D3960FF22597428009F1323 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D3960FE22597428009F1323 /* Defaults.plist */; };
 		9D80FE0022557A550076BC3C /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FDFF22557A550076BC3C /* Beacon.swift */; };
 		9D80FE0222557A6B0076BC3C /* StandardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE0122557A6B0076BC3C /* StandardExtensions.swift */; };
 		9D80FE0422557AD00076BC3C /* TiltBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE0322557AD00076BC3C /* TiltBeacon.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D3960FA225971DE009F1323 /* TemperatureFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureFormatter.swift; sourceTree = "<group>"; };
+		9D3960FC22597214009F1323 /* Setttings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setttings.swift; sourceTree = "<group>"; };
+		9D3960FE22597428009F1323 /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		9D80FDFF22557A550076BC3C /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		9D80FE0122557A6B0076BC3C /* StandardExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardExtensions.swift; sourceTree = "<group>"; };
 		9D80FE0322557AD00076BC3C /* TiltBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiltBeacon.swift; sourceTree = "<group>"; };
@@ -86,10 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				9D80FE0F225647070076BC3C /* CoreData Models */,
+				9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */,
 				9D80FDFF22557A550076BC3C /* Beacon.swift */,
 				9D80FE0322557AD00076BC3C /* TiltBeacon.swift */,
 				9D80FE0122557A6B0076BC3C /* StandardExtensions.swift */,
-				9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */,
 				9DEDD42E22553F530074B6AD /* TiltBluetoothScanner.swift */,
 				9DA665EA22594B7B009958E8 /* FetchedResultsTableViewController.swift */,
 				9DA665E0225703A8009958E8 /* BeersTableViewController.swift */,
@@ -101,8 +107,11 @@
 				9DD4CAE5225466AF003F0DF2 /* Main.storyboard */,
 				9DA665E822592407009958E8 /* BeerDetailsViewController.swift */,
 				9DA665E62259215F009958E8 /* FermentationDataViewController.swift */,
+				9D3960FC22597214009F1323 /* Setttings.swift */,
+				9D3960FA225971DE009F1323 /* TemperatureFormatter.swift */,
 				9DD4CAE8225466AF003F0DF2 /* Info.plist */,
 				9DD4CAE9225466AF003F0DF2 /* FermentationTracker.entitlements */,
+				9D3960FE22597428009F1323 /* Defaults.plist */,
 			);
 			path = FermentationTracker;
 			sourceTree = "<group>";
@@ -173,6 +182,7 @@
 			files = (
 				9DD4CAE4225466AF003F0DF2 /* Assets.xcassets in Resources */,
 				9DD4CAE7225466AF003F0DF2 /* Main.storyboard in Resources */,
+				9D3960FF22597428009F1323 /* Defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,12 +201,14 @@
 				9DA665CF225687E9009958E8 /* FermentationTrackerApplication.swift in Sources */,
 				9DA665E32257B1BF009958E8 /* RMEncodedColorTransformer.swift in Sources */,
 				9DA665D12256C616009958E8 /* FermentationDataProviderDevice.swift in Sources */,
+				9D3960FB225971DE009F1323 /* TemperatureFormatter.swift in Sources */,
 				9DEDD42F22553F530074B6AD /* TiltBluetoothScanner.swift in Sources */,
 				9D80FE0222557A6B0076BC3C /* StandardExtensions.swift in Sources */,
 				9DA665E1225703A8009958E8 /* BeersTableViewController.swift in Sources */,
 				9DD4CADD225466AF003F0DF2 /* AppDelegate.swift in Sources */,
 				9DA665E922592407009958E8 /* BeerDetailsViewController.swift in Sources */,
 				9D80FE0422557AD00076BC3C /* TiltBeacon.swift in Sources */,
+				9D3960FD22597214009F1323 /* Setttings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

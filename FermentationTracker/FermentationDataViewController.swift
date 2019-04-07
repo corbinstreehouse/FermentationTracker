@@ -12,7 +12,7 @@ import CoreData
 
 class FermentationDataViewController: FetchedResultsTableViewController<FermentationEntry> {
     
-//    @IBOutlet var tableView: NSTableView! // Used to trick IB so I can set the value in the parent class
+//    @IBOutlet var tableView: NSTableView! // Uncommend and use to trick IB so I can set the value in the parent class
     
     override var representedObject: Any? {
         didSet {
@@ -20,11 +20,18 @@ class FermentationDataViewController: FetchedResultsTableViewController<Fermenta
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if self.tableView.sortDescriptors.count == 0 {
+            self.tableView.sortDescriptors = [self.tableView.tableColumns[0].sortDescriptorPrototype!]
+        }
+    }
+    
     func makeFetchedResultsControllerFor(beer: Beer) -> NSFetchedResultsController<FermentationEntry> {
         let fetchRequest: NSFetchRequest<FermentationEntry> = FermentationEntry.fetchRequest()
-        let firstSortItem = NSSortDescriptor(key: "timestamp", ascending: true)
-        fetchRequest.sortDescriptors = [firstSortItem]
-        
+        fetchRequest.sortDescriptors = self.tableView.sortDescriptors
+        fetchRequest.predicate = NSPredicate(format: "%K = %@", "beer", beer.objectID)
+
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         return fetchedResultsController
@@ -37,5 +44,9 @@ class FermentationDataViewController: FetchedResultsTableViewController<Fermenta
         } else {
             fetchedResultsController = nil
         }
+    }
+    
+    @objc func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        refreshData()
     }
 }
