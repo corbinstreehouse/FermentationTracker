@@ -1,0 +1,3 @@
+[submodule "Charts"]
+	path = Charts
+	url = https://github.com/danielgindi/Charts.git
