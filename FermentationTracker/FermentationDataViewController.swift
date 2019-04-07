@@ -20,6 +20,23 @@ class FermentationDataViewController: FetchedResultsTableViewController<Fermenta
         }
     }
     
+    private func updateSelectedBeer() {
+        let beers = self.mainWindowController.selectedBeers
+        if beers.count == 1 {
+            self.representedObject = beers.first
+        } else {
+            self.representedObject = nil
+        }
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        NotificationCenter.default.addObserver(forName: MainWindowController.selectedBeersChangedNote, object: self.mainWindowController, queue: nil) { [weak self] (Notification)  in
+            self?.updateSelectedBeer()
+        }
+        updateSelectedBeer()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if self.tableView.sortDescriptors.count == 0 {

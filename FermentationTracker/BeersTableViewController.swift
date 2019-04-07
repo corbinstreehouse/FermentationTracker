@@ -9,11 +9,16 @@
 import Foundation
 import AppKit
 
+extension NSViewController {
+    var mainWindowController: MainWindowController {
+        get {
+            return self.view.window?.windowController as! MainWindowController
+        }
+    }
+}
 
 class BeersTableViewController: FetchedResultsTableViewController<Beer> {
     
-    private var detailViewController: NSViewController!
-
     func makeBeersFetchedResultsController() -> NSFetchedResultsController<Beer> {
         let fetchRequest: NSFetchRequest<Beer> = Beer.fetchRequest()
         let firstSortItem = NSSortDescriptor(key: "fermentationDataProvider", ascending: false)
@@ -27,12 +32,10 @@ class BeersTableViewController: FetchedResultsTableViewController<Beer> {
     
     override func viewWillAppear() {
         self.fetchedResultsController = makeBeersFetchedResultsController()
-        // This assumes some specific knowledge of our layout, which is unfortunate.
-        detailViewController = self.parent!.childViewControllers[1]
         super.viewWillAppear()
     }
     
-    private func selectedBeers() -> [Beer] {
+    private func getSelectedBeers() -> [Beer] {
         guard let allBeers = self.fetchedResultsController?.fetchedObjects else { return [] }
         var result: [Beer] = Array()
         // There has to be a better/faster way to do this
@@ -43,8 +46,8 @@ class BeersTableViewController: FetchedResultsTableViewController<Beer> {
         return result
     }
     
-    private func updateSelectedBeer() {
-        detailViewController.representedObject = self.selectedBeers()
+    private func updateSelectedBeers() {
+        self.mainWindowController.selectedBeers = self.getSelectedBeers()
     }
 
     // NSTableViewDelegate
@@ -53,7 +56,7 @@ class BeersTableViewController: FetchedResultsTableViewController<Beer> {
 //    }
     
     @objc func tableViewSelectionDidChange(_ notification: Notification) {
-        updateSelectedBeer()
+        updateSelectedBeers()
     }
 
 }

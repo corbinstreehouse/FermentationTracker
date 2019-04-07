@@ -16,6 +16,19 @@ class MainWindowController: NSWindowController {
 //        return FermentationTrackerApplication.appDelegate.persistentContainer
 //    }()
     
+    // Keep track of the selected beers here, so that child view controllers can just access it and update things more easily without having to push data around
+    
+    static let selectedBeersChangedNote = NSNotification.Name("SelectedBeersChanged")
+    var selectedBeers: [Beer] = [] {
+        didSet {
+            notifySelectedBeersObservers()
+        }
+    }
+    private func notifySelectedBeersObservers() {
+        NotificationCenter.default.post(name: MainWindowController.selectedBeersChangedNote, object: self)
+    }
+    
+    
     override func awakeFromNib() {
         // Start the persistentContainer load?
         self.window?.contentView?.wantsLayer = true

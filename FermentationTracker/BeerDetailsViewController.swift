@@ -11,27 +11,12 @@ import AppKit
 
 class BeerDetailsViewController: NSViewController {
     
-    var fermentationDataViewController: FermentationDataViewController?
-    
-    override func addChildViewController(_ childViewController: NSViewController) {
-        if childViewController.isKind(of: FermentationDataViewController.self) {
-            fermentationDataViewController = childViewController as? FermentationDataViewController
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        NotificationCenter.default.addObserver(forName: MainWindowController.selectedBeersChangedNote, object: self.mainWindowController, queue: nil) { (Notification) in
+            self.representedObject = self.mainWindowController.selectedBeers
         }
-        super.addChildViewController(childViewController)
+        self.representedObject = self.mainWindowController.selectedBeers
     }
-    
-    override var representedObject: Any? { // [Beer]
-        didSet {
-            // If a single beer, then pick it out
-            var beer: Beer? = nil
-            if let beers: [Beer] = representedObject as? [Beer] {
-                if beers.count == 1 {
-                    beer = beers.first
-                }
-            }
-            fermentationDataViewController?.representedObject = beer
-        }
-    }
-    
     
 }

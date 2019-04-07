@@ -1005,7 +1005,7 @@
                                 <rect key="frame" x="236" y="8" width="404" height="553"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
-                                    <segue destination="OKL-8r-j4X" kind="embed" id="OVK-IO-imQ"/>
+                                    <segue destination="qDb-FP-4nx" kind="embed" id="X5s-gj-UhT"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -1019,6 +1019,46 @@
                 </arrayController>
             </objects>
             <point key="canvasLocation" x="831" y="1166.5"/>
+        </scene>
+        <!--Tab View Controller-->
+        <scene sceneID="cJk-iJ-80m">
+            <objects>
+                <tabViewController selectedTabViewItemIndex="1" id="qDb-FP-4nx" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem identifier="" id="jcz-jM-s6Z"/>
+                        <tabViewItem id="Urs-Uq-dck"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="ehI-9j-UpB">
+                        <rect key="frame" x="0.0" y="0.0" width="296" height="172"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="message"/>
+                        <tabViewItems/>
+                        <connections>
+                            <outlet property="delegate" destination="qDb-FP-4nx" id="RCo-YC-btJ"/>
+                        </connections>
+                    </tabView>
+                    <connections>
+                        <outlet property="tabView" destination="ehI-9j-UpB" id="BfE-hg-eZJ"/>
+                        <segue destination="y1B-4m-YhP" kind="relationship" relationship="tabItems" id="BJq-xf-J8k"/>
+                        <segue destination="OKL-8r-j4X" kind="relationship" relationship="tabItems" id="Ene-2q-MQ2"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="apY-VY-G5i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="689" y="1624"/>
+        </scene>
+        <!--Graph-->
+        <scene sceneID="pCy-Qa-GJ7">
+            <objects>
+                <viewController title="Graph" id="y1B-4m-YhP" sceneMemberID="viewController">
+                    <view key="view" id="Cbw-tH-gFW">
+                        <rect key="frame" x="0.0" y="0.0" width="649" height="467"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="08A-h4-XUE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1365.5" y="1795.5"/>
         </scene>
         <!--Fermentation Data-->
         <scene sceneID="V9y-CH-mjG">
