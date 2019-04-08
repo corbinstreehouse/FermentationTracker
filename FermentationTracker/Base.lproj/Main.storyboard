@@ -692,6 +692,10 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="388" height="217"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <toolbar key="toolbar" implicitIdentifier="C23A0E63-A9F8-4028-A448-BB0ADC3C6122" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="B5M-Wd-bQ5">
+                            <allowedToolbarItems/>
+                            <defaultToolbarItems/>
+                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -712,21 +716,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="206" height="319"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="68" horizontalPageScroll="10" verticalLineScroll="68" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aby-ip-rRX">
-                                <rect key="frame" x="0.0" y="0.0" width="206" height="297"/>
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="68" horizontalPageScroll="10" verticalLineScroll="68" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aby-ip-rRX">
+                                <rect key="frame" x="0.0" y="0.0" width="206" height="279"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="R5a-6Y-ecu">
-                                    <rect key="frame" x="1" y="1" width="204" height="295"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="206" height="279"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" autosaveColumns="NO" rowHeight="66" viewBased="YES" id="DnS-RF-h3R">
-                                            <rect key="frame" x="0.0" y="0.0" width="204" height="295"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="206" height="279"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                             <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" width="201" minWidth="40" maxWidth="1000" id="udf-du-T8n">
+                                                <tableColumn identifier="" width="203" minWidth="40" maxWidth="1000" id="udf-du-T8n">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -740,11 +744,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="fmv-JT-yDL">
-                                                            <rect key="frame" x="1" y="1" width="201" height="76"/>
+                                                            <rect key="frame" x="1" y="1" width="203" height="76"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kv9-Wx-Dk4">
-                                                                    <rect key="frame" x="-1" y="55" width="140" height="19"/>
+                                                                    <rect key="frame" x="-1" y="55" width="141" height="19"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="CyroLupin IPA" id="voa-qd-9b5">
                                                                         <font key="font" metaFont="systemBold" size="15"/>
@@ -756,7 +760,7 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k96-GS-DhG">
-                                                                    <rect key="frame" x="0.0" y="36" width="63" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="36" width="64" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1.026 SG" id="zHG-DG-Ij4">
                                                                         <font key="font" metaFont="system" size="14"/>
@@ -785,7 +789,7 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgO-eH-tZt">
-                                                                    <rect key="frame" x="125" y="36" width="74" height="18"/>
+                                                                    <rect key="frame" x="127" y="36" width="74" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="3.81% ABV" id="K7x-4U-box">
                                                                         <font key="font" metaFont="system" size="14"/>
@@ -794,7 +798,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCg-fy-t2X">
-                                                                    <rect key="frame" x="0.0" y="16" width="64" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="16" width="65" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Tilt Black" id="riQ-lM-L81">
                                                                         <font key="font" metaFont="system" size="14"/>
@@ -806,7 +810,7 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wIp-YF-EYS">
-                                                                    <rect key="frame" x="140" y="56" width="59" height="18"/>
+                                                                    <rect key="frame" x="141" y="56" width="60" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="5:50 PM" id="kRc-sU-HPW">
                                                                         <font key="font" metaFont="system" size="14"/>
@@ -815,7 +819,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kwh-Qf-swV">
-                                                                    <rect key="frame" x="68" y="11" width="91" height="18"/>
+                                                                    <rect key="frame" x="68" y="11" width="92" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Connecting..." id="0uI-qR-P4x">
                                                                         <font key="font" metaFont="system" size="10"/>
@@ -843,7 +847,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="xM6-Bw-iFp"/>
                                 </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="UVU-jL-gOX">
-                                    <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
+                                    <rect key="frame" x="-100" y="-100" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="d3y-4K-rWp">
@@ -856,7 +860,7 @@
                             <constraint firstItem="Aby-ip-rRX" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="8ly-YW-pPL"/>
                             <constraint firstAttribute="trailing" secondItem="Aby-ip-rRX" secondAttribute="trailing" id="VNi-3g-2Ya"/>
                             <constraint firstAttribute="bottom" secondItem="Aby-ip-rRX" secondAttribute="bottom" id="bPr-HT-2v5"/>
-                            <constraint firstItem="Aby-ip-rRX" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="22" id="vLf-E2-Vwq"/>
+                            <constraint firstItem="Aby-ip-rRX" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="40" id="vLf-E2-Vwq"/>
                         </constraints>
                     </view>
                     <connections>
