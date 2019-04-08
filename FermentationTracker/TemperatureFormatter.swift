@@ -22,5 +22,18 @@ class TemperatureFormatter: Formatter {
         }
     }
     
+    override func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
+        // Autolayout will do some formatting with generic strings (ie: "Wj") to measure the size.
+        // This causes problems unless we implement this method and do something.
+        if string == "Wj" {
+//            obj?.pointee = self.string(for: 70.0) as AnyObject?
+            obj?.pointee = NSNumber(floatLiteral: 70.0)
+            return true
+//            return true
+        }
+        return false
+    }
+
+    
     
 }

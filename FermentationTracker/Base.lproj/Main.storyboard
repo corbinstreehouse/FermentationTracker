@@ -776,12 +776,17 @@
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="olL-5j-1JO" userLabel="tempTextField">
                                                                     <rect key="frame" x="76" y="36" width="28" height="18"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="70F" id="bgP-MX-t0m">
+                                                                        <customFormatter key="formatter" id="RvQ-kE-eB1" customClass="TemperatureFormatter" customModule="FermentationTracker" customModuleProvider="target"/>
                                                                         <font key="font" metaFont="systemLight" size="14"/>
                                                                         <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="fmv-JT-yDL" name="value" keyPath="objectValue.temperature" id="2Kl-aj-H2V"/>
+                                                                        <binding destination="fmv-JT-yDL" name="value" keyPath="objectValue.temperature" id="Eh4-ga-y3u">
+                                                                            <dictionary key="options">
+                                                                                <string key="NSNullPlaceholder">N/A</string>
+                                                                            </dictionary>
+                                                                        </binding>
                                                                     </connections>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="lgO-eH-tZt">
@@ -821,6 +826,7 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstItem="olL-5j-1JO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="k96-GS-DhG" secondAttribute="trailing" constant="6" id="0fI-4e-GXg"/>
                                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kwh-Qf-swV" secondAttribute="trailing" constant="1" id="AiN-1H-hxb"/>
                                                                 <constraint firstItem="olL-5j-1JO" firstAttribute="leading" secondItem="k96-GS-DhG" secondAttribute="trailing" priority="249" constant="20" id="Byj-Jx-bbp"/>
                                                                 <constraint firstItem="Kv9-Wx-Dk4" firstAttribute="leading" secondItem="fmv-JT-yDL" secondAttribute="leading" constant="1" id="CxL-GO-HG3"/>
@@ -829,7 +835,7 @@
                                                                 <constraint firstItem="olL-5j-1JO" firstAttribute="baseline" secondItem="k96-GS-DhG" secondAttribute="baseline" id="GUF-iC-Dy0"/>
                                                                 <constraint firstItem="TCg-fy-t2X" firstAttribute="leading" secondItem="Kv9-Wx-Dk4" secondAttribute="leading" id="NTn-RJ-si2"/>
                                                                 <constraint firstItem="kwh-Qf-swV" firstAttribute="baseline" secondItem="TCg-fy-t2X" secondAttribute="baseline" id="Tzi-qh-DHD"/>
-                                                                <constraint firstItem="lgO-eH-tZt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="olL-5j-1JO" secondAttribute="trailing" constant="2" id="YO3-79-Thl"/>
+                                                                <constraint firstItem="lgO-eH-tZt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="olL-5j-1JO" secondAttribute="trailing" constant="6" id="YO3-79-Thl"/>
                                                                 <constraint firstItem="k96-GS-DhG" firstAttribute="leading" secondItem="Kv9-Wx-Dk4" secondAttribute="leading" id="Zy9-Gq-hl8"/>
                                                                 <constraint firstItem="TCg-fy-t2X" firstAttribute="top" secondItem="k96-GS-DhG" secondAttribute="bottom" constant="2" id="cQK-UV-TbA"/>
                                                                 <constraint firstAttribute="trailing" secondItem="wIp-YF-EYS" secondAttribute="trailing" constant="1" id="iN5-3U-Qt7"/>
