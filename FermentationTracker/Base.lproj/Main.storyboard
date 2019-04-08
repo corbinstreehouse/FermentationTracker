@@ -4,7 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -819,7 +818,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kwh-Qf-swV">
-                                                                    <rect key="frame" x="68" y="11" width="92" height="18"/>
+                                                                    <rect key="frame" x="67" y="16" width="69" height="13"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Connecting..." id="0uI-qR-P4x">
                                                                         <font key="font" metaFont="system" size="10"/>
@@ -904,69 +903,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="660" height="607"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vi4-pc-JdS">
-                                <rect key="frame" x="18" y="291" width="73" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zHh-MK-u5P">
+                                <rect key="frame" x="161" y="565" width="42" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Beer name:" id="KPw-GS-FbI">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RSS-DV-sPE">
-                                <rect key="frame" x="18" y="360" width="82" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="RSSI: -65 dBm" id="LvT-5S-cta">
-                                    <font key="font" metaFont="smallSystem"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cwM-sF-oFj">
-                                <rect key="frame" x="18" y="445" width="212" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="MONDAY, APRIL 5, 2019 10:25 AM" id="5St-fl-YvI">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.dateLastUpdated" id="6Gq-NP-ZPA"/>
-                                </connections>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xzp-kU-Kq5">
-                                <rect key="frame" x="18" y="466" width="153" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Updated 5 seconds ago." id="Lv5-sQ-7On">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Gravity" id="XJS-BF-vi5">
+                                    <font key="font" metaFont="system" size="11"/>
+                                    <color key="textColor" name="Sidebar Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5A8-o6-B9Y">
-                                <rect key="frame" x="18" y="374" width="144" height="25"/>
+                                <rect key="frame" x="169" y="494" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tilt Black" id="5F0-fp-jCj">
-                                    <font key="font" metaFont="systemMedium" size="16"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="font" metaFont="system" size="17"/>
+                                    <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kj7-70-23d">
-                                <rect key="frame" x="18" y="400" width="209" height="25"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sBO-dQ-iWu">
+                                <rect key="frame" x="114" y="494" width="55" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tracking Information" id="a41-3z-8wU">
-                                    <font key="font" metaFont="systemMedium" size="18"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Device:" id="cdU-TE-CtP">
+                                    <font key="font" metaFont="system" size="15"/>
+                                    <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RzT-eM-duA">
-                                <rect key="frame" x="18" y="562" width="147" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <rect key="frame" x="267" y="578" width="127" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Beer Name" id="9ot-sE-5Q8">
-                                    <font key="font" metaFont="systemBold" size="28"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="font" metaFont="systemBold" size="24"/>
+                                    <color key="textColor" name="Sidebar Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
@@ -974,47 +943,28 @@
                                 </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Msa-CZ-8w7">
-                                <rect key="frame" x="18" y="513" width="136" height="48"/>
+                                <rect key="frame" x="148" y="536" width="64" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1.025" id="4zW-CN-lA8">
-                                    <font key="font" metaFont="systemBold" size="38"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="font" metaFont="system" size="24"/>
+                                    <color key="textColor" name="Sidebar Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
                                     <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.gravity" id="HIh-7b-vFw"/>
                                 </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Vx-BW-qyW">
-                                <rect key="frame" x="18" y="485" width="144" height="33"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eSC-l9-Wzl">
+                                <rect key="frame" x="237" y="565" width="33" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="68 F" id="Oey-pE-lPf">
-                                    <font key="font" metaFont="systemBold" size="27"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Temp" id="7hf-ZI-aft">
+                                    <font key="font" metaFont="system" size="11"/>
+                                    <color key="textColor" name="Sidebar Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
-                                <connections>
-                                    <binding destination="MdO-5H-Pcb" name="displayPatternValue1" keyPath="selection.temperature" id="ZRT-re-Fhc">
-                                        <dictionary key="options">
-                                            <string key="NSDisplayPattern">%{value1}@℉</string>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O17-Xp-hTR">
-                                <rect key="frame" x="97" y="286" width="131" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="Untitled Beer" drawsBackground="YES" id="4wR-Iz-1Bs">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.name" id="9Zk-I4-4Lk"/>
-                                </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SWn-Nk-atc">
-                                <rect key="frame" x="14" y="330" width="126" height="32"/>
+                                <rect key="frame" x="290" y="478" width="126" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Start Tracking" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hxv-ap-o6h">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1022,12 +972,87 @@
                                 </buttonCell>
                             </button>
                             <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aye-DT-v4R">
-                                <rect key="frame" x="236" y="8" width="404" height="553"/>
+                                <rect key="frame" x="6" y="8" width="646" height="462"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <segue destination="qDb-FP-4nx" kind="embed" id="X5s-gj-UhT"/>
                                 </connections>
                             </containerView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Sn-dj-rny">
+                                <rect key="frame" x="233" y="536" width="46" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="68F" id="Goq-ZX-YEE">
+                                    <customFormatter key="formatter" id="XFB-av-K7g" customClass="TemperatureFormatter" customModule="FermentationTracker" customModuleProvider="target"/>
+                                    <font key="font" metaFont="system" size="24"/>
+                                    <color key="textColor" name="Sidebar Text"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.temperature" id="IoD-s3-ZkM"/>
+                                </connections>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PiO-t9-jxh">
+                                <rect key="frame" x="313" y="565" width="27" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ABV" id="uka-y9-cNT">
+                                    <font key="font" metaFont="system" size="11"/>
+                                    <color key="textColor" name="Sidebar Text"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CdS-Te-ZG2">
+                                <rect key="frame" x="294" y="536" width="75" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="4.50%" id="zbz-YQ-yiJ">
+                                    <font key="font" metaFont="system" size="24"/>
+                                    <color key="textColor" name="Sidebar Text"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K7N-2t-Dkp">
+                                <rect key="frame" x="396" y="565" width="116" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Apparent Attenuation" id="dBB-qs-3MN">
+                                    <font key="font" metaFont="system" size="11"/>
+                                    <color key="textColor" name="Sidebar Text"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34N-r9-BE8">
+                                <rect key="frame" x="417" y="536" width="75" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="66.3%" id="anL-FZ-yML">
+                                    <font key="font" metaFont="system" size="24"/>
+                                    <color key="textColor" name="Sidebar Text"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Vu-ba-HCI">
+                                <rect key="frame" x="266" y="519" width="153" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="5 days, 3 hours, 10 mins" id="XlU-2p-NfM">
+                                    <font key="font" metaFont="system" size="12"/>
+                                    <color key="textColor" name="Subtitle Small Text"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ndr-WQ-cjN">
+                                <rect key="frame" x="114" y="478" width="153" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Updated 1.0 seconds ago" id="hE9-oz-DfW">
+                                    <font key="font" metaFont="system" size="12"/>
+                                    <color key="textColor" name="Sidebar Super Light Text"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8FE-cT-7NW">
+                                <rect key="frame" x="425" y="478" width="84" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Coud..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3xw-OB-HNc">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                 </viewController>
@@ -1067,10 +1092,10 @@
             </objects>
             <point key="canvasLocation" x="689" y="1624"/>
         </scene>
-        <!--Graph-->
+        <!--Chart-->
         <scene sceneID="pCy-Qa-GJ7">
             <objects>
-                <viewController title="Graph" id="y1B-4m-YhP" customClass="ChartViewController" customModule="FermentationTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Chart" id="y1B-4m-YhP" customClass="ChartViewController" customModule="FermentationTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Cbw-tH-gFW">
                         <rect key="frame" x="0.0" y="0.0" width="649" height="467"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1087,12 +1112,12 @@
                 </viewController>
                 <customObject id="08A-h4-XUE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1365.5" y="1795.5"/>
+            <point key="canvasLocation" x="606" y="2093"/>
         </scene>
-        <!--Fermentation Data-->
+        <!--Data-->
         <scene sceneID="V9y-CH-mjG">
             <objects>
-                <viewController title="Fermentation Data" id="OKL-8r-j4X" customClass="FermentationDataViewController" customModule="FermentationTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Data" id="OKL-8r-j4X" customClass="FermentationDataViewController" customModule="FermentationTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ymf-Lo-cbt">
                         <rect key="frame" x="0.0" y="0.0" width="401" height="538"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1254,10 +1279,13 @@
                 </viewController>
                 <customObject id="cbU-bL-Zjl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1398.5" y="1209"/>
+            <point key="canvasLocation" x="1176" y="2128"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="General Text">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.75999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Sidebar Light Text">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.68999999761581421" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1266,6 +1294,18 @@
         </namedColor>
         <namedColor name="Sidebar Text">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.75999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Sidebar Text">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.7599999905" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Sidebar Text">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.7599999905" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Sidebar Text">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.7599999905" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Subtitle Small Text">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.64999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
