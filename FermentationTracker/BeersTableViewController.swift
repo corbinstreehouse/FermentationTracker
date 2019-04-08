@@ -52,8 +52,9 @@ class BeersTableViewController: FetchedResultsTableViewController<Beer> {
     }
 
     // NSTableViewDelegate
-//    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-//        return tableView.makeView(withIdentifier: tableColumn!.identifier, owner: nil)
+//    @objc func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+//        let result = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: nil) as? NSTableCellView
+//        return result
 //    }
     
     @objc func tableViewSelectionDidChange(_ notification: Notification) {

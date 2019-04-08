@@ -26,6 +26,7 @@
 		9DB5DD98225996AC001DB7A4 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5DD97225996AC001DB7A4 /* ChartViewController.swift */; };
 		9DB5DD9A225A78E7001DB7A4 /* GravityFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5DD99225A78E7001DB7A4 /* GravityFormatter.swift */; };
 		9DB5DD9C225BE041001DB7A4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DB5DD9B225BE041001DB7A4 /* Media.xcassets */; };
+		9DB5DD9E225C079F001DB7A4 /* DebugTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5DD9D225C079F001DB7A4 /* DebugTextFieldCell.swift */; };
 		9DD4CADD225466AF003F0DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */; };
 		9DD4CAE2225466AF003F0DF2 /* FermentationTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE0225466AF003F0DF2 /* FermentationTracker.xcdatamodeld */; };
 		9DD4CAE4225466AF003F0DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */; };
@@ -97,6 +98,7 @@
 		9DB5DD97225996AC001DB7A4 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		9DB5DD99225A78E7001DB7A4 /* GravityFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityFormatter.swift; sourceTree = "<group>"; };
 		9DB5DD9B225BE041001DB7A4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		9DB5DD9D225C079F001DB7A4 /* DebugTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugTextFieldCell.swift; sourceTree = "<group>"; };
 		9DD4CAD9225466AE003F0DF2 /* FermentationTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FermentationTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD4CAE1225466AF003F0DF2 /* TiltTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TiltTracker.xcdatamodel; sourceTree = "<group>"; };
@@ -119,14 +121,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9D80FE0F225647070076BC3C /* CoreData Models */ = {
-			isa = PBXGroup;
-			children = (
-				9DD4CAE0225466AF003F0DF2 /* FermentationTracker.xcdatamodeld */,
-			);
-			path = "CoreData Models";
-			sourceTree = "<group>";
-		};
 		9DB5DD84225995AE001DB7A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +158,7 @@
 		9DD4CADB225466AE003F0DF2 /* FermentationTracker */ = {
 			isa = PBXGroup;
 			children = (
-				9D80FE0F225647070076BC3C /* CoreData Models */,
+				9DD4CAE0225466AF003F0DF2 /* FermentationTracker.xcdatamodeld */,
 				9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */,
 				9D80FDFF22557A550076BC3C /* Beacon.swift */,
 				9D80FE0322557AD00076BC3C /* TiltBeacon.swift */,
@@ -184,6 +178,7 @@
 				9DB5DD99225A78E7001DB7A4 /* GravityFormatter.swift */,
 				9DB5DD97225996AC001DB7A4 /* ChartViewController.swift */,
 				9DD4CAE5225466AF003F0DF2 /* Main.storyboard */,
+				9DB5DD9D225C079F001DB7A4 /* DebugTextFieldCell.swift */,
 				9DD4CAE8225466AF003F0DF2 /* Info.plist */,
 				9DD4CAE9225466AF003F0DF2 /* FermentationTracker.entitlements */,
 				9D3960FE22597428009F1323 /* Defaults.plist */,
@@ -298,6 +293,7 @@
 			files = (
 				9DB5DD9A225A78E7001DB7A4 /* GravityFormatter.swift in Sources */,
 				9DA665E72259215F009958E8 /* FermentationDataViewController.swift in Sources */,
+				9DB5DD9E225C079F001DB7A4 /* DebugTextFieldCell.swift in Sources */,
 				9DD4CAE2225466AF003F0DF2 /* FermentationTracker.xcdatamodeld in Sources */,
 				9D80FE19225679610076BC3C /* MainWindowController.swift in Sources */,
 				9D80FE0022557A550076BC3C /* Beacon.swift in Sources */,

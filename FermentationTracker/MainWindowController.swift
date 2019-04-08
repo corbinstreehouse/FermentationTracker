@@ -12,12 +12,6 @@ import CoreData
 
 class MainWindowController: NSWindowController {
     
-//    lazy var persistentContainer: NSPersistentContainer = {
-//        return FermentationTrackerApplication.appDelegate.persistentContainer
-//    }()
-    
-    // Keep track of the selected beers here, so that child view controllers can just access it and update things more easily without having to push data around
-    
     static let selectedBeersChangedNote = NSNotification.Name("SelectedBeersChanged")
     var selectedBeers: [Beer] = [] {
         didSet {
@@ -40,10 +34,13 @@ class MainWindowController: NSWindowController {
     
     
     override func windowDidLoad() {
-        super.windowWillLoad()
+        super.windowDidLoad()
+        let color = NSColor(named: NSColor.Name("WindowBackgroundColor"))
+        self.window?.backgroundColor = color // NSColor(catalogName: "Media", colorName: <#T##NSColor.Name#>)
         // so flipping stupid that we can't set this in the UI just because it isn't on an NSVisualEffectView.
-//    Gt    self.window?.appearance = NSAppearance.init(named: NSAppearance.Name.vibrantDark)
+//        self.window?.appearance = NSAppearance.init(named: NSAppearance.Name.vibrantDark)
     }
+    
     
     
     

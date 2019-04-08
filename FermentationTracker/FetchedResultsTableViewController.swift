@@ -81,5 +81,11 @@ class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableVi
     
     }
     
+    @objc func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let result = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: nil) as? NSTableCellView
+        return result
+    }
+
+    
 }
 

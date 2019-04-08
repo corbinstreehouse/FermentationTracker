@@ -4,6 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -751,7 +752,7 @@
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="CyroLupin IPA" id="voa-qd-9b5">
                                                                         <font key="font" metaFont="systemBold" size="15"/>
-                                                                        <color key="textColor" name="Sidebar Text"/>
+                                                                        <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
@@ -761,9 +762,9 @@
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k96-GS-DhG">
                                                                     <rect key="frame" x="0.0" y="36" width="64" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1.026 SG" id="zHG-DG-Ij4">
-                                                                        <font key="font" metaFont="system" size="14"/>
-                                                                        <color key="textColor" name="Sidebar Text"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1.026 SG" placeholderString="placeholder" id="zHG-DG-Ij4">
+                                                                        <font key="font" metaFont="systemLight" size="14"/>
+                                                                        <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
@@ -779,8 +780,8 @@
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="70F" id="bgP-MX-t0m">
                                                                         <customFormatter key="formatter" id="OL9-l8-wlQ" customClass="TemperatureFormatter" customModule="FermentationTracker" customModuleProvider="target"/>
-                                                                        <font key="font" metaFont="system" size="14"/>
-                                                                        <color key="textColor" name="Sidebar Text"/>
+                                                                        <font key="font" metaFont="systemLight" size="14"/>
+                                                                        <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
@@ -791,8 +792,8 @@
                                                                     <rect key="frame" x="127" y="36" width="74" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="3.81% ABV" id="K7x-4U-box">
-                                                                        <font key="font" metaFont="system" size="14"/>
-                                                                        <color key="textColor" name="Sidebar Text"/>
+                                                                        <font key="font" metaFont="systemLight" size="14"/>
+                                                                        <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
@@ -800,8 +801,8 @@
                                                                     <rect key="frame" x="0.0" y="16" width="65" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Tilt Black" id="riQ-lM-L81">
-                                                                        <font key="font" metaFont="system" size="14"/>
-                                                                        <color key="textColor" name="Sidebar Text"/>
+                                                                        <font key="font" metaFont="systemLight" size="14"/>
+                                                                        <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
@@ -812,8 +813,8 @@
                                                                     <rect key="frame" x="141" y="56" width="60" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="5:50 PM" id="kRc-sU-HPW">
-                                                                        <font key="font" metaFont="system" size="14"/>
-                                                                        <color key="textColor" name="Sidebar Light Text"/>
+                                                                        <font key="font" metaFont="systemLight" size="14"/>
+                                                                        <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
@@ -821,7 +822,7 @@
                                                                     <rect key="frame" x="67" y="16" width="69" height="13"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Connecting..." id="0uI-qR-P4x">
-                                                                        <font key="font" metaFont="system" size="10"/>
+                                                                        <font key="font" metaFont="systemLight" size="10"/>
                                                                         <color key="textColor" name="Sidebar Super Light Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -907,8 +908,8 @@
                                 <rect key="frame" x="161" y="565" width="42" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Gravity" id="XJS-BF-vi5">
-                                    <font key="font" metaFont="system" size="11"/>
-                                    <color key="textColor" name="Sidebar Text"/>
+                                    <font key="font" metaFont="systemLight" size="11"/>
+                                    <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -916,7 +917,7 @@
                                 <rect key="frame" x="169" y="494" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tilt Black" id="5F0-fp-jCj">
-                                    <font key="font" metaFont="system" size="17"/>
+                                    <font key="font" metaFont="systemLight" size="17"/>
                                     <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -925,7 +926,7 @@
                                 <rect key="frame" x="114" y="494" width="55" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Device:" id="cdU-TE-CtP">
-                                    <font key="font" metaFont="system" size="15"/>
+                                    <font key="font" metaFont="systemLight" size="15"/>
                                     <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -935,7 +936,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Beer Name" id="9ot-sE-5Q8">
                                     <font key="font" metaFont="systemBold" size="24"/>
-                                    <color key="textColor" name="Sidebar Text"/>
+                                    <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
@@ -946,8 +947,8 @@
                                 <rect key="frame" x="148" y="536" width="64" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1.025" id="4zW-CN-lA8">
-                                    <font key="font" metaFont="system" size="24"/>
-                                    <color key="textColor" name="Sidebar Text"/>
+                                    <font key="font" metaFont="systemLight" size="24"/>
+                                    <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
@@ -958,8 +959,8 @@
                                 <rect key="frame" x="237" y="565" width="33" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Temp" id="7hf-ZI-aft">
-                                    <font key="font" metaFont="system" size="11"/>
-                                    <color key="textColor" name="Sidebar Text"/>
+                                    <font key="font" metaFont="systemLight" size="11"/>
+                                    <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -983,8 +984,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="68F" id="Goq-ZX-YEE">
                                     <customFormatter key="formatter" id="XFB-av-K7g" customClass="TemperatureFormatter" customModule="FermentationTracker" customModuleProvider="target"/>
-                                    <font key="font" metaFont="system" size="24"/>
-                                    <color key="textColor" name="Sidebar Text"/>
+                                    <font key="font" metaFont="systemLight" size="24"/>
+                                    <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
@@ -995,8 +996,8 @@
                                 <rect key="frame" x="313" y="565" width="27" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ABV" id="uka-y9-cNT">
-                                    <font key="font" metaFont="system" size="11"/>
-                                    <color key="textColor" name="Sidebar Text"/>
+                                    <font key="font" metaFont="systemLight" size="11"/>
+                                    <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1004,8 +1005,8 @@
                                 <rect key="frame" x="294" y="536" width="75" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="4.50%" id="zbz-YQ-yiJ">
-                                    <font key="font" metaFont="system" size="24"/>
-                                    <color key="textColor" name="Sidebar Text"/>
+                                    <font key="font" metaFont="systemLight" size="24"/>
+                                    <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1013,8 +1014,8 @@
                                 <rect key="frame" x="396" y="565" width="116" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Apparent Attenuation" id="dBB-qs-3MN">
-                                    <font key="font" metaFont="system" size="11"/>
-                                    <color key="textColor" name="Sidebar Text"/>
+                                    <font key="font" metaFont="systemLight" size="11"/>
+                                    <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1022,8 +1023,8 @@
                                 <rect key="frame" x="417" y="536" width="75" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="66.3%" id="anL-FZ-yML">
-                                    <font key="font" metaFont="system" size="24"/>
-                                    <color key="textColor" name="Sidebar Text"/>
+                                    <font key="font" metaFont="systemLight" size="24"/>
+                                    <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1031,7 +1032,7 @@
                                 <rect key="frame" x="266" y="519" width="153" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="5 days, 3 hours, 10 mins" id="XlU-2p-NfM">
-                                    <font key="font" metaFont="system" size="12"/>
+                                    <font key="font" metaFont="systemLight" size="12"/>
                                     <color key="textColor" name="Subtitle Small Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1040,7 +1041,7 @@
                                 <rect key="frame" x="114" y="478" width="153" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Updated 1.0 seconds ago" id="hE9-oz-DfW">
-                                    <font key="font" metaFont="system" size="12"/>
+                                    <font key="font" metaFont="systemLight" size="12"/>
                                     <color key="textColor" name="Sidebar Super Light Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1286,23 +1287,8 @@
         <namedColor name="General Text">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.75999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Sidebar Light Text">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.68999999761581421" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Sidebar Super Light Text">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.50999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Sidebar Text">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.75999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Sidebar Text">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.7599999905" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Sidebar Text">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.7599999905" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Sidebar Text">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.7599999905" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Subtitle Small Text">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.64999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
