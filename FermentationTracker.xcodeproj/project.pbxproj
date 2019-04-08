@@ -25,6 +25,7 @@
 		9DB5DD9322599677001DB7A4 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB5DD89225995AE001DB7A4 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9DB5DD98225996AC001DB7A4 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5DD97225996AC001DB7A4 /* ChartViewController.swift */; };
 		9DB5DD9A225A78E7001DB7A4 /* GravityFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5DD99225A78E7001DB7A4 /* GravityFormatter.swift */; };
+		9DB5DD9C225BE041001DB7A4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DB5DD9B225BE041001DB7A4 /* Media.xcassets */; };
 		9DD4CADD225466AF003F0DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */; };
 		9DD4CAE2225466AF003F0DF2 /* FermentationTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE0225466AF003F0DF2 /* FermentationTracker.xcdatamodeld */; };
 		9DD4CAE4225466AF003F0DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		9DB5DD83225995AE001DB7A4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		9DB5DD97225996AC001DB7A4 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		9DB5DD99225A78E7001DB7A4 /* GravityFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityFormatter.swift; sourceTree = "<group>"; };
+		9DB5DD9B225BE041001DB7A4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		9DD4CAD9225466AE003F0DF2 /* FermentationTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FermentationTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD4CAE1225466AF003F0DF2 /* TiltTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TiltTracker.xcdatamodel; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				9DD4CAE8225466AF003F0DF2 /* Info.plist */,
 				9DD4CAE9225466AF003F0DF2 /* FermentationTracker.entitlements */,
 				9D3960FE22597428009F1323 /* Defaults.plist */,
+				9DB5DD9B225BE041001DB7A4 /* Media.xcassets */,
 			);
 			path = FermentationTracker;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			files = (
 				9DD4CAE4225466AF003F0DF2 /* Assets.xcassets in Resources */,
 				9DD4CAE7225466AF003F0DF2 /* Main.storyboard in Resources */,
+				9DB5DD9C225BE041001DB7A4 /* Media.xcassets in Resources */,
 				9D3960FF22597428009F1323 /* Defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
