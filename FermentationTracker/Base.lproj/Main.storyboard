@@ -748,8 +748,8 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Kv9-Wx-Dk4">
-                                                                    <rect key="frame" x="-1" y="55" width="108" height="19"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="CyroLupin IPA" id="voa-qd-9b5">
+                                                                    <rect key="frame" x="2" y="55" width="108" height="19"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="CyroLupin IPA" id="voa-qd-9b5" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
                                                                         <font key="font" metaFont="systemBold" size="15"/>
                                                                         <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -759,8 +759,8 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="k96-GS-DhG">
-                                                                    <rect key="frame" x="-1" y="36" width="61" height="18"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1.026 SG" placeholderString="placeholder" id="zHG-DG-Ij4">
+                                                                    <rect key="frame" x="2" y="36" width="61" height="18"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1.026 SG" placeholderString="placeholder" id="zHG-DG-Ij4" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
                                                                         <font key="font" metaFont="systemLight" size="14"/>
                                                                         <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -774,8 +774,8 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="olL-5j-1JO" userLabel="tempTextField">
-                                                                    <rect key="frame" x="76" y="36" width="28" height="18"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="70F" id="bgP-MX-t0m">
+                                                                    <rect key="frame" x="79" y="36" width="28" height="18"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="70F" id="bgP-MX-t0m" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
                                                                         <customFormatter key="formatter" id="RvQ-kE-eB1" customClass="TemperatureFormatter" customModule="FermentationTracker" customModuleProvider="target"/>
                                                                         <font key="font" metaFont="systemLight" size="14"/>
                                                                         <color key="textColor" name="General Text"/>
@@ -790,16 +790,16 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="lgO-eH-tZt">
-                                                                    <rect key="frame" x="131" y="36" width="73" height="18"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="3.81% ABV" id="K7x-4U-box">
+                                                                    <rect key="frame" x="128" y="36" width="73" height="18"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="3.81% ABV" id="K7x-4U-box" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
                                                                         <font key="font" metaFont="systemLight" size="14"/>
                                                                         <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="TCg-fy-t2X">
-                                                                    <rect key="frame" x="-1" y="16" width="62" height="18"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Tilt Black" id="riQ-lM-L81">
+                                                                    <rect key="frame" x="2" y="16" width="62" height="18"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Tilt Black" id="riQ-lM-L81" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
                                                                         <font key="font" metaFont="systemLight" size="14"/>
                                                                         <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -809,16 +809,16 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wIp-YF-EYS">
-                                                                    <rect key="frame" x="146" y="56" width="58" height="18"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="5:50 PM" id="kRc-sU-HPW">
+                                                                    <rect key="frame" x="143" y="56" width="58" height="18"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="5:50 PM" id="kRc-sU-HPW" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
                                                                         <font key="font" metaFont="systemLight" size="14"/>
                                                                         <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kwh-Qf-swV">
-                                                                    <rect key="frame" x="62" y="16" width="69" height="13"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Connecting..." id="0uI-qR-P4x">
+                                                                    <rect key="frame" x="65" y="16" width="69" height="13"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Connecting..." id="0uI-qR-P4x" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
                                                                         <font key="font" metaFont="systemLight" size="10"/>
                                                                         <color key="textColor" name="Sidebar Super Light Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -827,9 +827,9 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="olL-5j-1JO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="k96-GS-DhG" secondAttribute="trailing" constant="6" id="0fI-4e-GXg"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kwh-Qf-swV" secondAttribute="trailing" constant="1" id="AiN-1H-hxb"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kwh-Qf-swV" secondAttribute="trailing" constant="4" id="AiN-1H-hxb"/>
                                                                 <constraint firstItem="olL-5j-1JO" firstAttribute="leading" secondItem="k96-GS-DhG" secondAttribute="trailing" priority="249" constant="20" id="Byj-Jx-bbp"/>
-                                                                <constraint firstItem="Kv9-Wx-Dk4" firstAttribute="leading" secondItem="fmv-JT-yDL" secondAttribute="leading" constant="1" id="CxL-GO-HG3"/>
+                                                                <constraint firstItem="Kv9-Wx-Dk4" firstAttribute="leading" secondItem="fmv-JT-yDL" secondAttribute="leading" constant="4" id="CxL-GO-HG3"/>
                                                                 <constraint firstItem="wIp-YF-EYS" firstAttribute="trailing" secondItem="lgO-eH-tZt" secondAttribute="trailing" id="E8D-73-HG0"/>
                                                                 <constraint firstItem="kwh-Qf-swV" firstAttribute="leading" secondItem="TCg-fy-t2X" secondAttribute="trailing" constant="5" id="FzS-34-qst"/>
                                                                 <constraint firstItem="olL-5j-1JO" firstAttribute="baseline" secondItem="k96-GS-DhG" secondAttribute="baseline" id="GUF-iC-Dy0"/>
@@ -838,9 +838,9 @@
                                                                 <constraint firstItem="lgO-eH-tZt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="olL-5j-1JO" secondAttribute="trailing" constant="6" id="YO3-79-Thl"/>
                                                                 <constraint firstItem="k96-GS-DhG" firstAttribute="leading" secondItem="Kv9-Wx-Dk4" secondAttribute="leading" id="Zy9-Gq-hl8"/>
                                                                 <constraint firstItem="TCg-fy-t2X" firstAttribute="top" secondItem="k96-GS-DhG" secondAttribute="bottom" constant="2" id="cQK-UV-TbA"/>
-                                                                <constraint firstAttribute="trailing" secondItem="wIp-YF-EYS" secondAttribute="trailing" constant="1" id="iN5-3U-Qt7"/>
+                                                                <constraint firstAttribute="trailing" secondItem="wIp-YF-EYS" secondAttribute="trailing" constant="4" id="iN5-3U-Qt7"/>
                                                                 <constraint firstItem="lgO-eH-tZt" firstAttribute="baseline" secondItem="k96-GS-DhG" secondAttribute="baseline" id="kgt-pj-HzA"/>
-                                                                <constraint firstItem="wIp-YF-EYS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Kv9-Wx-Dk4" secondAttribute="trailing" constant="1" id="lfp-pm-gDG"/>
+                                                                <constraint firstItem="wIp-YF-EYS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Kv9-Wx-Dk4" secondAttribute="trailing" constant="6" id="lfp-pm-gDG"/>
                                                                 <constraint firstItem="Kv9-Wx-Dk4" firstAttribute="top" secondItem="fmv-JT-yDL" secondAttribute="top" constant="2" id="nFV-Ca-mCF"/>
                                                                 <constraint firstItem="k96-GS-DhG" firstAttribute="top" secondItem="Kv9-Wx-Dk4" secondAttribute="bottom" constant="1" id="o2y-0h-4TG"/>
                                                                 <constraint firstItem="wIp-YF-EYS" firstAttribute="baseline" secondItem="Kv9-Wx-Dk4" secondAttribute="baseline" id="vqw-7m-7yP"/>
@@ -849,6 +849,10 @@
                                                                 <outlet property="textField" destination="Kv9-Wx-Dk4" id="Zj3-3E-pdH"/>
                                                             </connections>
                                                         </tableCellView>
+                                                        <customView identifier="NSTableViewRowViewKey" id="QQe-qV-ddy" customClass="CustomSelectionTableRowView" customModule="FermentationTracker" customModuleProvider="target">
+                                                            <rect key="frame" x="1" y="79" width="203" height="72"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        </customView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
@@ -861,7 +865,7 @@
                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                 </clipView>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="xM6-Bw-iFp"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="xM6-Bw-iFp"/>
                                 </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="UVU-jL-gOX">
                                     <rect key="frame" x="-100" y="-100" width="0.0" height="16"/>

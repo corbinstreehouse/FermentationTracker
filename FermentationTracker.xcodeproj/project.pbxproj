@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D0483A5225C15DE001A95D3 /* TableViewTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0483A4225C15DE001A95D3 /* TableViewTextField.swift */; };
+		9D0483A8225C1C0F001A95D3 /* CustomSelectionTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0483A7225C1C0F001A95D3 /* CustomSelectionTableRowView.swift */; };
+		9D0483AA225C2084001A95D3 /* EditableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0483A9225C2084001A95D3 /* EditableTextView.swift */; };
 		9D3960FB225971DE009F1323 /* TemperatureFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3960FA225971DE009F1323 /* TemperatureFormatter.swift */; };
 		9D3960FD22597214009F1323 /* Setttings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3960FC22597214009F1323 /* Setttings.swift */; };
 		9D3960FF22597428009F1323 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D3960FE22597428009F1323 /* Defaults.plist */; };
@@ -26,7 +29,6 @@
 		9DB5DD98225996AC001DB7A4 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5DD97225996AC001DB7A4 /* ChartViewController.swift */; };
 		9DB5DD9A225A78E7001DB7A4 /* GravityFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5DD99225A78E7001DB7A4 /* GravityFormatter.swift */; };
 		9DB5DD9C225BE041001DB7A4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DB5DD9B225BE041001DB7A4 /* Media.xcassets */; };
-		9DB5DD9E225C079F001DB7A4 /* DebugTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5DD9D225C079F001DB7A4 /* DebugTextFieldCell.swift */; };
 		9DD4CADD225466AF003F0DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */; };
 		9DD4CAE2225466AF003F0DF2 /* FermentationTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE0225466AF003F0DF2 /* FermentationTracker.xcdatamodeld */; };
 		9DD4CAE4225466AF003F0DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */; };
@@ -80,6 +82,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9D0483A4225C15DE001A95D3 /* TableViewTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewTextField.swift; sourceTree = "<group>"; };
+		9D0483A7225C1C0F001A95D3 /* CustomSelectionTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSelectionTableRowView.swift; sourceTree = "<group>"; };
+		9D0483A9225C2084001A95D3 /* EditableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTextView.swift; sourceTree = "<group>"; };
 		9D3960FA225971DE009F1323 /* TemperatureFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureFormatter.swift; sourceTree = "<group>"; };
 		9D3960FC22597214009F1323 /* Setttings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setttings.swift; sourceTree = "<group>"; };
 		9D3960FE22597428009F1323 /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
@@ -98,7 +103,6 @@
 		9DB5DD97225996AC001DB7A4 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		9DB5DD99225A78E7001DB7A4 /* GravityFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityFormatter.swift; sourceTree = "<group>"; };
 		9DB5DD9B225BE041001DB7A4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		9DB5DD9D225C079F001DB7A4 /* DebugTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugTextFieldCell.swift; sourceTree = "<group>"; };
 		9DD4CAD9225466AE003F0DF2 /* FermentationTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FermentationTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD4CADC225466AF003F0DF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD4CAE1225466AF003F0DF2 /* TiltTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TiltTracker.xcdatamodel; sourceTree = "<group>"; };
@@ -170,18 +174,20 @@
 				9DA665CE225687E9009958E8 /* FermentationTrackerApplication.swift */,
 				9DA665D02256C616009958E8 /* FermentationDataProviderDevice.swift */,
 				9DA665E22257B1BF009958E8 /* RMEncodedColorTransformer.swift */,
-				9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */,
 				9DA665E822592407009958E8 /* BeerDetailsViewController.swift */,
 				9DA665E62259215F009958E8 /* FermentationDataViewController.swift */,
 				9D3960FC22597214009F1323 /* Setttings.swift */,
 				9D3960FA225971DE009F1323 /* TemperatureFormatter.swift */,
 				9DB5DD99225A78E7001DB7A4 /* GravityFormatter.swift */,
 				9DB5DD97225996AC001DB7A4 /* ChartViewController.swift */,
+				9D0483A4225C15DE001A95D3 /* TableViewTextField.swift */,
+				9D0483A7225C1C0F001A95D3 /* CustomSelectionTableRowView.swift */,
+				9D0483A9225C2084001A95D3 /* EditableTextView.swift */,
 				9DD4CAE5225466AF003F0DF2 /* Main.storyboard */,
-				9DB5DD9D225C079F001DB7A4 /* DebugTextFieldCell.swift */,
 				9DD4CAE8225466AF003F0DF2 /* Info.plist */,
 				9DD4CAE9225466AF003F0DF2 /* FermentationTracker.entitlements */,
 				9D3960FE22597428009F1323 /* Defaults.plist */,
+				9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */,
 				9DB5DD9B225BE041001DB7A4 /* Media.xcassets */,
 			);
 			path = FermentationTracker;
@@ -291,9 +297,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D0483AA225C2084001A95D3 /* EditableTextView.swift in Sources */,
 				9DB5DD9A225A78E7001DB7A4 /* GravityFormatter.swift in Sources */,
 				9DA665E72259215F009958E8 /* FermentationDataViewController.swift in Sources */,
-				9DB5DD9E225C079F001DB7A4 /* DebugTextFieldCell.swift in Sources */,
+				9D0483A5225C15DE001A95D3 /* TableViewTextField.swift in Sources */,
 				9DD4CAE2225466AF003F0DF2 /* FermentationTracker.xcdatamodeld in Sources */,
 				9D80FE19225679610076BC3C /* MainWindowController.swift in Sources */,
 				9D80FE0022557A550076BC3C /* Beacon.swift in Sources */,
@@ -303,6 +310,7 @@
 				9DA665D12256C616009958E8 /* FermentationDataProviderDevice.swift in Sources */,
 				9DB5DD98225996AC001DB7A4 /* ChartViewController.swift in Sources */,
 				9D3960FB225971DE009F1323 /* TemperatureFormatter.swift in Sources */,
+				9D0483A8225C1C0F001A95D3 /* CustomSelectionTableRowView.swift in Sources */,
 				9DEDD42F22553F530074B6AD /* TiltBluetoothScanner.swift in Sources */,
 				9D80FE0222557A6B0076BC3C /* StandardExtensions.swift in Sources */,
 				9DA665E1225703A8009958E8 /* BeersTableViewController.swift in Sources */,
