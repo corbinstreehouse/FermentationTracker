@@ -8,22 +8,6 @@
 
 import Cocoa
 
-extension Beer {
-    func addFermentationEntryForDevice(_ device: FermentationDataProviderDevice, context: NSManagedObjectContext) {
-        let f: FermentationEntry = FermentationEntry(context: context)
-        
-        f.gravity = device.gravity
-        f.temperature = device.temperature
-        f.timestamp = device.timestamp
-        self.addToFermentationEntries(f)
-        // Update our stats for this beer so we don't have to look at the last entry to find out what it is at. Or, maybe that is fine, and things could be simplified.
-        self.gravity = device.gravity
-        self.temperature = device.temperature
-        self.dateLastUpdated = device.timestamp
-    }
-}
-
-
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
@@ -71,17 +55,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         beer.dateAdded = d
         beer.creationOrder = Double(d.timeIntervalSinceReferenceDate)
         beer.fermentationDataProvider = makeProviderFromDevice(device)
+        beer.isTracking = true
         enableUndoRegistration()
         return beer
     }
     
-    private func findBeerForDevice(_ device: FermentationDataProviderDevice) -> Beer? {
+    private func findTrackingBeerForDevice(_ device: FermentationDataProviderDevice) -> Beer? {
         let fetchRequest: NSFetchRequest<Beer> = Beer.fetchRequest()
         // Sort with the newest items on top
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationOrder", ascending: false)]
         // Find all that have a fermentation data provider still associated
         // I hate this string based programming
-        fetchRequest.predicate = NSPredicate(format: "fermentationDataProvider != nil && fermentationDataProvider.identifier = %@", device.identifier as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "isTracking == true && fermentationDataProvider.identifier = %@", device.identifier as CVarArg)
         // use %K?
         
         // We only need the first one
@@ -113,7 +98,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func handleFoundDevice(_ device: FermentationDataProviderDevice) {
         let context = persistentContainer.viewContext
         // See if we have this provider already somewhere in our list of active beers; if so, update it; otherwise we will create a new entry
-        var beer = findBeerForDevice(device)
+        var beer = findTrackingBeerForDevice(device)
         if beer == nil {
             beer = addNewBeerForDevice(device)
         }

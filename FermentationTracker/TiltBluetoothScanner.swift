@@ -49,7 +49,6 @@ class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
     {
         return range.lowerBound + Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound)))
     }
-    #endif
     
     private func testAddAllTilts() {
         for tiltColor in TiltColor.allCases {
@@ -59,29 +58,28 @@ class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
         }
     }
     
+    private func addFakeUpdates() {
+        var startingGravity = 1.170
+        
+        // add fake data after a delay
+        t = DispatchSource.makeTimerSource()
+        t.schedule(deadline: DispatchTime.now(), repeating: 5)
+        t.setEventHandler(handler: {
+            print("Adding a FAKE TILT for testing!")
+            startingGravity -= 0.001
+            let temperature: Double = Double(TiltBluetoothScanner.random(in: 50..<110))
+            let fakeTilt = TiltBeacon(withColor: TiltColor.black, temperature: temperature, signficantGravity: startingGravity, transmitPower:-50)
+            self.notifyFoundTiltHandlersFor(tilt: fakeTilt)
+        })
+        t.resume()
+    }
+    #endif
+
     // Well, really starts scanning when bluetooth is on.
     func startScanning() {
         checkBluetoothState()
-        
 //        testAddAllTilts()
-        
-        #if false // DEBUG
-            var startingGravity = 1.170
-            
-            // add fake data after a delay
-            t = DispatchSource.makeTimerSource()
-            t.schedule(deadline: DispatchTime.now(), repeating: 5)
-            t.setEventHandler(handler: {
-                print("Adding a FAKE TILT for testing!")
-                startingGravity -= 0.001
-                let temperature: Double = Double(TiltBluetoothScanner.random(in: 50..<110))
-                let fakeTilt = TiltBeacon(withColor: TiltColor.black, temperature: temperature, signficantGravity: startingGravity, transmitPower:-50)
-                self.notifyFoundTiltHandlersFor(tilt: fakeTilt)
-            })
-            t.resume()
-            
-            
-        #endif
+        addFakeUpdates()
     }
     
     func stopScanning() {

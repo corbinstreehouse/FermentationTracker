@@ -743,7 +743,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="fmv-JT-yDL">
+                                                        <tableCellView id="fmv-JT-yDL" customClass="BeerTableCellView" customModule="FermentationTracker" customModuleProvider="target">
                                                             <rect key="frame" x="1" y="1" width="203" height="76"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -812,10 +812,14 @@
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wIp-YF-EYS">
                                                                     <rect key="frame" x="143" y="56" width="58" height="18"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="5:50 PM" id="kRc-sU-HPW" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
+                                                                        <dateFormatter key="formatter" dateStyle="short" timeStyle="short" doesRelativeDateFormatting="YES" id="HGA-A1-y5l"/>
                                                                         <font key="font" metaFont="systemLight" size="14"/>
                                                                         <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="fmv-JT-yDL" name="value" keyPath="objectValue.dateLastUpdated" id="EEM-9P-wd3"/>
+                                                                    </connections>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kwh-Qf-swV">
                                                                     <rect key="frame" x="132" y="16" width="69" height="13"/>
@@ -847,6 +851,7 @@
                                                                 <constraint firstItem="wIp-YF-EYS" firstAttribute="baseline" secondItem="Kv9-Wx-Dk4" secondAttribute="baseline" id="vqw-7m-7yP"/>
                                                             </constraints>
                                                             <connections>
+                                                                <outlet property="dateFormatter" destination="HGA-A1-y5l" id="AE9-Y9-QrZ"/>
                                                                 <outlet property="textField" destination="Kv9-Wx-Dk4" id="Zj3-3E-pdH"/>
                                                             </connections>
                                                         </tableCellView>
