@@ -18,6 +18,7 @@
 		9D80FE0222557A6B0076BC3C /* Data+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE0122557A6B0076BC3C /* Data+Conversions.swift */; };
 		9D80FE0422557AD00076BC3C /* TiltBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE0322557AD00076BC3C /* TiltBeacon.swift */; };
 		9D80FE19225679610076BC3C /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE18225679610076BC3C /* MainWindowController.swift */; };
+		9DA431FD225CFF9D000FA60E /* FermentationDataProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA431FC225CFF9D000FA60E /* FermentationDataProvider+Extensions.swift */; };
 		9DA665CF225687E9009958E8 /* FermentationTrackerApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665CE225687E9009958E8 /* FermentationTrackerApplication.swift */; };
 		9DA665D12256C616009958E8 /* FermentationDataProviderDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665D02256C616009958E8 /* FermentationDataProviderDevice.swift */; };
 		9DA665E1225703A8009958E8 /* BeersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665E0225703A8009958E8 /* BeersTableViewController.swift */; };
@@ -94,6 +95,7 @@
 		9D80FE0122557A6B0076BC3C /* Data+Conversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Conversions.swift"; sourceTree = "<group>"; };
 		9D80FE0322557AD00076BC3C /* TiltBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiltBeacon.swift; sourceTree = "<group>"; };
 		9D80FE18225679610076BC3C /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		9DA431FC225CFF9D000FA60E /* FermentationDataProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FermentationDataProvider+Extensions.swift"; sourceTree = "<group>"; };
 		9DA665CE225687E9009958E8 /* FermentationTrackerApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermentationTrackerApplication.swift; sourceTree = "<group>"; };
 		9DA665D02256C616009958E8 /* FermentationDataProviderDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermentationDataProviderDevice.swift; sourceTree = "<group>"; };
 		9DA665E0225703A8009958E8 /* BeersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersTableViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				9D80FE18225679610076BC3C /* MainWindowController.swift */,
 				9DA665CE225687E9009958E8 /* FermentationTrackerApplication.swift */,
 				9DA665D02256C616009958E8 /* FermentationDataProviderDevice.swift */,
+				9DA431FC225CFF9D000FA60E /* FermentationDataProvider+Extensions.swift */,
 				9DA665E22257B1BF009958E8 /* RMEncodedColorTransformer.swift */,
 				9DA665E822592407009958E8 /* BeerDetailsViewController.swift */,
 				9DA665E62259215F009958E8 /* FermentationDataViewController.swift */,
@@ -322,6 +325,7 @@
 				9DA665E922592407009958E8 /* BeerDetailsViewController.swift in Sources */,
 				9D80FE0422557AD00076BC3C /* TiltBeacon.swift in Sources */,
 				9D3960FD22597214009F1323 /* Setttings.swift in Sources */,
+				9DA431FD225CFF9D000FA60E /* FermentationDataProvider+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -63,13 +63,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var beerCount = 1
     
     private func addNewBeerForDevice(_ device: FermentationDataProviderDevice) -> Beer {
+        disableUndoRegistration()
         let beer = Beer(context: self.persistentContainer.viewContext)
         beer.name = String(format:NSLocalizedString("New Beer %d", comment: "New beer name"), beerCount)
         beerCount = beerCount + 1
         let d = Date()
         beer.dateAdded = d
         beer.creationOrder = Double(d.timeIntervalSinceReferenceDate)
-//        beer.fermentationDataProvider = makeProviderFromDevice(device)
+        beer.fermentationDataProvider = makeProviderFromDevice(device)
+        enableUndoRegistration()
         return beer
     }
     
@@ -100,13 +102,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return beer
     }
     
+    func disableUndoRegistration() {
+        persistentContainer.viewContext.undoManager?.disableUndoRegistration()
+    }
+
+    func enableUndoRegistration() {
+        persistentContainer.viewContext.undoManager?.enableUndoRegistration()
+    }
+
     func handleFoundDevice(_ device: FermentationDataProviderDevice) {
+        let context = persistentContainer.viewContext
         // See if we have this provider already somewhere in our list of active beers; if so, update it; otherwise we will create a new entry
         var beer = findBeerForDevice(device)
         if beer == nil {
             beer = addNewBeerForDevice(device)
         }
-        beer!.addFermentationEntryForDevice(device, context: persistentContainer.viewContext)
+        disableUndoRegistration()
+        beer!.addFermentationEntryForDevice(device, context: context)
+        enableUndoRegistration()
+        silentlySaveContext()
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -143,6 +157,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: - Core Data Saving and Undo support
 
+    private func silentlySaveContext() {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch let error as NSError {
+                print("silent context save error: \(error)")
+            }
+        }
+    }
+    
     @IBAction func saveAction(_ sender: AnyObject?) {
         // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
         let context = persistentContainer.viewContext

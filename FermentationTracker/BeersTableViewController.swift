@@ -22,9 +22,9 @@ class BeersTableViewController: FetchedResultsTableViewController<Beer> {
     
     func makeBeersFetchedResultsController() -> NSFetchedResultsController<Beer> {
         let fetchRequest: NSFetchRequest<Beer> = Beer.fetchRequest()
-        let firstSortItem = NSSortDescriptor(key: "fermentationDataProvider", ascending: false)
-        let secondSortItem = NSSortDescriptor(key: "creationOrder", ascending: false)
-        fetchRequest.sortDescriptors = [firstSortItem, secondSortItem]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "isTracking", ascending: false),
+                                        NSSortDescriptor(key: "creationOrder", ascending: false),
+                                        NSSortDescriptor(key: "fermentationDataProvider", ascending: true)];
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
