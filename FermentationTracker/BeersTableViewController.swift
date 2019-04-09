@@ -60,5 +60,14 @@ class BeersTableViewController: FetchedResultsTableViewController<Beer> {
     @objc func tableViewSelectionDidChange(_ notification: Notification) {
         updateSelectedBeers()
     }
+    
+    
+    override func deleteBackward(_ sender: Any?) {
+        let selectedBeers = self.mainWindowController.selectedBeers
+        let context = self.persistentContainer.viewContext
+        for beer in selectedBeers {
+            context.delete(beer)
+        }
+    }
 
 }

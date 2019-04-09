@@ -24,26 +24,26 @@ class MainWindowController: NSWindowController {
     
     
     override func awakeFromNib() {
-        // Start the persistentContainer load?
-        self.window?.contentView?.wantsLayer = true
+//        self.window?.contentView?.wantsLayer = true // needed?
     }
     
     override func windowWillLoad() {
         super.windowWillLoad()
     }
     
+    lazy var persistentContainer: NSPersistentContainer = {
+        return FermentationTrackerApplication.appDelegate.persistentContainer
+    }()
+    
+    @objc func windowWillReturnUndoManager(_ window: NSWindow) -> UndoManager? {
+        return persistentContainer.viewContext.undoManager
+    }
     
     override func windowDidLoad() {
         super.windowDidLoad()
         let color = NSColor(named: NSColor.Name("WindowBackgroundColor"))
         self.window?.backgroundColor = color // NSColor(catalogName: "Media", colorName: <#T##NSColor.Name#>)
-        // so flipping stupid that we can't set this in the UI just because it isn't on an NSVisualEffectView.
-//        self.window?.appearance = NSAppearance.init(named: NSAppearance.Name.vibrantDark)
     }
-    
-    
-    
-    
     
     
 }

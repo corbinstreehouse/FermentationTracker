@@ -10,8 +10,8 @@
         <attribute name="isTracking" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="temperature" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="fermentationDataProvider" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FermentationDataProvider" inverseName="beer" inverseEntity="FermentationDataProvider" syncable="YES"/>
-        <relationship name="fermentationEntries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="FermentationEntry" inverseName="beer" inverseEntity="FermentationEntry" syncable="YES"/>
+        <relationship name="fermentationDataProvider" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="FermentationDataProvider" inverseName="beer" inverseEntity="FermentationDataProvider" syncable="YES"/>
+        <relationship name="fermentationEntries" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="FermentationEntry" inverseName="beer" inverseEntity="FermentationEntry" syncable="YES"/>
         <fetchIndex name="creationFetchIndex">
             <fetchIndexElement property="creationOrder" type="Binary" order="ascending"/>
         </fetchIndex>

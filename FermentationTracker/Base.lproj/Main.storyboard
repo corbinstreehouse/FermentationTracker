@@ -722,7 +722,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="206" height="279"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" autosaveColumns="NO" rowHeight="66" viewBased="YES" id="DnS-RF-h3R">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" autosaveColumns="NO" rowHeight="66" viewBased="YES" id="DnS-RF-h3R" customClass="RMTableView" customModule="FermentationTracker" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="206" height="279"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -759,22 +759,23 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="k96-GS-DhG">
-                                                                    <rect key="frame" x="2" y="36" width="61" height="18"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1.026 SG" placeholderString="placeholder" id="zHG-DG-Ij4" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
+                                                                    <rect key="frame" x="2" y="36" width="62" height="18"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="1.005 SG" id="zHG-DG-Ij4" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
+                                                                        <customFormatter key="formatter" id="jn0-iu-MMA" customClass="GravityFormatter" customModule="FermentationTracker" customModuleProvider="target">
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="includeGravityType" value="YES"/>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </customFormatter>
                                                                         <font key="font" metaFont="systemLight" size="14"/>
                                                                         <color key="textColor" name="General Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="fmv-JT-yDL" name="displayPatternValue1" keyPath="objectValue.gravity" id="uRP-r3-33b">
-                                                                            <dictionary key="options">
-                                                                                <string key="NSDisplayPattern">%{value1}@ SG</string>
-                                                                            </dictionary>
-                                                                        </binding>
+                                                                        <binding destination="fmv-JT-yDL" name="value" keyPath="objectValue.gravity" id="ORf-Vt-wRl"/>
                                                                     </connections>
                                                                 </textField>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="olL-5j-1JO" userLabel="tempTextField">
-                                                                    <rect key="frame" x="79" y="36" width="28" height="18"/>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="olL-5j-1JO" userLabel="tempTextField">
+                                                                    <rect key="frame" x="80" y="36" width="28" height="18"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="70F" id="bgP-MX-t0m" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
                                                                         <customFormatter key="formatter" id="RvQ-kE-eB1" customClass="TemperatureFormatter" customModule="FermentationTracker" customModuleProvider="target"/>
                                                                         <font key="font" metaFont="systemLight" size="14"/>
@@ -951,7 +952,11 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.name" id="rjL-Q9-Oqe"/>
+                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.name" id="Y0u-C1-p3Y">
+                                        <dictionary key="options">
+                                            <string key="NSNoSelectionPlaceholder">Select Something</string>
+                                        </dictionary>
+                                    </binding>
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SWn-Nk-atc">
@@ -998,7 +1003,7 @@
                                 <rect key="frame" x="139" y="534" width="383" height="44"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eSC-l9-Wzl">
-                                        <rect key="frame" x="102" y="29" width="33" height="14"/>
+                                        <rect key="frame" x="99" y="29" width="33" height="14"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Temp" id="7hf-ZI-aft">
                                             <font key="font" metaFont="systemLight" size="11"/>
@@ -1054,17 +1059,17 @@
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CdS-Te-ZG2">
                                         <rect key="frame" x="157" y="2" width="87" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="14.50%" id="zbz-YQ-yiJ">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="14.50%" placeholderString="0.0%" id="zbz-YQ-yiJ">
                                             <font key="font" metaFont="systemLight" size="24"/>
                                             <color key="textColor" name="General Text"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="MdO-5H-Pcb" name="displayPatternValue1" keyPath="selection.abv" id="IWc-eP-NhF">
+                                            <binding destination="MdO-5H-Pcb" name="displayPatternValue1" keyPath="selection.abv" id="qzU-63-Y24">
                                                 <dictionary key="options">
                                                     <string key="NSDisplayPattern">%{value1}@%</string>
-                                                    <string key="NSMultipleValuesPlaceholder">0.00%</string>
-                                                    <string key="NSNullPlaceholder">0.00%</string>
+                                                    <string key="NSNoSelectionPlaceholder">0.00</string>
+                                                    <string key="NSNullPlaceholder">0.00</string>
                                                 </dictionary>
                                             </binding>
                                         </connections>
@@ -1072,23 +1077,23 @@
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34N-r9-BE8">
                                         <rect key="frame" x="249" y="2" width="116" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="66.3%" id="anL-FZ-yML">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="66.3%" placeholderString="0.0%" id="anL-FZ-yML">
                                             <font key="font" metaFont="systemLight" size="24"/>
                                             <color key="textColor" name="General Text"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="MdO-5H-Pcb" name="displayPatternValue1" keyPath="selection.attenuation" id="CSp-Fl-zst">
+                                            <binding destination="MdO-5H-Pcb" name="displayPatternValue1" keyPath="selection.attenuation" id="PHW-du-bxI">
                                                 <dictionary key="options">
                                                     <string key="NSDisplayPattern">%{value1}@%</string>
-                                                    <string key="NSMultipleValuesPlaceholder">0.0%</string>
-                                                    <string key="NSNullPlaceholder">0.0%</string>
+                                                    <string key="NSNoSelectionPlaceholder">0.0</string>
+                                                    <string key="NSNullPlaceholder">0.0</string>
                                                 </dictionary>
                                             </binding>
                                         </connections>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Sn-dj-rny">
-                                        <rect key="frame" x="84" y="2" width="69" height="29"/>
+                                        <rect key="frame" x="84" y="2" width="70" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="100°F" id="Goq-ZX-YEE">
                                             <customFormatter key="formatter" id="XFB-av-K7g" customClass="TemperatureFormatter" customModule="FermentationTracker" customModuleProvider="target"/>
@@ -1195,7 +1200,7 @@
                                     <rect key="frame" x="1" y="0.0" width="399" height="537"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" autosaveColumns="NO" autosaveName="" rowSizeStyle="automatic" headerView="ebl-pk-BgR" viewBased="YES" id="Icg-rg-8x0">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" autosaveColumns="NO" autosaveName="" rowSizeStyle="automatic" headerView="ebl-pk-BgR" viewBased="YES" id="Icg-rg-8x0" customClass="RMTableView" customModule="FermentationTracker" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="403" height="514"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>

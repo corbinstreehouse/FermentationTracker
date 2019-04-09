@@ -50,10 +50,25 @@ class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
         return range.lowerBound + Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound)))
     }
     #endif
+    
+    private func testAddAllTilts() {
+        for tiltColor in TiltColor.allCases {
+            let temperature: Double = Double(TiltBluetoothScanner.random(in: 50..<110))
+            let fakeTilt = TiltBeacon(withColor: tiltColor, temperature: temperature, signficantGravity: 1.055, transmitPower:-50)
+            self.notifyFoundTiltHandlersFor(tilt: fakeTilt)
+        }
+    }
+    
     // Well, really starts scanning when bluetooth is on.
     func startScanning() {
         checkBluetoothState()
-        #if DEBUG
+        
+       // oh hacky tests that cause bugs.
+        #if false
+        testAddAllTilts()
+        #endif
+        
+        #if false // DEBUG
             var startingGravity = 1.170
             
             // add fake data after a delay

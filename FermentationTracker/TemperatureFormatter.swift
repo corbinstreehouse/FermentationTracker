@@ -18,7 +18,7 @@ class TemperatureFormatter: Formatter {
         } else {
             // (32°F − 32) × 5/9 = 0°C
             let cels = value - 32 * 5/9
-            return String(format:"%.0°C", cels)
+            return String(format:"%.0f°C", cels)
         }
     }
     

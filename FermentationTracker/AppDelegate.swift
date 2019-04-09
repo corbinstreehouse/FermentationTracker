@@ -11,7 +11,7 @@ import Cocoa
 extension Beer {
     func addFermentationEntryForDevice(_ device: FermentationDataProviderDevice, context: NSManagedObjectContext) {
         let f: FermentationEntry = FermentationEntry(context: context)
-        // TODO: if we delete a beer will it cascade and delete all the children entries?
+        
         f.gravity = device.gravity
         f.temperature = device.temperature
         f.timestamp = device.timestamp
@@ -28,21 +28,28 @@ extension Beer {
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     private let bluetoothScanner = TiltBluetoothScanner()
-
-    func applicationWillFinishLaunching(_ notification: Notification) {
+    
+    override init() {
+        super.init()
+        registerDefaults()
+    }
+    
+    private func registerDefaults() {
         // Load our defaults
         let defaultsURL = Bundle.main.resourceURL?.appendingPathComponent("Defaults.plist")
         let defaultsDict = NSDictionary(contentsOf: defaultsURL!)!
         let defaults: [String : Any] = defaultsDict as! [String : Any]
         UserDefaults.standard.register(defaults: defaults)
-        
+    }
+
+    func applicationWillFinishLaunching(_ notification: Notification) {
         // start watching for tilts
-        bluetoothScanner.startScanning()
         bluetoothScanner.addFoundTiltHandler { (tilt: TiltBeacon) in
             DispatchQueue.main.async {
                 self.handleFoundDevice(tilt)
             }
         }
+        bluetoothScanner.startScanning()
     }
     
     private func makeProviderFromDevice(_ device: FermentationDataProviderDevice) -> FermentationDataProvider {
@@ -53,13 +60,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return provider
     }
     
+    private var beerCount = 1
+    
     private func addNewBeerForDevice(_ device: FermentationDataProviderDevice) -> Beer {
         let beer = Beer(context: self.persistentContainer.viewContext)
-        beer.name =  NSLocalizedString("Test IPA", comment: "New beer name")
+        beer.name = String(format:NSLocalizedString("New Beer %d", comment: "New beer name"), beerCount)
+        beerCount = beerCount + 1
         let d = Date()
         beer.dateAdded = d
         beer.creationOrder = Double(d.timeIntervalSinceReferenceDate)
-        beer.fermentationDataProvider = makeProviderFromDevice(device)
+//        beer.fermentationDataProvider = makeProviderFromDevice(device)
         return beer
     }
     
@@ -153,11 +163,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {
-        // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
-        return persistentContainer.viewContext.undoManager
-    }
-
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         // Save changes in the application's managed object context before the application terminates.
         let context = persistentContainer.viewContext
@@ -173,11 +178,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         do {
             try context.save()
-        } catch {
-            let nserror = error as NSError
-
+        } catch let error as NSError {
             // Customize this code block to include application-specific recovery steps.
-            let result = sender.presentError(nserror)
+            let result = sender.presentError(error)
             if (result) {
                 return .terminateCancel
             }

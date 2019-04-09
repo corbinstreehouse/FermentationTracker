@@ -22,6 +22,10 @@ class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableVi
     @IBOutlet var tableView: NSTableView!
     
     var fetchedResultsController: NSFetchedResultsController<ResultType>? {
+        willSet {
+            // Drop the delegate!
+            fetchedResultsController?.delegate = nil
+        }
         didSet {
             fetchedResultsController?.delegate = self
             fetchAndReload()
@@ -46,16 +50,67 @@ class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableVi
         super.viewWillAppear()
     }
     
+    
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+//        print("section info change?")
+//    }
+    
+    
+    var insertionRows = IndexSet()
+    var deletionRows = IndexSet()
+    var moveRows = IndexSet() // TODO! Do moves.
+
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+        insertionRows.removeAll()
+        deletionRows.removeAll()
+        moveRows.removeAll()
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.removeRows(at: deletionRows, withAnimation: .effectFade)
+        tableView.insertRows(at: insertionRows, withAnimation: .effectFade)
+        // TODO: moves!
+        insertionRows.removeAll()
+        deletionRows.removeAll()
+
+        tableView.endUpdates()
+        // avoid issue with SNTableView not being UITableView with a hack to reload. I need to fix this with a translation of their data to ours..
+//        if updatesDone > 1 {
+//            tableView.reloadData()
+//        }
+    }
+
     // NSFetchedResultsControllerDelegate
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+
+        /*
+        if type != .update {
+            // begin hack
+            updatesDone = updatesDone + 1
+            if updatesDone > 1 {
+                return
+            }
+            // end hack to avoid insertion issues w/it not being UITAbleView
+        }
+ */
+        // what if i just keep these around and then sort them by index? I think that would work..
+        
+        
         // TODO: if the user is resizing the header while we get an update, it will screw things up. we'll have to pause and aggregate changes until the header resize is done, and then fix everything up at the end. Stupid bugs in tableview!
         switch (type) {
         case .insert:
-            let rows = IndexSet(integer: newIndexPath!.item)
-            tableView.insertRows(at: rows, withAnimation: .effectFade)
+            let row = newIndexPath!.item
+            print("insert row: \(row)")
+//            let rows = IndexSet(integer: index)
+//            tableView.insertRows(at: rows, withAnimation: .effectFade)
+            insertionRows.insert(row)
         case .delete:
-            let rows = IndexSet(integer: indexPath!.item)
-            tableView.removeRows(at: rows, withAnimation: .effectFade)
+            let row = indexPath!.item
+            print("delete row: \(row)")
+//            let rows = IndexSet(integer: indexPath!.item)
+//            tableView.removeRows(at: rows, withAnimation: .effectFade)
+            deletionRows.insert(row)
         case .move:
             let oldRow = indexPath!.item
             let newRow = newIndexPath!.item
