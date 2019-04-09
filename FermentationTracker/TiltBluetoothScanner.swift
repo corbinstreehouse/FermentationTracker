@@ -64,7 +64,7 @@ class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
         checkBluetoothState()
         
        // oh hacky tests that cause bugs.
-        #if false
+        #if true
         testAddAllTilts()
         #endif
         

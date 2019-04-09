@@ -61,6 +61,7 @@ class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableVi
     var moveRows = IndexSet() // TODO! Do moves.
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        print("beginUpdates")
         tableView.beginUpdates()
         insertionRows.removeAll()
         deletionRows.removeAll()
@@ -68,55 +69,35 @@ class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableVi
     }
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        print("endUpdates, delete: \(deletionRows) insert:\(insertionRows)")
         tableView.removeRows(at: deletionRows, withAnimation: .effectFade)
         tableView.insertRows(at: insertionRows, withAnimation: .effectFade)
-        // TODO: moves!
+        // TODO: moves!?
         insertionRows.removeAll()
         deletionRows.removeAll()
 
         tableView.endUpdates()
-        // avoid issue with SNTableView not being UITableView with a hack to reload. I need to fix this with a translation of their data to ours..
-//        if updatesDone > 1 {
-//            tableView.reloadData()
-//        }
     }
 
     // NSFetchedResultsControllerDelegate
+    // TODO: if the user is resizing the header while we get an update, it will screw things up. we'll have to pause and aggregate changes until the header resize is done, and then fix everything up at the end. Stupid bugs in tableview!
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
 
-        /*
-        if type != .update {
-            // begin hack
-            updatesDone = updatesDone + 1
-            if updatesDone > 1 {
-                return
-            }
-            // end hack to avoid insertion issues w/it not being UITAbleView
-        }
- */
-        // what if i just keep these around and then sort them by index? I think that would work..
-        
-        
-        // TODO: if the user is resizing the header while we get an update, it will screw things up. we'll have to pause and aggregate changes until the header resize is done, and then fix everything up at the end. Stupid bugs in tableview!
         switch (type) {
         case .insert:
             let row = newIndexPath!.item
-            print("insert row: \(row)")
-//            let rows = IndexSet(integer: index)
-//            tableView.insertRows(at: rows, withAnimation: .effectFade)
+//            print("insert row: \(row)")
             insertionRows.insert(row)
         case .delete:
             let row = indexPath!.item
-            print("delete row: \(row)")
-//            let rows = IndexSet(integer: indexPath!.item)
-//            tableView.removeRows(at: rows, withAnimation: .effectFade)
+//            print("delete row: \(row)")
             deletionRows.insert(row)
         case .move:
             let oldRow = indexPath!.item
             let newRow = newIndexPath!.item
             tableView.moveRow(at: oldRow, to: newRow)
         case .update:
-            // We use bindings, so I don't think we have to do anything here
+            // We use bindings; nothing needed here
             break
         }
     }

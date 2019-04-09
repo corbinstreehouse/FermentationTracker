@@ -52,15 +52,9 @@ class BeersTableViewController: FetchedResultsTableViewController<Beer> {
     }
 
     // NSTableViewDelegate
-//    @objc func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-//        let result = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: nil) as? NSTableCellView
-//        return result
-//    }
-    
     @objc func tableViewSelectionDidChange(_ notification: Notification) {
         updateSelectedBeers()
     }
-    
     
     override func deleteBackward(_ sender: Any?) {
         let selectedBeers = self.mainWindowController.selectedBeers

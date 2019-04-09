@@ -43,22 +43,4 @@ class TableViewTextFieldCell: NSTextFieldCell {
             
         }
     }
-    
-//    deinit {
-//        var t = self.textColor
-//        withUnsafePointer(to: &t) {
-//            print("\(self.stringValue) : textColor.address: \($0)")
-//        }
-//        NSLog("%@ - %p", self.stringValue, self.textColor!)
-//    }
-    
-//    override var objectValue: Any? {
-//        didSet {
-//            if let f = self.formatter {
-//                if f.isKind(of: TemperatureFormatter.self) {
-//                    print("\(self.stringValue)")
-//                }
-//            }
-//        }
-//    }
 }

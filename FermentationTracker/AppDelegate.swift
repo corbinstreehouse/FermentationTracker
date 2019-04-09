@@ -74,8 +74,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func findBeerForDevice(_ device: FermentationDataProviderDevice) -> Beer? {
-        // TODO: maybe cache these results to avoid re-running the queries so much?
-        
         let fetchRequest: NSFetchRequest<Beer> = Beer.fetchRequest()
         // Sort with the newest items on top
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationOrder", ascending: false)]
@@ -108,7 +106,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if beer == nil {
             beer = addNewBeerForDevice(device)
         }
-        beer?.addFermentationEntryForDevice(device, context: persistentContainer.viewContext)
+        beer!.addFermentationEntryForDevice(device, context: persistentContainer.viewContext)
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
