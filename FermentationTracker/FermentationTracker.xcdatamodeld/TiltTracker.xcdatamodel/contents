@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17G6030" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Beer" representedClassName="Beer" syncable="YES" codeGenerationType="class">
+        <attribute name="abv" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="attenuation" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="creationOrder" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateLastUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -27,7 +29,7 @@
         <relationship name="beer" maxCount="1" deletionRule="Nullify" destinationEntity="Beer" inverseName="fermentationEntries" inverseEntity="Beer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Beer" positionX="-3674" positionY="-4102" width="146" height="180"/>
+        <element name="Beer" positionX="-3674" positionY="-4102" width="146" height="210"/>
         <element name="FermentationDataProvider" positionX="-3564" positionY="-3987" width="128" height="105"/>
         <element name="FermentationEntry" positionX="-3573" positionY="-3924" width="252" height="105"/>
     </elements>
