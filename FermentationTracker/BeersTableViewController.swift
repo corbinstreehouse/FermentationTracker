@@ -34,6 +34,7 @@ class BeersTableViewController: FetchedResultsTableViewController<Beer> {
     override func viewWillAppear() {
         self.fetchedResultsController = makeBeersFetchedResultsController()
         super.viewWillAppear()
+        selectFirstRowIfNeeded()
     }
     
     private func getSelectedBeers() -> [Beer] {

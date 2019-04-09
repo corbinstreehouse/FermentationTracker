@@ -818,8 +818,8 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kwh-Qf-swV">
-                                                                    <rect key="frame" x="65" y="16" width="69" height="13"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Connecting..." id="0uI-qR-P4x" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
+                                                                    <rect key="frame" x="132" y="16" width="69" height="13"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Connecting..." id="0uI-qR-P4x" customClass="TableViewTextFieldCell" customModule="FermentationTracker" customModuleProvider="target">
                                                                         <font key="font" metaFont="systemLight" size="10"/>
                                                                         <color key="textColor" name="Sidebar Super Light Text"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -828,11 +828,11 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="olL-5j-1JO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="k96-GS-DhG" secondAttribute="trailing" constant="6" id="0fI-4e-GXg"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kwh-Qf-swV" secondAttribute="trailing" constant="4" id="AiN-1H-hxb"/>
+                                                                <constraint firstAttribute="trailing" secondItem="kwh-Qf-swV" secondAttribute="trailing" constant="4" id="AiN-1H-hxb"/>
                                                                 <constraint firstItem="olL-5j-1JO" firstAttribute="leading" secondItem="k96-GS-DhG" secondAttribute="trailing" priority="249" constant="20" id="Byj-Jx-bbp"/>
                                                                 <constraint firstItem="Kv9-Wx-Dk4" firstAttribute="leading" secondItem="fmv-JT-yDL" secondAttribute="leading" constant="4" id="CxL-GO-HG3"/>
                                                                 <constraint firstItem="wIp-YF-EYS" firstAttribute="trailing" secondItem="lgO-eH-tZt" secondAttribute="trailing" id="E8D-73-HG0"/>
-                                                                <constraint firstItem="kwh-Qf-swV" firstAttribute="leading" secondItem="TCg-fy-t2X" secondAttribute="trailing" constant="5" id="FzS-34-qst"/>
+                                                                <constraint firstItem="kwh-Qf-swV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TCg-fy-t2X" secondAttribute="trailing" constant="5" id="FzS-34-qst"/>
                                                                 <constraint firstItem="olL-5j-1JO" firstAttribute="baseline" secondItem="k96-GS-DhG" secondAttribute="baseline" id="GUF-iC-Dy0"/>
                                                                 <constraint firstItem="TCg-fy-t2X" firstAttribute="leading" secondItem="Kv9-Wx-Dk4" secondAttribute="leading" id="NTn-RJ-si2"/>
                                                                 <constraint firstItem="kwh-Qf-swV" firstAttribute="baseline" secondItem="TCg-fy-t2X" secondAttribute="baseline" id="Tzi-qh-DHD"/>

@@ -63,10 +63,7 @@ class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
     func startScanning() {
         checkBluetoothState()
         
-       // oh hacky tests that cause bugs.
-        #if true
-        testAddAllTilts()
-        #endif
+//        testAddAllTilts()
         
         #if false // DEBUG
             var startingGravity = 1.170

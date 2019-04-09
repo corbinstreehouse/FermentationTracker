@@ -67,9 +67,17 @@ class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableVi
         deletionRows.removeAll()
         moveRows.removeAll()
     }
+    
+    func selectFirstRowIfNeeded() {
+        if tableView.selectedRow == -1 && tableView.numberOfRows > 0 {
+            tableView.selectRowIndexes(IndexSet(integer: 0), byExtendingSelection: false)
+        }
+    }
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 //        print("endUpdates, delete: \(deletionRows) insert:\(insertionRows)")
+        // TODO: Fixup selection before deletion; then the table manages it right..
+        
         tableView.removeRows(at: deletionRows, withAnimation: .effectFade)
         tableView.insertRows(at: insertionRows, withAnimation: .effectFade)
         // TODO: moves!?
@@ -77,6 +85,7 @@ class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableVi
         deletionRows.removeAll()
 
         tableView.endUpdates()
+        selectFirstRowIfNeeded()
     }
 
     // NSFetchedResultsControllerDelegate
