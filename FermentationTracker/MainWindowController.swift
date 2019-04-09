@@ -36,7 +36,10 @@ class MainWindowController: NSWindowController {
     }()
     
     @objc func windowWillReturnUndoManager(_ window: NSWindow) -> UndoManager? {
-        return persistentContainer.viewContext.undoManager
+        if persistentContainer.viewContext.undoManager == nil {
+            persistentContainer.viewContext.undoManager = UndoManager()
+        }
+        return persistentContainer.viewContext.undoManager!
     }
     
     override func windowDidLoad() {
