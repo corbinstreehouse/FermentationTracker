@@ -971,6 +971,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <binding destination="MdO-5H-Pcb" name="title" keyPath="selection.trackingButtonTitle" id="o3O-Ty-dt9"/>
+                                </connections>
                             </button>
                             <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aye-DT-v4R">
                                 <rect key="frame" x="6" y="8" width="646" height="462"/>
@@ -988,16 +991,20 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ndr-WQ-cjN">
-                                <rect key="frame" x="114" y="478" width="153" height="17"/>
+                                <rect key="frame" x="167" y="477" width="127" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Updated 1.0 seconds ago" id="hE9-oz-DfW">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1.0 seconds ago" id="hE9-oz-DfW">
+                                    <dateFormatter key="formatter" dateStyle="short" timeStyle="short" doesRelativeDateFormatting="YES" id="MEa-L7-TSs" customClass="LastUpdatedDateFormatter" customModule="FermentationTracker" customModuleProvider="target"/>
                                     <font key="font" metaFont="systemLight" size="12"/>
                                     <color key="textColor" name="Sidebar Super Light Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.dateLastUpdated" id="ZGf-5b-KbC"/>
+                                </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8FE-cT-7NW">
-                                <rect key="frame" x="424" y="478" width="87" height="32"/>
+                                <rect key="frame" x="548" y="521" width="87" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Cloud..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3xw-OB-HNc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1121,6 +1128,15 @@
                                     <constraint firstAttribute="width" constant="383" id="oxb-df-dmU"/>
                                 </constraints>
                             </customView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="94S-xr-3wh">
+                                <rect key="frame" x="113" y="478" width="56" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Updated:" id="rin-RC-0yu">
+                                    <font key="font" metaFont="systemLight" size="12"/>
+                                    <color key="textColor" name="Sidebar Super Light Text"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="m9I-IW-XDe" firstAttribute="top" secondItem="4mc-gM-gkv" secondAttribute="top" constant="29" id="AJa-Rn-apc"/>
@@ -1361,6 +1377,9 @@
     <resources>
         <namedColor name="General Text">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.75999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Sidebar Super Light Text">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.5099999905" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Sidebar Super Light Text">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.50999999046325684" colorSpace="custom" customColorSpace="sRGB"/>

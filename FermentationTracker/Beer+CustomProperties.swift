@@ -26,7 +26,18 @@ extension Beer {
         self.dateLastUpdated = device.timestamp
     }
 
+    @objc var trackingButtonTitle: String {
+        if self.isTracking {
+            return "Stop Tracking"
+        } else {
+            return "Start Tracking"
+        }
+    }
     
-    
+    @objc class func keyPathsForValuesAffectingTrackingButtonTitle() -> Set<AnyHashable> {
+        return Set<AnyHashable>(["isTracking"])
+    }
+
+
     
 }
