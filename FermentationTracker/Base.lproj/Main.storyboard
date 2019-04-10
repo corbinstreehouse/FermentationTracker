@@ -939,6 +939,14 @@
                                     <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.fermentationDataProvider.name" id="Lnt-hf-9Aa">
+                                        <dictionary key="options">
+                                            <string key="NSMultipleValuesPlaceholder">N/A</string>
+                                            <string key="NSNoSelectionPlaceholder">N/A</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sBO-dQ-iWu">
                                 <rect key="frame" x="114" y="494" width="55" height="19"/>
@@ -957,24 +965,14 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.name" id="Y0u-C1-p3Y">
+                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.name" id="6IZ-Pi-HTA">
                                         <dictionary key="options">
+                                            <string key="NSMultipleValuesPlaceholder">Multiple Beers Selected</string>
                                             <string key="NSNoSelectionPlaceholder">Select Something</string>
                                         </dictionary>
                                     </binding>
                                 </connections>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SWn-Nk-atc">
-                                <rect key="frame" x="290" y="478" width="126" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Start Tracking" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hxv-ap-o6h">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <binding destination="MdO-5H-Pcb" name="title" keyPath="selection.trackingButtonTitle" id="o3O-Ty-dt9"/>
-                                </connections>
-                            </button>
                             <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aye-DT-v4R">
                                 <rect key="frame" x="6" y="8" width="646" height="462"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1000,7 +998,13 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.dateLastUpdated" id="ZGf-5b-KbC"/>
+                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.dateLastUpdated" id="46D-sL-OuI">
+                                        <dictionary key="options">
+                                            <string key="NSMultipleValuesPlaceholder" base64-UTF8="YES">
+IA
+</string>
+                                        </dictionary>
+                                    </binding>
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8FE-cT-7NW">
@@ -1060,8 +1064,9 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.gravity" id="VRx-DI-pnB">
+                                            <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.gravity" id="wwR-kk-Qul">
                                                 <dictionary key="options">
+                                                    <string key="NSMultipleValuesPlaceholder">0.000</string>
                                                     <string key="NSNoSelectionPlaceholder">1.000</string>
                                                     <string key="NSNullPlaceholder">1.000</string>
                                                 </dictionary>
@@ -1077,9 +1082,10 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="MdO-5H-Pcb" name="displayPatternValue1" keyPath="selection.abv" id="qzU-63-Y24">
+                                            <binding destination="MdO-5H-Pcb" name="displayPatternValue1" keyPath="selection.abv" id="bGz-hf-YIJ">
                                                 <dictionary key="options">
                                                     <string key="NSDisplayPattern">%{value1}@%</string>
+                                                    <string key="NSMultipleValuesPlaceholder">0.00</string>
                                                     <string key="NSNoSelectionPlaceholder">0.00</string>
                                                     <string key="NSNullPlaceholder">0.00</string>
                                                 </dictionary>
@@ -1095,9 +1101,10 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="MdO-5H-Pcb" name="displayPatternValue1" keyPath="selection.attenuation" id="PHW-du-bxI">
+                                            <binding destination="MdO-5H-Pcb" name="displayPatternValue1" keyPath="selection.attenuation" id="lQZ-FV-1Nj">
                                                 <dictionary key="options">
                                                     <string key="NSDisplayPattern">%{value1}@%</string>
+                                                    <string key="NSMultipleValuesPlaceholder">0.0</string>
                                                     <string key="NSNoSelectionPlaceholder">0.0</string>
                                                     <string key="NSNullPlaceholder">0.0</string>
                                                 </dictionary>
@@ -1114,8 +1121,9 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.temperature" id="hB5-bu-zLn">
+                                            <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.temperature" id="0VL-BV-nuf">
                                                 <dictionary key="options">
+                                                    <string key="NSMultipleValuesPlaceholder">0</string>
                                                     <string key="NSNoSelectionPlaceholder">N/A</string>
                                                     <string key="NSNullPlaceholder">N/A</string>
                                                 </dictionary>
@@ -1137,6 +1145,28 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SWn-Nk-atc">
+                                <rect key="frame" x="295" y="477" width="126" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Start Tracking" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hxv-ap-o6h">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startOrStopTrackingButtonClicked:" target="aOy-qD-ood" id="oFX-QL-KF9"/>
+                                    <binding destination="MdO-5H-Pcb" name="enabled" keyPath="selection.self" id="3Lf-kG-mMo">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="0"/>
+                                            <string key="NSValueTransformerName">NSIsNotNil</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="MdO-5H-Pcb" name="title" keyPath="selection.trackingButtonTitle" id="lab-3a-baw">
+                                        <dictionary key="options">
+                                            <string key="NSMultipleValuesPlaceholder">Start Tracking</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="m9I-IW-XDe" firstAttribute="top" secondItem="4mc-gM-gkv" secondAttribute="top" constant="29" id="AJa-Rn-apc"/>
@@ -1147,6 +1177,9 @@
                             <constraint firstItem="RzT-eM-duA" firstAttribute="centerX" secondItem="4mc-gM-gkv" secondAttribute="centerX" id="yaR-DP-hrh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="arrayController" destination="MdO-5H-Pcb" id="Rzu-RV-pAR"/>
+                    </connections>
                 </viewController>
                 <customObject id="pcl-LL-3Mk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="MdO-5H-Pcb">

@@ -12,13 +12,20 @@ import AppKit
 class BeerDetailsViewController: NSViewController {
     
     private var observerToken: NSObjectProtocol?
+    @IBOutlet var arrayController: NSArrayController!
+    
+    private func updateSelectedBeers() {
+        let beers = self.mainWindowController.selectedBeers
+        self.representedObject = beers
+        self.arrayController.setSelectedObjects(beers)
+    }
 
     override func viewDidAppear() {
         super.viewDidAppear()
-        self.observerToken = NotificationCenter.default.addObserver(forName: MainWindowController.selectedBeersChangedNote, object: self.mainWindowController, queue: nil) { (Notification) in
-            self.representedObject = self.mainWindowController.selectedBeers
+        self.observerToken = NotificationCenter.default.addObserver(forName: MainWindowController.selectedBeersChangedNote, object: self.mainWindowController, queue: nil) { [weak self] (Notification) in
+            self?.updateSelectedBeers()
         }
-        self.representedObject = self.mainWindowController.selectedBeers
+        updateSelectedBeers()
     }
     
     override func viewDidDisappear() {
@@ -27,4 +34,9 @@ class BeerDetailsViewController: NSViewController {
             self.observerToken = nil
         }
     }
+    
+    @IBAction func startOrStopTrackingButtonClicked(_ sender: Any?) {
+    
+    }
+    
 }

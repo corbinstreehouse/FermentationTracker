@@ -79,7 +79,7 @@ class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
     func startScanning() {
         checkBluetoothState()
 //        testAddAllTilts()
-        addFakeUpdates()
+//        addFakeUpdates()
     }
     
     func stopScanning() {
