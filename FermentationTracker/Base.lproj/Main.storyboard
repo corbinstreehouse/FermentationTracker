@@ -934,7 +934,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5A8-o6-B9Y">
                                 <rect key="frame" x="169" y="494" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tilt Black" id="5F0-fp-jCj">
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Tilt Black" id="5F0-fp-jCj">
                                     <font key="font" metaFont="systemLight" size="17"/>
                                     <color key="textColor" name="General Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -957,22 +957,28 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RzT-eM-duA">
-                                <rect key="frame" x="267" y="578" width="127" height="29"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Beer Name" id="9ot-sE-5Q8">
-                                    <font key="font" metaFont="systemBold" size="24"/>
-                                    <color key="textColor" name="General Text"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SWn-Nk-atc">
+                                <rect key="frame" x="295" y="477" width="126" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Start Tracking" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hxv-ap-o6h">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
                                 <connections>
-                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.name" id="6IZ-Pi-HTA">
+                                    <action selector="startOrStopTrackingButtonClicked:" target="aOy-qD-ood" id="oFX-QL-KF9"/>
+                                    <binding destination="MdO-5H-Pcb" name="enabled" keyPath="selection.self" id="3Lf-kG-mMo">
                                         <dictionary key="options">
-                                            <string key="NSMultipleValuesPlaceholder">Multiple Beers Selected</string>
-                                            <string key="NSNoSelectionPlaceholder">Select Something</string>
+                                            <integer key="NSMultipleValuesPlaceholder" value="0"/>
+                                            <string key="NSValueTransformerName">NSIsNotNil</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="MdO-5H-Pcb" name="title" keyPath="selection.trackingButtonTitle" id="lab-3a-baw">
+                                        <dictionary key="options">
+                                            <string key="NSMultipleValuesPlaceholder">Start Tracking</string>
                                         </dictionary>
                                     </binding>
                                 </connections>
-                            </textField>
+                            </button>
                             <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aye-DT-v4R">
                                 <rect key="frame" x="6" y="8" width="646" height="462"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -980,9 +986,10 @@
                                     <segue destination="qDb-FP-4nx" kind="embed" id="X5s-gj-UhT"/>
                                 </connections>
                             </containerView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Vu-ba-HCI">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Vu-ba-HCI">
                                 <rect key="frame" x="261" y="520" width="139" height="16"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="5 days, 3 hours, 10 mins" id="XlU-2p-NfM">
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="5 days, 3 hours, 10 mins" id="XlU-2p-NfM">
                                     <font key="font" metaFont="systemLight" size="12"/>
                                     <color key="textColor" name="Subtitle Small Text"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1145,36 +1152,29 @@ IA
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SWn-Nk-atc">
-                                <rect key="frame" x="295" y="477" width="126" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Start Tracking" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hxv-ap-o6h">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sOT-lU-MlV" customClass="EditOnClickTextField" customModule="FermentationTracker" customModuleProvider="target">
+                                <rect key="frame" x="267" y="578" width="127" height="29"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" state="on" title="Beer Name" id="lbQ-gG-P8J">
+                                    <font key="font" metaFont="systemBold" size="24"/>
+                                    <color key="textColor" name="General Text"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
                                 <connections>
-                                    <action selector="startOrStopTrackingButtonClicked:" target="aOy-qD-ood" id="oFX-QL-KF9"/>
-                                    <binding destination="MdO-5H-Pcb" name="enabled" keyPath="selection.self" id="3Lf-kG-mMo">
+                                    <binding destination="MdO-5H-Pcb" name="value" keyPath="selection.name" id="a40-yU-Zz0">
                                         <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="0"/>
-                                            <string key="NSValueTransformerName">NSIsNotNil</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="MdO-5H-Pcb" name="title" keyPath="selection.trackingButtonTitle" id="lab-3a-baw">
-                                        <dictionary key="options">
-                                            <string key="NSMultipleValuesPlaceholder">Start Tracking</string>
+                                            <string key="NSMultipleValuesPlaceholder">Multiple Beers Selected</string>
+                                            <string key="NSNoSelectionPlaceholder">No Selected Beer</string>
                                         </dictionary>
                                     </binding>
                                 </connections>
-                            </button>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="m9I-IW-XDe" firstAttribute="top" secondItem="4mc-gM-gkv" secondAttribute="top" constant="29" id="AJa-Rn-apc"/>
+                            <constraint firstItem="sOT-lU-MlV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4mc-gM-gkv" secondAttribute="leading" constant="5" id="AWl-wq-h8v"/>
                             <constraint firstItem="m9I-IW-XDe" firstAttribute="centerX" secondItem="4mc-gM-gkv" secondAttribute="centerX" id="F90-ug-Fdf"/>
-                            <constraint firstItem="9Vu-ba-HCI" firstAttribute="centerX" secondItem="4mc-gM-gkv" secondAttribute="centerX" id="GRc-Yc-ihM"/>
-                            <constraint firstItem="RzT-eM-duA" firstAttribute="top" secondItem="4mc-gM-gkv" secondAttribute="top" id="Nzl-ts-yma"/>
-                            <constraint firstItem="9Vu-ba-HCI" firstAttribute="top" secondItem="RzT-eM-duA" secondAttribute="bottom" constant="42" id="W9k-ZG-jF8"/>
-                            <constraint firstItem="RzT-eM-duA" firstAttribute="centerX" secondItem="4mc-gM-gkv" secondAttribute="centerX" id="yaR-DP-hrh"/>
+                            <constraint firstItem="sOT-lU-MlV" firstAttribute="top" secondItem="4mc-gM-gkv" secondAttribute="top" id="bVh-yb-WeX"/>
+                            <constraint firstItem="sOT-lU-MlV" firstAttribute="centerX" secondItem="4mc-gM-gkv" secondAttribute="centerX" id="eu1-Zp-eck"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1413,9 +1413,6 @@ IA
         </namedColor>
         <namedColor name="Sidebar Super Light Text">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.5099999905" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Sidebar Super Light Text">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.50999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Subtitle Small Text">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.64999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
