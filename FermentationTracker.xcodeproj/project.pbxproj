@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9D0483A5225C15DE001A95D3 /* TableViewTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0483A4225C15DE001A95D3 /* TableViewTextFieldCell.swift */; };
 		9D0483A8225C1C0F001A95D3 /* CustomSelectionTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0483A7225C1C0F001A95D3 /* CustomSelectionTableRowView.swift */; };
-		9D0483AA225C2084001A95D3 /* EditableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0483A9225C2084001A95D3 /* EditableTextView.swift */; };
 		9D0483AC225C37F5001A95D3 /* RMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0483AB225C37F5001A95D3 /* RMTableView.swift */; };
 		9D3960FB225971DE009F1323 /* TemperatureFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3960FA225971DE009F1323 /* TemperatureFormatter.swift */; };
 		9D3960FD22597214009F1323 /* Setttings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3960FC22597214009F1323 /* Setttings.swift */; };
@@ -89,7 +88,6 @@
 /* Begin PBXFileReference section */
 		9D0483A4225C15DE001A95D3 /* TableViewTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewTextFieldCell.swift; sourceTree = "<group>"; };
 		9D0483A7225C1C0F001A95D3 /* CustomSelectionTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSelectionTableRowView.swift; sourceTree = "<group>"; };
-		9D0483A9225C2084001A95D3 /* EditableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTextView.swift; sourceTree = "<group>"; };
 		9D0483AB225C37F5001A95D3 /* RMTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMTableView.swift; sourceTree = "<group>"; };
 		9D3960FA225971DE009F1323 /* TemperatureFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureFormatter.swift; sourceTree = "<group>"; };
 		9D3960FC22597214009F1323 /* Setttings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setttings.swift; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 				9D0483A4225C15DE001A95D3 /* TableViewTextFieldCell.swift */,
 				9D0483A7225C1C0F001A95D3 /* CustomSelectionTableRowView.swift */,
 				9D0483AB225C37F5001A95D3 /* RMTableView.swift */,
-				9D0483A9225C2084001A95D3 /* EditableTextView.swift */,
 				9DD4CAE5225466AF003F0DF2 /* Main.storyboard */,
 				9DA43200225D08D3000FA60E /* BeerTableCellView.swift */,
 				9DD4CAE8225466AF003F0DF2 /* Info.plist */,
@@ -312,7 +309,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D0483AA225C2084001A95D3 /* EditableTextView.swift in Sources */,
 				9DB5DD9A225A78E7001DB7A4 /* GravityFormatter.swift in Sources */,
 				9DA665E72259215F009958E8 /* FermentationDataViewController.swift in Sources */,
 				9D0483A5225C15DE001A95D3 /* TableViewTextFieldCell.swift in Sources */,
