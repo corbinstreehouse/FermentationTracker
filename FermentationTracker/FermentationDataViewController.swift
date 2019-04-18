@@ -29,6 +29,12 @@ class FermentationDataViewController: FetchedResultsTableViewController<Fermenta
         }
     }
     
+    private var selectedBeer: Beer {
+        get {
+            return self.representedObject as! Beer
+        }
+    }
+    
     private var observerToken: NSObjectProtocol?
     override func viewDidAppear() {
         super.viewDidAppear()
@@ -77,5 +83,24 @@ class FermentationDataViewController: FetchedResultsTableViewController<Fermenta
     
     @objc func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
         refreshData()
+    }
+    
+    private func getSelectedEntries() -> [FermentationEntry] {
+        guard let fetchedResultsController = self.fetchedResultsController else { return [] }
+        var result: [FermentationEntry] = Array()
+        // There has to be a better/faster way to do this
+        for index in tableView.selectedRowIndexes {
+            let entry = fetchedResultsController.object(at: IndexPath(item: index, section: 0))
+            result.append(entry)
+        }
+        return result
+    }
+    
+    override func deleteBackward(_ sender: Any?) {
+        // or faster to call the ordered set version?
+        let context = self.persistentContainer.viewContext
+        for entry in self.getSelectedEntries() {
+            context.delete(entry)
+        }
     }
 }

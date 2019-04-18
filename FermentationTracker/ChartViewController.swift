@@ -14,6 +14,40 @@ open class ChartViewController: NSViewController
 {
     @IBOutlet var lineChartView: LineChartView!
     
+    
+    private var observerToken: NSObjectProtocol?
+    private func startObservingBeer() {
+        assert(self.observerToken == nil)
+        // I'm seeing view did appear when we aren't in windows...what???!
+        if self.view.window != nil {
+            self.observerToken = NotificationCenter.default.addObserver(forName: MainWindowController.selectedBeersChangedNote, object: self.mainWindowController, queue: nil) { [weak self] (Notification)  in
+                self?.updateSelectedBeer()
+            }
+        }
+        updateSelectedBeer()
+    }
+    
+    private func stopObservingBeer() {
+        if let observerToken = observerToken {
+            NotificationCenter.default.removeObserver(observerToken)
+            self.observerToken = nil
+        }
+    }
+    
+    override open func viewDidDisappear() {
+        stopObservingBeer()
+    }
+    
+    private func updateSelectedBeer() {
+ 
+    }
+
+    
+    override open func viewDidAppear() {
+        super.viewDidAppear()
+        startObservingBeer()
+    }
+    
     override open func viewDidLoad()
     {
         super.viewDidLoad()

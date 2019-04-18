@@ -19,6 +19,12 @@ class BeerDetailsViewController: NSViewController {
         self.representedObject = beers
         self.arrayController.setSelectedObjects(beers)
     }
+    
+    var selectedBeer: Beer? {
+        get {
+            return self.mainWindowController.selectedBeers.first
+        }
+    }
 
     override func viewDidAppear() {
         super.viewDidAppear()
@@ -36,7 +42,20 @@ class BeerDetailsViewController: NSViewController {
     }
     
     @IBAction func startOrStopTrackingButtonClicked(_ sender: Any?) {
-    
+        if let beer = self.selectedBeer {
+            beer.isTracking = !beer.isTracking
+        }
     }
     
+    // Called when editing the name
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.identifier == NSStoryboardSegue.Identifier("NamePopover") {
+            // Pass the selected beer for bindings in that view controller
+            let vc = segue.destinationController as! NSViewController
+            vc.representedObject = self.selectedBeer
+        }
+    }
+    
+
+ 
 }

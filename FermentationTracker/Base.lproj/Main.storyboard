@@ -1014,14 +1014,6 @@ IA
                                     </binding>
                                 </connections>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8FE-cT-7NW">
-                                <rect key="frame" x="548" y="521" width="87" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Cloud..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3xw-OB-HNc">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="m9I-IW-XDe">
                                 <rect key="frame" x="139" y="534" width="383" height="44"/>
                                 <subviews>
@@ -1152,7 +1144,7 @@ IA
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sOT-lU-MlV" customClass="EditOnClickTextField" customModule="FermentationTracker" customModuleProvider="target">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sOT-lU-MlV">
                                 <rect key="frame" x="267" y="578" width="127" height="29"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" state="on" title="Beer Name" id="lbQ-gG-P8J">
                                     <font key="font" metaFont="systemBold" size="24"/>
@@ -1168,13 +1160,29 @@ IA
                                     </binding>
                                 </connections>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jQz-d1-w1J">
+                                <rect key="frame" x="395" y="585" width="12" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="9Ir-h6-K2D"/>
+                                    <constraint firstAttribute="width" constant="12" id="fV4-nn-SqD"/>
+                                </constraints>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="dropdownarrow" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="BPy-eI-LGi">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="0qU-Od-nbl" kind="popover" identifier="NamePopover" popoverAnchorView="jQz-d1-w1J" popoverBehavior="t" preferredEdge="maxY" id="xrC-UM-wV2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="m9I-IW-XDe" firstAttribute="top" secondItem="4mc-gM-gkv" secondAttribute="top" constant="29" id="AJa-Rn-apc"/>
                             <constraint firstItem="sOT-lU-MlV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4mc-gM-gkv" secondAttribute="leading" constant="5" id="AWl-wq-h8v"/>
                             <constraint firstItem="m9I-IW-XDe" firstAttribute="centerX" secondItem="4mc-gM-gkv" secondAttribute="centerX" id="F90-ug-Fdf"/>
+                            <constraint firstItem="jQz-d1-w1J" firstAttribute="top" secondItem="4mc-gM-gkv" secondAttribute="top" constant="10" id="ZTx-Ai-55c"/>
                             <constraint firstItem="sOT-lU-MlV" firstAttribute="top" secondItem="4mc-gM-gkv" secondAttribute="top" id="bVh-yb-WeX"/>
                             <constraint firstItem="sOT-lU-MlV" firstAttribute="centerX" secondItem="4mc-gM-gkv" secondAttribute="centerX" id="eu1-Zp-eck"/>
+                            <constraint firstItem="jQz-d1-w1J" firstAttribute="leading" secondItem="sOT-lU-MlV" secondAttribute="trailing" constant="3" id="hfl-5M-Ib3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1189,6 +1197,44 @@ IA
                 </arrayController>
             </objects>
             <point key="canvasLocation" x="831" y="1166.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tvt-PU-ZZO">
+            <objects>
+                <viewController storyboardIdentifier="NameViewController" id="0qU-Od-nbl" sceneMemberID="viewController">
+                    <view key="view" id="gcX-y1-T3R">
+                        <rect key="frame" x="0.0" y="0.0" width="455" height="45"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ef1-j9-ERg">
+                                <rect key="frame" x="16" y="15" width="44" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name:" id="ISH-fd-6Ch">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="is5-3a-ivu">
+                                <rect key="frame" x="63" y="12" width="372" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="XdW-jC-PLW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="dismissController:" target="0qU-Od-nbl" id="v0H-pP-AAH"/>
+                                    <binding destination="0qU-Od-nbl" name="value" keyPath="representedObject.name" id="l3G-Ar-ZEr"/>
+                                    <outlet property="delegate" destination="0qU-Od-nbl" id="Gdw-f9-N6W"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="jBi-8a-bjg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1461.5" y="885.5"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="cJk-iJ-80m">
@@ -1408,6 +1454,7 @@ IA
         </scene>
     </scenes>
     <resources>
+        <image name="dropdownarrow" width="980" height="592"/>
         <namedColor name="General Text">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.75999999046325684" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

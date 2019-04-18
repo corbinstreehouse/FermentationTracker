@@ -21,6 +21,7 @@
 		9DA431FF225D0657000FA60E /* Beer+CustomProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA431FE225D0657000FA60E /* Beer+CustomProperties.swift */; };
 		9DA43201225D08D3000FA60E /* BeerTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA43200225D08D3000FA60E /* BeerTableCellView.swift */; };
 		9DA43203225D11F2000FA60E /* LastUpdatedDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA43202225D11F2000FA60E /* LastUpdatedDateFormatter.swift */; };
+		9DA43206225DA475000FA60E /* dropdownarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA43205225DA475000FA60E /* dropdownarrow.png */; };
 		9DA665CF225687E9009958E8 /* FermentationTrackerApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665CE225687E9009958E8 /* FermentationTrackerApplication.swift */; };
 		9DA665D12256C616009958E8 /* FermentationDataProviderDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665D02256C616009958E8 /* FermentationDataProviderDevice.swift */; };
 		9DA665E1225703A8009958E8 /* BeersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA665E0225703A8009958E8 /* BeersTableViewController.swift */; };
@@ -100,6 +101,7 @@
 		9DA431FE225D0657000FA60E /* Beer+CustomProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Beer+CustomProperties.swift"; sourceTree = "<group>"; };
 		9DA43200225D08D3000FA60E /* BeerTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerTableCellView.swift; sourceTree = "<group>"; };
 		9DA43202225D11F2000FA60E /* LastUpdatedDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdatedDateFormatter.swift; sourceTree = "<group>"; };
+		9DA43205225DA475000FA60E /* dropdownarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdownarrow.png; sourceTree = "<group>"; };
 		9DA665CE225687E9009958E8 /* FermentationTrackerApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermentationTrackerApplication.swift; sourceTree = "<group>"; };
 		9DA665D02256C616009958E8 /* FermentationDataProviderDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermentationDataProviderDevice.swift; sourceTree = "<group>"; };
 		9DA665E0225703A8009958E8 /* BeersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersTableViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				9DD4CAE5225466AF003F0DF2 /* Main.storyboard */,
 				9DA43200225D08D3000FA60E /* BeerTableCellView.swift */,
 				9DD4CAE8225466AF003F0DF2 /* Info.plist */,
+				9DA43205225DA475000FA60E /* dropdownarrow.png */,
 				9DD4CAE9225466AF003F0DF2 /* FermentationTracker.entitlements */,
 				9D3960FE22597428009F1323 /* Defaults.plist */,
 				9DD4CAE3225466AF003F0DF2 /* Assets.xcassets */,
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DD4CAE4225466AF003F0DF2 /* Assets.xcassets in Resources */,
+				9DA43206225DA475000FA60E /* dropdownarrow.png in Resources */,
 				9DD4CAE7225466AF003F0DF2 /* Main.storyboard in Resources */,
 				9DB5DD9C225BE041001DB7A4 /* Media.xcassets in Resources */,
 				9D3960FF22597428009F1323 /* Defaults.plist in Resources */,

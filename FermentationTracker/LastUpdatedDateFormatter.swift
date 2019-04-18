@@ -32,7 +32,7 @@ class LastUpdatedDateFormatter: DateFormatter {
                 return String(format: "%d %@ %d %@ ago", Int(timeIntervalInHours), hourStr, Int(partialTimeIntervalInMinutes), minuteStr)
             }
         }
-        return string(for: obj)
+        return super.string(for: obj)
     }
 
 }

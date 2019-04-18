@@ -76,7 +76,18 @@ class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableVi
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 //        print("endUpdates, delete: \(deletionRows) insert:\(insertionRows)")
-        // TODO: Fixup selection before deletion; then the table manages it right..
+        var nextRowToSelect = -1
+        if deletionRows.count > 0 {
+            let selection = tableView.selectedRowIndexes
+            if selection.count > 0 {
+                let selectionDeletionIntersection = deletionRows.intersection(selection)
+                if selectionDeletionIntersection == selection {
+                    // Select the next row past the last one deleted
+                    nextRowToSelect = selection.last! + 1
+                    nextRowToSelect -= selectionDeletionIntersection.count
+                }
+            }
+        }
         
         tableView.removeRows(at: deletionRows, withAnimation: .effectFade)
         tableView.insertRows(at: insertionRows, withAnimation: .effectFade)
@@ -85,7 +96,17 @@ class FetchedResultsTableViewController<ResultType>: NSViewController, NSTableVi
         deletionRows.removeAll()
 
         tableView.endUpdates()
-        selectFirstRowIfNeeded()
+        
+        if tableView.numberOfRows > 0 {
+            if nextRowToSelect >= 0 {
+                if nextRowToSelect >= tableView.numberOfRows {
+                    nextRowToSelect = tableView.numberOfRows - 1
+                }
+                tableView.selectRowIndexes(IndexSet(integer: nextRowToSelect), byExtendingSelection: false)
+            } else {
+                selectFirstRowIfNeeded()
+            }
+        }
     }
 
     // NSFetchedResultsControllerDelegate
