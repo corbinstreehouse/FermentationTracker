@@ -22,6 +22,21 @@ class MainWindowController: NSWindowController {
         NotificationCenter.default.post(name: MainWindowController.selectedBeersChangedNote, object: self)
     }
     
+    @IBAction func importAction(_ sender: AnyObject?) {
+        let o = NSOpenPanel()
+        o.allowsMultipleSelection = false
+        o.allowedFileTypes = ["csv"]
+        
+        o.beginSheetModal(for: self.window!) { [weak self] (modalResponse: NSApplication.ModalResponse) in
+            if (modalResponse == NSApplication.ModalResponse.OK) {
+                self?.importCSVFrom(url: o.url!)
+            }
+        }
+    }
+    
+    private func importCSVFrom(url: URL) {
+        
+    }
     
     override func awakeFromNib() {
 //        self.window?.contentView?.wantsLayer = true // needed?

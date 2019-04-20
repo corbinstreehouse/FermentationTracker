@@ -1,3 +1,6 @@
 [submodule "Charts"]
 	path = Charts
 	url = https://github.com/danielgindi/Charts.git
+[submodule "CSV.swift"]
+	path = CSV.swift
+	url = https://github.com/yaslab/CSV.swift.git
