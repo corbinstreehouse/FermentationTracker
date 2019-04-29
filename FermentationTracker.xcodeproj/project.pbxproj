@@ -17,6 +17,8 @@
 		9D80FE0222557A6B0076BC3C /* Data+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE0122557A6B0076BC3C /* Data+Conversions.swift */; };
 		9D80FE0422557AD00076BC3C /* TiltBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE0322557AD00076BC3C /* TiltBeacon.swift */; };
 		9D80FE19225679610076BC3C /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80FE18225679610076BC3C /* MainWindowController.swift */; };
+		9D9B3112226B68C400339D36 /* CSV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9B3103226B689D00339D36 /* CSV.framework */; };
+		9D9B3113226B68D700339D36 /* CSV.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9B3103226B689D00339D36 /* CSV.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9DA431FD225CFF9D000FA60E /* FermentationDataProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA431FC225CFF9D000FA60E /* FermentationDataProvider+Extensions.swift */; };
 		9DA431FF225D0657000FA60E /* Beer+CustomProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA431FE225D0657000FA60E /* Beer+CustomProperties.swift */; };
 		9DA43201225D08D3000FA60E /* BeerTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA43200225D08D3000FA60E /* BeerTableCellView.swift */; };
@@ -42,6 +44,62 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9D9B3102226B689D00339D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D9B30F8226B689D00339D36 /* CSV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0E7E8CC61D0BCA2A0057A1C1;
+			remoteInfo = "CSV-macOS";
+		};
+		9D9B3104226B689D00339D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D9B30F8226B689D00339D36 /* CSV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0E7E8C811D0BC7BB0057A1C1;
+			remoteInfo = "CSV-iOS";
+		};
+		9D9B3106226B689D00339D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D9B30F8226B689D00339D36 /* CSV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0E7E8CE81D0BCD0B0057A1C1;
+			remoteInfo = "CSV-tvOS";
+		};
+		9D9B3108226B689D00339D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D9B30F8226B689D00339D36 /* CSV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0E7E8CB51D0BC98B0057A1C1;
+			remoteInfo = "CSV-watchOS";
+		};
+		9D9B310A226B689D00339D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D9B30F8226B689D00339D36 /* CSV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0E7E8CCF1D0BCA2A0057A1C1;
+			remoteInfo = "CSVTests-macOS";
+		};
+		9D9B310C226B689D00339D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D9B30F8226B689D00339D36 /* CSV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0E7E8C8B1D0BC7BB0057A1C1;
+			remoteInfo = "CSVTests-iOS";
+		};
+		9D9B310E226B689D00339D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D9B30F8226B689D00339D36 /* CSV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0E7E8CF11D0BCD0B0057A1C1;
+			remoteInfo = "CSVTests-tvOS";
+		};
+		9D9B3110226B68BA00339D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D9B30F8226B689D00339D36 /* CSV.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E7E8CC51D0BCA2A0057A1C1;
+			remoteInfo = "CSV-macOS";
+		};
 		9DB5DD88225995AE001DB7A4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9DB5DD83225995AE001DB7A4 /* Charts.xcodeproj */;
@@ -79,6 +137,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9D9B3113226B68D700339D36 /* CSV.framework in Embed Frameworks */,
 				9DB5DD9322599677001DB7A4 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -97,6 +156,7 @@
 		9D80FE0122557A6B0076BC3C /* Data+Conversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Conversions.swift"; sourceTree = "<group>"; };
 		9D80FE0322557AD00076BC3C /* TiltBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiltBeacon.swift; sourceTree = "<group>"; };
 		9D80FE18225679610076BC3C /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		9D9B30F8226B689D00339D36 /* CSV.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CSV.xcodeproj; path = CSV.swift/CSV.xcodeproj; sourceTree = "<group>"; };
 		9DA431FC225CFF9D000FA60E /* FermentationDataProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FermentationDataProvider+Extensions.swift"; sourceTree = "<group>"; };
 		9DA431FE225D0657000FA60E /* Beer+CustomProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Beer+CustomProperties.swift"; sourceTree = "<group>"; };
 		9DA43200225D08D3000FA60E /* BeerTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerTableCellView.swift; sourceTree = "<group>"; };
@@ -128,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D9B3112226B68C400339D36 /* CSV.framework in Frameworks */,
 				9DB5DD8F225995C4001DB7A4 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +196,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D9B30F9226B689D00339D36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D9B3103226B689D00339D36 /* CSV.framework */,
+				9D9B3105226B689D00339D36 /* CSV.framework */,
+				9D9B3107226B689D00339D36 /* CSV.framework */,
+				9D9B3109226B689D00339D36 /* CSV.framework */,
+				9D9B310B226B689D00339D36 /* CSVTests-macOS.xctest */,
+				9D9B310D226B689D00339D36 /* CSVTests-iOS.xctest */,
+				9D9B310F226B689D00339D36 /* CSVTests-tvOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9DB5DD84225995AE001DB7A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +233,7 @@
 				9DD4CADA225466AE003F0DF2 /* Products */,
 				9DB5DD83225995AE001DB7A4 /* Charts.xcodeproj */,
 				9DB5DD8E225995C4001DB7A4 /* Frameworks */,
+				9D9B30F8226B689D00339D36 /* CSV.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,6 +299,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9D9B3111226B68BA00339D36 /* PBXTargetDependency */,
 				9DB5DD8D225995B8001DB7A4 /* PBXTargetDependency */,
 				9DB5DD9522599677001DB7A4 /* PBXTargetDependency */,
 			);
@@ -268,6 +345,10 @@
 					ProductGroup = 9DB5DD84225995AE001DB7A4 /* Products */;
 					ProjectRef = 9DB5DD83225995AE001DB7A4 /* Charts.xcodeproj */;
 				},
+				{
+					ProductGroup = 9D9B30F9226B689D00339D36 /* Products */;
+					ProjectRef = 9D9B30F8226B689D00339D36 /* CSV.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -277,6 +358,55 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		9D9B3103226B689D00339D36 /* CSV.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CSV.framework;
+			remoteRef = 9D9B3102226B689D00339D36 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D9B3105226B689D00339D36 /* CSV.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CSV.framework;
+			remoteRef = 9D9B3104226B689D00339D36 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D9B3107226B689D00339D36 /* CSV.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CSV.framework;
+			remoteRef = 9D9B3106226B689D00339D36 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D9B3109226B689D00339D36 /* CSV.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CSV.framework;
+			remoteRef = 9D9B3108226B689D00339D36 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D9B310B226B689D00339D36 /* CSVTests-macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CSVTests-macOS.xctest";
+			remoteRef = 9D9B310A226B689D00339D36 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D9B310D226B689D00339D36 /* CSVTests-iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CSVTests-iOS.xctest";
+			remoteRef = 9D9B310C226B689D00339D36 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D9B310F226B689D00339D36 /* CSVTests-tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CSVTests-tvOS.xctest";
+			remoteRef = 9D9B310E226B689D00339D36 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9DB5DD89225995AE001DB7A4 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -344,6 +474,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9D9B3111226B68BA00339D36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CSV-macOS";
+			targetProxy = 9D9B3110226B68BA00339D36 /* PBXContainerItemProxy */;
+		};
 		9DB5DD8D225995B8001DB7A4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Charts;

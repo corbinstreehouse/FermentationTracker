@@ -106,7 +106,7 @@ class TiltBeacon : Beacon, FermentationDataProviderDevice {
     }
     
     let tiltColor: TiltColor
-    private static let tiltUUIDFormat = "A495BB%d0-C5B1-4B44-B512-1370F02D74DE"
+    static let tiltUUIDFormat = "A495BB%d0-C5B1-4B44-B512-1370F02D74DE"
 
     // Returns nil if not a tilt Beacon
     override init?(withProximityUUID proximityUUID: CBUUID, majorValue: UInt16, minorValue: UInt16, transmitPower: Int8) {

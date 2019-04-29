@@ -13,18 +13,27 @@ extension Beer {
     
     static let dateLastUpdatedPropertyName = "dateLastUpdated"
     
-    func addFermentationEntryForDevice(_ device: FermentationDataProviderDevice, context: NSManagedObjectContext) {
-        let f: FermentationEntry = FermentationEntry(context: context)
+    private func addAndUpdateToFermentationEntries(_ entry: FermentationEntry) {
+        self.addToFermentationEntries(entry)
         
-        f.gravity = device.gravity
-        f.temperature = device.temperature
-        f.timestamp = device.timestamp
-        self.addToFermentationEntries(f)
         // Update our stats for this beer so we don't have to look at the last entry to find out what it is at. Or, maybe that is fine, and things could be simplified.
-        self.gravity = device.gravity
-        self.temperature = device.temperature
-        self.dateLastUpdated = device.timestamp
+        self.gravity = entry.gravity
+        self.temperature = entry.temperature
+        self.dateLastUpdated = entry.timestamp
     }
+    
+    func addFermentationEntryFor(device: FermentationDataProviderDevice, context: NSManagedObjectContext) {
+        addFermentationEntryFor(gravity: device.gravity, temperature: device.temperature, timestamp: device.timestamp, context: context)
+    }
+    
+    func addFermentationEntryFor(gravity: Double, temperature: Double, timestamp: Date, context: NSManagedObjectContext) {
+        let f: FermentationEntry = FermentationEntry(context: context)
+        f.gravity = gravity
+        f.temperature = temperature
+        f.timestamp = timestamp
+        self.addAndUpdateToFermentationEntries(f)
+    }
+
 
     @objc var trackingButtonTitle: String {
         if self.isTracking {

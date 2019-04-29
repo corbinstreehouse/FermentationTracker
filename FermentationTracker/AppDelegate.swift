@@ -103,7 +103,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             beer = addNewBeerForDevice(device)
         }
         disableUndoRegistration()
-        beer!.addFermentationEntryForDevice(device, context: context)
+        beer!.addFermentationEntryFor(device: device, context: context)
         enableUndoRegistration()
         silentlySaveContext()
     }

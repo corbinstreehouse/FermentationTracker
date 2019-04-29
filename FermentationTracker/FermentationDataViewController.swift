@@ -97,10 +97,12 @@ class FermentationDataViewController: FetchedResultsTableViewController<Fermenta
     }
     
     override func deleteBackward(_ sender: Any?) {
-        // or faster to call the ordered set version?
+        let undoManager = self.view.window!.undoManager!
+        undoManager.beginUndoGrouping()
         let context = self.persistentContainer.viewContext
         for entry in self.getSelectedEntries() {
             context.delete(entry)
         }
+        undoManager.endUndoGrouping()
     }
 }

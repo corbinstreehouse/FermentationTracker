@@ -51,6 +51,8 @@ class BeersTableViewController: FetchedResultsTableViewController<Beer> {
     private func updateSelectedBeers() {
         self.mainWindowController.selectedBeers = self.getSelectedBeers()
     }
+    
+    // TODO: allow selection
 
     // NSTableViewDelegate
     @objc func tableViewSelectionDidChange(_ notification: Notification) {
@@ -58,11 +60,14 @@ class BeersTableViewController: FetchedResultsTableViewController<Beer> {
     }
     
     override func deleteBackward(_ sender: Any?) {
+        let undoManager = self.view.window!.undoManager!
+        undoManager.beginUndoGrouping()
         let selectedBeers = self.mainWindowController.selectedBeers
         let context = self.persistentContainer.viewContext
         for beer in selectedBeers {
             context.delete(beer)
         }
+        undoManager.endUndoGrouping()
     }
 
 }

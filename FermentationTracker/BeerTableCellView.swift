@@ -39,8 +39,10 @@ class BeerTableCellView: NSTableCellView {
 //        super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         if keyPath == Beer.dateLastUpdatedPropertyName {
             let beer = object as! Beer
-            let date = beer.dateLastUpdated!
-            updateDateFormatterFor(date: date)
+            // Might be nil for bad data...
+            if let date = beer.dateLastUpdated {
+                updateDateFormatterFor(date: date)
+            }
         }
     }
 

@@ -66,7 +66,8 @@
                                                 <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
+                                        <menuItem title="Open…" id="IAo-SY-fd9">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="openDocument:" target="Ady-hI-5gd" id="bVn-NM-KNZ"/>
                                             </connections>
@@ -84,8 +85,7 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
-                                        <menuItem title="Import..." id="Q0q-Ib-kZT">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menuItem title="Import..." keyEquivalent="o" id="Q0q-Ib-kZT">
                                             <connections>
                                                 <action selector="importAction:" target="Ady-hI-5gd" id="bwQ-yg-lwd"/>
                                             </connections>
