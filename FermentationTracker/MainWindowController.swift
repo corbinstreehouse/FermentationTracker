@@ -153,10 +153,19 @@ class MainWindowController: NSWindowController {
         return persistentContainer.viewContext.undoManager!
     }
     
+    
+     @objc func window(_ window: NSWindow, willPositionSheet sheet: NSWindow, usingRect rect: NSRect) -> NSRect {
+        var result = rect
+        let offset: CGFloat = 30.0
+        result.origin.y = result.origin.y - offset
+        return result
+    }
+
+    
     override func windowDidLoad() {
         super.windowDidLoad()
         let color = NSColor(named: NSColor.Name("WindowBackgroundColor"))
-        self.window?.backgroundColor = color // NSColor(catalogName: "Media", colorName: <#T##NSColor.Name#>)
+        self.window?.backgroundColor = color
     }
     
     
