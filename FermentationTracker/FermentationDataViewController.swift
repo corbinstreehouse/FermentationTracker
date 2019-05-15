@@ -44,8 +44,8 @@ class FermentationDataViewController: FetchedResultsTableViewController<Fermenta
             self.observerToken = NotificationCenter.default.addObserver(forName: MainWindowController.selectedBeersChangedNote, object: self.mainWindowController, queue: nil) { [weak self] (Notification)  in
                 self?.updateSelectedBeer()
             }
+            updateSelectedBeer()
         }
-        updateSelectedBeer()
     }
     
     override func viewDidDisappear() {
