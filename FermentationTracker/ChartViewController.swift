@@ -101,9 +101,13 @@ open class ChartViewController: NSViewController
         }
 
         
-        let ds1 = LineChartDataSet(values: gravityDataEntries, label: "Gravity")
-        ds1.colors = [NSUIColor.red]
-        data.addDataSet(ds1)
+        let gravityDataSet = LineChartDataSet(values: gravityDataEntries, label: "Gravity")
+        gravityDataSet.colors = [NSUIColor.blue]
+        gravityDataSet.drawCirclesEnabled = false
+        gravityDataSet.drawValuesEnabled = false
+        
+        
+        data.addDataSet(gravityDataSet)
         
         self.lineChartView.data = data
 
@@ -118,31 +122,40 @@ open class ChartViewController: NSViewController
     {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-//        let ys1 = Array(1..<10).map { x in return sin(Double(x) / 2.0 / 3.141 * 1.5) }
-//        let ys2 = Array(1..<10).map { x in return cos(Double(x) / 2.0 / 3.141) }
-//
-//        let yse1 = ys1.enumerated().map { x, y in return ChartDataEntry(x: Double(x), y: y) }
-//        let yse2 = ys2.enumerated().map { x, y in return ChartDataEntry(x: Double(x), y: y) }
-//
-//        let data = LineChartData()
-//        let ds1 = LineChartDataSet(values: yse1, label: "Hello")
-//        ds1.colors = [NSUIColor.red]
-//        data.addDataSet(ds1)
-//
-//        let ds2 = LineChartDataSet(values: yse2, label: "World")
-//        ds2.colors = [NSUIColor.blue]
-//        data.addDataSet(ds2)
-//        self.lineChartView.data = data
-        
+
         self.lineChartView.gridBackgroundColor = NSUIColor.white
+        self.lineChartView.pinchZoomEnabled = true
+
+        // Gravity axis (left side)
+        let leftAxis = self.lineChartView.getAxis(.left)
+        leftAxis.axisMinimum = 1.0 // Gravity min
+        leftAxis.axisMaximum = 1.050
+        leftAxis.labelCount = 5
         
-        self.lineChartView.chartDescription?.text = "Linechart Demo"
+        // Temp axis (right side)
+        // disabled for now
+        let rightAxis = self.lineChartView.getAxis(.right)
+        rightAxis.drawGridLinesEnabled = false
+        
+        // Bottom axis, date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        
+        let bottomAxis = self.lineChartView.xAxis
+        bottomAxis.labelPosition = .bottom
+        
+        bottomAxis.valueFormatter = DefaultAxisValueFormatter(block: { (_ value: Double,
+            _ axis: AxisBase?) -> String in
+            let d: Date = Date(timeIntervalSinceReferenceDate: value)
+            return dateFormatter.string(from: d)
+        })
+        
+        self.lineChartView.chartDescription?.text = ""
     }
     
     override open func viewWillAppear()
     {
-        self.lineChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
     }
 }
 

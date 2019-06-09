@@ -1245,7 +1245,7 @@ IA
         <!--Tab View Controller-->
         <scene sceneID="cJk-iJ-80m">
             <objects>
-                <tabViewController selectedTabViewItemIndex="1" id="qDb-FP-4nx" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" id="qDb-FP-4nx" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="jcz-jM-s6Z"/>
                         <tabViewItem id="Urs-Uq-dck"/>

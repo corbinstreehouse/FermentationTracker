@@ -91,7 +91,8 @@ class MainWindowController: NSWindowController {
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: "en_US_POSIX")
             dateFormatter.dateFormat = "M-dd-yyyy H:mm:ss a"
-            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+            // assume current time zone...most likley
+            dateFormatter.timeZone = TimeZone.current
             
             // Go to the first row
             let row = csv.next()!
@@ -99,7 +100,16 @@ class MainWindowController: NSWindowController {
             let beerName = row[5]
             let gravity = Double(row[2])!
             let temp = Double(row[3])!
-            let date = dateFormatter.date(from: row[0])!
+            var date = dateFormatter.date(from: row[0])
+            if date == nil  {
+                // Try another format? google formats 3/31/2019 7:12:30 PM
+                dateFormatter.dateFormat = "M/dd/yyyy H:mm:ss"
+                date = dateFormatter.date(from: row[0])
+                if date == nil {
+                    date = Date()
+                }
+            }
+            
             let colorName = row[4]
             
             let beer = Beer(context: self.persistentContainer.viewContext)
@@ -110,13 +120,16 @@ class MainWindowController: NSWindowController {
             beer.isTracking = false // an import
             beer.dateLastUpdated = date
 
-            beer.addFermentationEntryFor(gravity: gravity, temperature: temp, timestamp: date, context: context)
+            beer.addFermentationEntryFor(gravity: gravity, temperature: temp, timestamp: date!, context: context)
 
             while let row = csv.next() {
                 let gravity = Double(row[2])!
                 let temp = Double(row[3])!
-                let date = dateFormatter.date(from: row[0])!
-                beer.addFermentationEntryFor(gravity: gravity, temperature: temp, timestamp: date, context: context)
+                var date = dateFormatter.date(from: row[0])
+                if date == nil {
+                    date = Date() // Not sure if I should do something better..
+                }
+                beer.addFermentationEntryFor(gravity: gravity, temperature: temp, timestamp: date!, context: context)
 
             }
             
