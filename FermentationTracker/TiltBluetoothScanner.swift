@@ -95,8 +95,14 @@ class TiltBluetoothScanner: NSObject, CBCentralManagerDelegate {
     
     // CBCentralManagerDelegate delegate methods
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        checkBluetoothState();
-
+        // This may get called on a background thread and be racy
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.checkBluetoothState();
+            }
+        } else {
+            checkBluetoothState();
+        }
     }
     
 //    func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
